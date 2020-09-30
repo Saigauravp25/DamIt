@@ -7,10 +7,10 @@
 
 import UIKit
 protocol SettingsViewControllerDelegate {
-    func changedSoundFX()
-    func changedBackgroundMusic()
-    func changedDailyNotification()
-    func changedDpad()
+    func changedSoundFX(isOn:Bool)
+    func changedBackgroundMusic(isOn:Bool)
+    func changedDailyNotification(isOn:Bool)
+    func changedDpad(isOn:Bool)
 }
 
 class SettingsViewController: UIViewController, CustomizeCharacterViewControllerDelegate {
@@ -19,10 +19,36 @@ class SettingsViewController: UIViewController, CustomizeCharacterViewController
     
     let customizeSegueID = "customizeCharacterSegue"
     
+    var delegate: SettingsViewControllerDelegate!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+    }
+    
+    @IBAction func settingsToggleChanged(_ sender: Any) {
+        let toggle = sender as! UISwitch
+        switch toggle.tag {
+            case 0:
+                //sound fx
+                delegate.changedSoundFX(isOn: toggle.isOn)
+                print(toggle.isOn)
+            case 1:
+                //background music
+                delegate.changedBackgroundMusic(isOn: toggle.isOn)
+                print(toggle.isOn)
+            case 2:
+                //notificaitons
+                delegate.changedDailyNotification(isOn: toggle.isOn)
+                print(toggle.isOn)
+            case 3 :
+                //dpad
+                delegate.changedDpad(isOn: toggle.isOn)
+                print(toggle.isOn)
+        default:
+            print("toggle not handled")
+        }
     }
     
 

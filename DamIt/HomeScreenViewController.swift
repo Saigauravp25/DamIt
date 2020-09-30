@@ -8,6 +8,7 @@
 import UIKit
 
 class HomeScreenViewController: UIViewController, SettingsViewControllerDelegate {
+
     
     
     let settingsSegueID = "settingsSegue"
@@ -18,20 +19,28 @@ class HomeScreenViewController: UIViewController, SettingsViewControllerDelegate
 
 
     
-    func changedSoundFX() {
+    func changedSoundFX(isOn: Bool) {
         // change user defaults
     }
     
-    func changedBackgroundMusic() {
+    func changedBackgroundMusic(isOn: Bool) {
         //
     }
     
-    func changedDailyNotification() {
+    func changedDailyNotification(isOn: Bool) {
         //
     }
     
-    func changedDpad() {
+    func changedDpad(isOn: Bool) {
         //
+    }
+    
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if (segue.identifier == settingsSegueID){
+            let vc = segue.destination as! SettingsViewController
+            vc.delegate = self
+        }
     }
 }
 
