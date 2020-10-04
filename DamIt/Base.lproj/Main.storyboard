@@ -147,6 +147,12 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <navigationItem key="navigationItem" id="uOR-a8-c5L"/>
+                    <connections>
+                        <outlet property="backgroundMusicSwitch" destination="Zdc-VB-gXy" id="plk-ZX-DrS"/>
+                        <outlet property="notificationsSwitch" destination="6g6-yP-gKr" id="ipS-di-kTc"/>
+                        <outlet property="soundSwitch" destination="76x-cb-9hB" id="fqc-v2-Fgk"/>
+                        <outlet property="touchControlSwitch" destination="GKh-tw-eRp" id="m7Y-39-NZd"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PCP-h9-U5L" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

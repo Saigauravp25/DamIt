@@ -16,15 +16,27 @@ protocol SettingsViewControllerDelegate {
 class SettingsViewController: UIViewController, CustomizeCharacterViewControllerDelegate {
     
     
+    @IBOutlet var soundSwitch: UISwitch!
+    @IBOutlet var backgroundMusicSwitch: UISwitch!
+    @IBOutlet var notificationsSwitch: UISwitch!
+    @IBOutlet var touchControlSwitch: UISwitch!
     
     let customizeSegueID = "customizeCharacterSegue"
-    
     var delegate: SettingsViewControllerDelegate!
+    var settingsArray: [Bool]!
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        soundSwitch.isOn = settingsArray[0]
+        backgroundMusicSwitch.isOn = settingsArray[1]
+        notificationsSwitch.isOn = settingsArray[2]
+        touchControlSwitch.isOn = settingsArray[3]
+        
     }
     
     @IBAction func settingsToggleChanged(_ sender: Any) {
