@@ -17,6 +17,8 @@
 		5E2451DA2525466600EE2601 /* DamItUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E2451D92525466600EE2601 /* DamItUITests.swift */; };
 		5E2451F42525485200EE2601 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E2451F32525485200EE2601 /* SettingsViewController.swift */; };
 		5E2451F9252549DA00EE2601 /* CustomizeCharacterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E2451F8252549DA00EE2601 /* CustomizeCharacterViewController.swift */; };
+		5E415DC8252F99D600D208ED /* GameKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E415DC7252F99D600D208ED /* GameKit.framework */; };
+		5E415DCD252FACC700D208ED /* LevelSelectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E415DCC252FACC700D208ED /* LevelSelectViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +55,8 @@
 		5E2451DB2525466600EE2601 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5E2451F32525485200EE2601 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		5E2451F8252549DA00EE2601 /* CustomizeCharacterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomizeCharacterViewController.swift; sourceTree = "<group>"; };
+		5E415DC7252F99D600D208ED /* GameKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GameKit.framework; path = System/Library/Frameworks/GameKit.framework; sourceTree = SDKROOT; };
+		5E415DCC252FACC700D208ED /* LevelSelectViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelSelectViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +64,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5E415DC8252F99D600D208ED /* GameKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -87,6 +92,7 @@
 				5E2451CD2525466600EE2601 /* DamItTests */,
 				5E2451D82525466600EE2601 /* DamItUITests */,
 				5E2451B52525466500EE2601 /* Products */,
+				5E415DC6252F99D600D208ED /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -106,6 +112,7 @@
 				5E2451B72525466500EE2601 /* AppDelegate.swift */,
 				5E2451B92525466500EE2601 /* SceneDelegate.swift */,
 				5E2451BB2525466500EE2601 /* HomeScreenViewController.swift */,
+				5E415DCC252FACC700D208ED /* LevelSelectViewController.swift */,
 				5E2451F32525485200EE2601 /* SettingsViewController.swift */,
 				5E2451F8252549DA00EE2601 /* CustomizeCharacterViewController.swift */,
 				5E2451BD2525466500EE2601 /* Main.storyboard */,
@@ -132,6 +139,14 @@
 				5E2451DB2525466600EE2601 /* Info.plist */,
 			);
 			path = DamItUITests;
+			sourceTree = "<group>";
+		};
+		5E415DC6252F99D600D208ED /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				5E415DC7252F99D600D208ED /* GameKit.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -265,6 +280,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5E2451BC2525466500EE2601 /* HomeScreenViewController.swift in Sources */,
+				5E415DCD252FACC700D208ED /* LevelSelectViewController.swift in Sources */,
 				5E2451B82525466500EE2601 /* AppDelegate.swift in Sources */,
 				5E2451F9252549DA00EE2601 /* CustomizeCharacterViewController.swift in Sources */,
 				5E2451BA2525466500EE2601 /* SceneDelegate.swift in Sources */,

@@ -6,15 +6,34 @@
 //
 
 import UIKit
+import GameKit
 
 class HomeScreenViewController: UIViewController, SettingsViewControllerDelegate {
 
     
     
     let settingsSegueID = "settingsSegue"
+    let levelSegueID = "LevelSelectSegue"
     override func viewDidLoad() {
         super.viewDidLoad()
+        authenticateUser()
         // Do any additional setup after loading the view.
+    }
+    
+    func authenticateUser(){
+        let player = GKLocalPlayer.local
+        player.authenticateHandler = { vc, error in
+            guard error == nil else {
+                let alert = UIAlertController (title: "OOPS, an error Occured", message: "please try again later", preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+                print(error?.localizedDescription ?? "")
+                return
+            }
+            if let vc = vc {
+                self.present(vc, animated: true, completion: nil)
+            }
+           
+        }
     }
 
 
@@ -53,7 +72,6 @@ class HomeScreenViewController: UIViewController, SettingsViewControllerDelegate
             vc.delegate = self
             vc.settingsArray = settingsArray()
             print("prepare for segue")
-            
         }
     }
     
@@ -69,7 +87,7 @@ class HomeScreenViewController: UIViewController, SettingsViewControllerDelegate
             arr[0] = defaults.bool(forKey: "soundFXSwitch")
         }
         if(bgmSet == 1){
-            arr[1] = defaults.bool(forKey: "backgroundMusicSwitch")
+            arr[1] = defaults.bool(forKey: "backroundMusicSwitch")
         }
         if(notificaitonsSet == 1){
             arr[2] = defaults.bool(forKey: "notificationSwitch")
@@ -78,6 +96,10 @@ class HomeScreenViewController: UIViewController, SettingsViewControllerDelegate
             arr[3] = defaults.bool(forKey: "dpadSwitch")
         }
         return arr
+    }
+    
+    @IBAction func playerModeButtonPressed(_ sender: Any) {
+        performSegue(withIdentifier: levelSegueID , sender: self)
     }
 }
 
