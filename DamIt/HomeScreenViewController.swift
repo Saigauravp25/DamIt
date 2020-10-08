@@ -16,6 +16,9 @@ class HomeScreenViewController: UIViewController, SettingsViewControllerDelegate
     let levelSegueID = "LevelSelectSegue"
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        //navigationItem.title = "Home Screen"
+        navigationItem.backButtonTitle = "Home Screen"
         authenticateUser()
         // Do any additional setup after loading the view.
     }
@@ -32,7 +35,6 @@ class HomeScreenViewController: UIViewController, SettingsViewControllerDelegate
             if let vc = vc {
                 self.present(vc, animated: true, completion: nil)
             }
-           
         }
     }
 
@@ -71,7 +73,6 @@ class HomeScreenViewController: UIViewController, SettingsViewControllerDelegate
             let vc = segue.destination as! SettingsViewController
             vc.delegate = self
             vc.settingsArray = settingsArray()
-            print("prepare for segue")
         }
     }
     

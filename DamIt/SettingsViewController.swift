@@ -13,7 +13,7 @@ protocol SettingsViewControllerDelegate {
     func changedDpad(isOn:Bool)
 }
 
-class SettingsViewController: UIViewController, CustomizeCharacterViewControllerDelegate {
+class SettingsViewController: UIViewController {
     
     
     @IBOutlet var soundSwitch: UISwitch!
@@ -25,9 +25,11 @@ class SettingsViewController: UIViewController, CustomizeCharacterViewController
     var delegate: SettingsViewControllerDelegate!
     var settingsArray: [Bool]!
     
+    var style: Int?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        navigationItem.backButtonTitle = "Settings"
         // Do any additional setup after loading the view.
     }
     
@@ -73,18 +75,10 @@ class SettingsViewController: UIViewController, CustomizeCharacterViewController
         // Pass the selected object to the new view controller.
     }
     */
-    @IBAction func backButtonPressed(_ sender: Any) {
-        dismiss(animated: true)
-    }
-    
-    func characterOption(styleNumber: Int) {
-        print("Style Number Selected \(styleNumber)")
-    }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if (segue.identifier == customizeSegueID) {
             let vc = segue.destination as! CustomizeCharacterViewController
-            vc.delegate = self
         }
     }
     

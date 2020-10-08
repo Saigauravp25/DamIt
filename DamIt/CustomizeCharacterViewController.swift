@@ -7,15 +7,14 @@
 
 import UIKit
 
-protocol CustomizeCharacterViewControllerDelegate{
-    func characterOption(styleNumber:Int)
-}
 class CustomizeCharacterViewController: UIViewController {
-
-    var delegate: CustomizeCharacterViewControllerDelegate!
+    
+    var style : Int?
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        navigationItem.title = "Customize Character"
+        style = UserDefaults.standard.integer(forKey: "customStyle")
+        print("Style Number \(style!)")
         // Do any additional setup after loading the view.
     }
     
@@ -26,7 +25,8 @@ class CustomizeCharacterViewController: UIViewController {
     @IBAction func skinStyleSelected(_ sender: Any) {
         let button = sender as! UIButton
         let style = button.tag
-        delegate.characterOption(styleNumber: style)
+        let defaults = UserDefaults.standard
+        defaults.setValue(style, forKey: "customStyle")
     }
     
     /*
