@@ -23,6 +23,10 @@ class HomeScreenViewController: UIViewController, SettingsViewControllerDelegate
         // Do any additional setup after loading the view.
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        self.navigationController?.isNavigationBarHidden = true
+    }
+    
     func authenticateUser(){
         let player = GKLocalPlayer.local
         player.authenticateHandler = { vc, error in
@@ -69,6 +73,7 @@ class HomeScreenViewController: UIViewController, SettingsViewControllerDelegate
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        self.navigationController?.isNavigationBarHidden = false
         if (segue.identifier == settingsSegueID){
             let vc = segue.destination as! SettingsViewController
             vc.delegate = self
