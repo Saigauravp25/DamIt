@@ -178,6 +178,7 @@
                                 <state key="normal" title="Level 1"/>
                                 <connections>
                                     <action selector="levelButtonPressed:" destination="asj-rn-UgR" eventType="touchUpInside" id="CBf-OK-kWm"/>
+                                    <segue destination="tJF-TI-Z4f" kind="showDetail" id="vV1-v0-No3"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -188,7 +189,23 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aar-ep-Cv2" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1227" y="183"/>
+            <point key="canvasLocation" x="1223" y="114"/>
+        </scene>
+        <!--Game View Controller-->
+        <scene sceneID="oGd-kZ-89P">
+            <objects>
+                <viewController id="tJF-TI-Z4f" customClass="GameViewController" customModule="DamIt" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="44D-Y2-l6c" customClass="SKView">
+                        <rect key="frame" x="0.0" y="0.0" width="896" height="414"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="4gc-Ms-xy1"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="HC2-RW-D15"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="yjG-xb-A4T" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1971" y="-88"/>
         </scene>
         <!--Customize Character View Controller-->
         <scene sceneID="Nc6-5l-SaK">

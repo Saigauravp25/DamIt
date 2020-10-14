@@ -19,6 +19,27 @@
 		5E2451F9252549DA00EE2601 /* CustomizeCharacterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E2451F8252549DA00EE2601 /* CustomizeCharacterViewController.swift */; };
 		5E415DC8252F99D600D208ED /* GameKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E415DC7252F99D600D208ED /* GameKit.framework */; };
 		5E415DD8252FB45600D208ED /* LevelSelectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E415DD7252FB45600D208ED /* LevelSelectViewController.swift */; };
+		5EE93D9D2536B05000843A43 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EE93D9C2536B05000843A43 /* GameViewController.swift */; };
+		5EE93DA22536B07700843A43 /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EE93DA12536B07700843A43 /* GameScene.swift */; };
+		5EE93DB02536B08800843A43 /* Sky.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EE93DA72536B08800843A43 /* Sky.swift */; };
+		5EE93DB12536B08800843A43 /* Logo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EE93DAE2536B08800843A43 /* Logo.swift */; };
+		5EE93DB22536B08800843A43 /* Block.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EE93DAA2536B08800843A43 /* Block.swift */; };
+		5EE93DB32536B08800843A43 /* Ground.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EE93DA82536B08800843A43 /* Ground.swift */; };
+		5EE93DB42536B08800843A43 /* Level.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EE93DA62536B08700843A43 /* Level.swift */; };
+		5EE93DB52536B08800843A43 /* Ocean.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EE93DAC2536B08800843A43 /* Ocean.swift */; };
+		5EE93DB62536B08800843A43 /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EE93DAD2536B08800843A43 /* Player.swift */; };
+		5EE93DB72536B08800843A43 /* Restart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EE93DAB2536B08800843A43 /* Restart.swift */; };
+		5EE93DB82536B08800843A43 /* Victory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EE93DA92536B08800843A43 /* Victory.swift */; };
+		5EE93DB92536B08800843A43 /* Mountain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EE93DAF2536B08800843A43 /* Mountain.swift */; };
+		5EE93DBF2536B09900843A43 /* BlockType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EE93DBD2536B09900843A43 /* BlockType.swift */; };
+		5EE93DC02536B09900843A43 /* Direction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EE93DBE2536B09900843A43 /* Direction.swift */; };
+		5EE93DC92536B13000843A43 /* SKColor+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EE93DC72536B13000843A43 /* SKColor+Ext.swift */; };
+		5EE93DCA2536B13000843A43 /* SKTexture+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EE93DC82536B13000843A43 /* SKTexture+Ext.swift */; };
+		5EE93DE42536B1DF00843A43 /* putDown.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5EE93DD12536B1AF00843A43 /* putDown.wav */; };
+		5EE93DE52536B1DF00843A43 /* flood.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5EE93DCF2536B1AF00843A43 /* flood.wav */; };
+		5EE93DE62536B1DF00843A43 /* footstep.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5EE93DD22536B1AF00843A43 /* footstep.wav */; };
+		5EE93DE72536B1DF00843A43 /* pickUp.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5EE93DCE2536B1AF00843A43 /* pickUp.wav */; };
+		5EE93DE82536B1DF00843A43 /* step.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5EE93DD02536B1AF00843A43 /* step.wav */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,6 +78,27 @@
 		5E2451F8252549DA00EE2601 /* CustomizeCharacterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomizeCharacterViewController.swift; sourceTree = "<group>"; };
 		5E415DC7252F99D600D208ED /* GameKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GameKit.framework; path = System/Library/Frameworks/GameKit.framework; sourceTree = SDKROOT; };
 		5E415DD7252FB45600D208ED /* LevelSelectViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelSelectViewController.swift; sourceTree = "<group>"; };
+		5EE93D9C2536B05000843A43 /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
+		5EE93DA12536B07700843A43 /* GameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
+		5EE93DA62536B08700843A43 /* Level.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Level.swift; sourceTree = "<group>"; };
+		5EE93DA72536B08800843A43 /* Sky.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sky.swift; sourceTree = "<group>"; };
+		5EE93DA82536B08800843A43 /* Ground.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ground.swift; sourceTree = "<group>"; };
+		5EE93DA92536B08800843A43 /* Victory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Victory.swift; sourceTree = "<group>"; };
+		5EE93DAA2536B08800843A43 /* Block.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Block.swift; sourceTree = "<group>"; };
+		5EE93DAB2536B08800843A43 /* Restart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Restart.swift; sourceTree = "<group>"; };
+		5EE93DAC2536B08800843A43 /* Ocean.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ocean.swift; sourceTree = "<group>"; };
+		5EE93DAD2536B08800843A43 /* Player.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
+		5EE93DAE2536B08800843A43 /* Logo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Logo.swift; sourceTree = "<group>"; };
+		5EE93DAF2536B08800843A43 /* Mountain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mountain.swift; sourceTree = "<group>"; };
+		5EE93DBD2536B09900843A43 /* BlockType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlockType.swift; sourceTree = "<group>"; };
+		5EE93DBE2536B09900843A43 /* Direction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Direction.swift; sourceTree = "<group>"; };
+		5EE93DC72536B13000843A43 /* SKColor+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SKColor+Ext.swift"; sourceTree = "<group>"; };
+		5EE93DC82536B13000843A43 /* SKTexture+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SKTexture+Ext.swift"; sourceTree = "<group>"; };
+		5EE93DCE2536B1AF00843A43 /* pickUp.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = pickUp.wav; sourceTree = "<group>"; };
+		5EE93DCF2536B1AF00843A43 /* flood.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = flood.wav; sourceTree = "<group>"; };
+		5EE93DD02536B1AF00843A43 /* step.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = step.wav; sourceTree = "<group>"; };
+		5EE93DD12536B1AF00843A43 /* putDown.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = putDown.wav; sourceTree = "<group>"; };
+		5EE93DD22536B1AF00843A43 /* footstep.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = footstep.wav; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -113,6 +155,27 @@
 				5E2451B92525466500EE2601 /* SceneDelegate.swift */,
 				5E2451BB2525466500EE2601 /* HomeScreenViewController.swift */,
 				5E2451F32525485200EE2601 /* SettingsViewController.swift */,
+				5EE93D9C2536B05000843A43 /* GameViewController.swift */,
+				5EE93DA12536B07700843A43 /* GameScene.swift */,
+				5EE93DAA2536B08800843A43 /* Block.swift */,
+				5EE93DA82536B08800843A43 /* Ground.swift */,
+				5EE93DA62536B08700843A43 /* Level.swift */,
+				5EE93DAE2536B08800843A43 /* Logo.swift */,
+				5EE93DAF2536B08800843A43 /* Mountain.swift */,
+				5EE93DAC2536B08800843A43 /* Ocean.swift */,
+				5EE93DAD2536B08800843A43 /* Player.swift */,
+				5EE93DAB2536B08800843A43 /* Restart.swift */,
+				5EE93DA72536B08800843A43 /* Sky.swift */,
+				5EE93DA92536B08800843A43 /* Victory.swift */,
+				5EE93DBD2536B09900843A43 /* BlockType.swift */,
+				5EE93DBE2536B09900843A43 /* Direction.swift */,
+				5EE93DC72536B13000843A43 /* SKColor+Ext.swift */,
+				5EE93DC82536B13000843A43 /* SKTexture+Ext.swift */,
+				5EE93DCF2536B1AF00843A43 /* flood.wav */,
+				5EE93DD22536B1AF00843A43 /* footstep.wav */,
+				5EE93DCE2536B1AF00843A43 /* pickUp.wav */,
+				5EE93DD12536B1AF00843A43 /* putDown.wav */,
+				5EE93DD02536B1AF00843A43 /* step.wav */,
 				5E2451F8252549DA00EE2601 /* CustomizeCharacterViewController.swift */,
 				5E415DD7252FB45600D208ED /* LevelSelectViewController.swift */,
 				5E2451BD2525466500EE2601 /* Main.storyboard */,
@@ -252,9 +315,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5EE93DE62536B1DF00843A43 /* footstep.wav in Resources */,
+				5EE93DE42536B1DF00843A43 /* putDown.wav in Resources */,
 				5E2451C42525466600EE2601 /* LaunchScreen.storyboard in Resources */,
 				5E2451C12525466600EE2601 /* Assets.xcassets in Resources */,
+				5EE93DE82536B1DF00843A43 /* step.wav in Resources */,
 				5E2451BF2525466500EE2601 /* Main.storyboard in Resources */,
+				5EE93DE72536B1DF00843A43 /* pickUp.wav in Resources */,
+				5EE93DE52536B1DF00843A43 /* flood.wav in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -279,12 +347,28 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5EE93DB82536B08800843A43 /* Victory.swift in Sources */,
+				5EE93DB52536B08800843A43 /* Ocean.swift in Sources */,
+				5EE93DB42536B08800843A43 /* Level.swift in Sources */,
+				5EE93DC02536B09900843A43 /* Direction.swift in Sources */,
+				5EE93D9D2536B05000843A43 /* GameViewController.swift in Sources */,
+				5EE93DB22536B08800843A43 /* Block.swift in Sources */,
+				5EE93DC92536B13000843A43 /* SKColor+Ext.swift in Sources */,
 				5E2451BC2525466500EE2601 /* HomeScreenViewController.swift in Sources */,
+				5EE93DA22536B07700843A43 /* GameScene.swift in Sources */,
 				5E415DD8252FB45600D208ED /* LevelSelectViewController.swift in Sources */,
 				5E2451B82525466500EE2601 /* AppDelegate.swift in Sources */,
+				5EE93DB32536B08800843A43 /* Ground.swift in Sources */,
+				5EE93DB92536B08800843A43 /* Mountain.swift in Sources */,
 				5E2451F9252549DA00EE2601 /* CustomizeCharacterViewController.swift in Sources */,
+				5EE93DB12536B08800843A43 /* Logo.swift in Sources */,
+				5EE93DCA2536B13000843A43 /* SKTexture+Ext.swift in Sources */,
 				5E2451BA2525466500EE2601 /* SceneDelegate.swift in Sources */,
 				5E2451F42525485200EE2601 /* SettingsViewController.swift in Sources */,
+				5EE93DB72536B08800843A43 /* Restart.swift in Sources */,
+				5EE93DB62536B08800843A43 /* Player.swift in Sources */,
+				5EE93DB02536B08800843A43 /* Sky.swift in Sources */,
+				5EE93DBF2536B09900843A43 /* BlockType.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
