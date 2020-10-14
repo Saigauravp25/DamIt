@@ -127,6 +127,82 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4A78A60325374C9C0047ACC9 /* Types */ = {
+			isa = PBXGroup;
+			children = (
+				5EE93DBD2536B09900843A43 /* BlockType.swift */,
+				5EE93DBE2536B09900843A43 /* Direction.swift */,
+			);
+			path = Types;
+			sourceTree = "<group>";
+		};
+		4A78A60425374CAC0047ACC9 /* Scenes */ = {
+			isa = PBXGroup;
+			children = (
+				5EE93DA12536B07700843A43 /* GameScene.swift */,
+			);
+			path = Scenes;
+			sourceTree = "<group>";
+		};
+		4A78A60825374CF30047ACC9 /* GameComponents */ = {
+			isa = PBXGroup;
+			children = (
+				5EE93DAA2536B08800843A43 /* Block.swift */,
+				5EE93DAD2536B08800843A43 /* Player.swift */,
+				5EE93DA62536B08700843A43 /* Level.swift */,
+				5EE93DA82536B08800843A43 /* Ground.swift */,
+				5EE93DAF2536B08800843A43 /* Mountain.swift */,
+				5EE93DAC2536B08800843A43 /* Ocean.swift */,
+				5EE93DA72536B08800843A43 /* Sky.swift */,
+				5EE93DAE2536B08800843A43 /* Logo.swift */,
+				5EE93DA92536B08800843A43 /* Victory.swift */,
+				5EE93DAB2536B08800843A43 /* Restart.swift */,
+			);
+			path = GameComponents;
+			sourceTree = "<group>";
+		};
+		4A78A60925374D2A0047ACC9 /* MyUtils */ = {
+			isa = PBXGroup;
+			children = (
+				5EE93DC72536B13000843A43 /* SKColor+Ext.swift */,
+				5EE93DC82536B13000843A43 /* SKTexture+Ext.swift */,
+			);
+			path = MyUtils;
+			sourceTree = "<group>";
+		};
+		4A78A60A25374D490047ACC9 /* Sounds */ = {
+			isa = PBXGroup;
+			children = (
+				5EE93DCF2536B1AF00843A43 /* flood.wav */,
+				5EE93DD22536B1AF00843A43 /* footstep.wav */,
+				5EE93DCE2536B1AF00843A43 /* pickUp.wav */,
+				5EE93DD12536B1AF00843A43 /* putDown.wav */,
+				5EE93DD02536B1AF00843A43 /* step.wav */,
+			);
+			path = Sounds;
+			sourceTree = "<group>";
+		};
+		4A78A60B25374DC30047ACC9 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				5E2451BB2525466500EE2601 /* HomeScreenViewController.swift */,
+				5E415DD7252FB45600D208ED /* LevelSelectViewController.swift */,
+				5E2451F32525485200EE2601 /* SettingsViewController.swift */,
+				5E2451F8252549DA00EE2601 /* CustomizeCharacterViewController.swift */,
+				5EE93D9C2536B05000843A43 /* GameViewController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		4A78A60C25374DD60047ACC9 /* Delegates */ = {
+			isa = PBXGroup;
+			children = (
+				5E2451B72525466500EE2601 /* AppDelegate.swift */,
+				5E2451B92525466500EE2601 /* SceneDelegate.swift */,
+			);
+			path = Delegates;
+			sourceTree = "<group>";
+		};
 		5E2451AB2525466500EE2601 = {
 			isa = PBXGroup;
 			children = (
@@ -151,36 +227,16 @@
 		5E2451B62525466500EE2601 /* DamIt */ = {
 			isa = PBXGroup;
 			children = (
-				5E2451B72525466500EE2601 /* AppDelegate.swift */,
-				5E2451B92525466500EE2601 /* SceneDelegate.swift */,
-				5E2451BB2525466500EE2601 /* HomeScreenViewController.swift */,
-				5E2451F32525485200EE2601 /* SettingsViewController.swift */,
-				5EE93D9C2536B05000843A43 /* GameViewController.swift */,
-				5EE93DA12536B07700843A43 /* GameScene.swift */,
-				5EE93DAA2536B08800843A43 /* Block.swift */,
-				5EE93DA82536B08800843A43 /* Ground.swift */,
-				5EE93DA62536B08700843A43 /* Level.swift */,
-				5EE93DAE2536B08800843A43 /* Logo.swift */,
-				5EE93DAF2536B08800843A43 /* Mountain.swift */,
-				5EE93DAC2536B08800843A43 /* Ocean.swift */,
-				5EE93DAD2536B08800843A43 /* Player.swift */,
-				5EE93DAB2536B08800843A43 /* Restart.swift */,
-				5EE93DA72536B08800843A43 /* Sky.swift */,
-				5EE93DA92536B08800843A43 /* Victory.swift */,
-				5EE93DBD2536B09900843A43 /* BlockType.swift */,
-				5EE93DBE2536B09900843A43 /* Direction.swift */,
-				5EE93DC72536B13000843A43 /* SKColor+Ext.swift */,
-				5EE93DC82536B13000843A43 /* SKTexture+Ext.swift */,
-				5EE93DCF2536B1AF00843A43 /* flood.wav */,
-				5EE93DD22536B1AF00843A43 /* footstep.wav */,
-				5EE93DCE2536B1AF00843A43 /* pickUp.wav */,
-				5EE93DD12536B1AF00843A43 /* putDown.wav */,
-				5EE93DD02536B1AF00843A43 /* step.wav */,
-				5E2451F8252549DA00EE2601 /* CustomizeCharacterViewController.swift */,
-				5E415DD7252FB45600D208ED /* LevelSelectViewController.swift */,
+				4A78A60C25374DD60047ACC9 /* Delegates */,
+				4A78A60B25374DC30047ACC9 /* ViewControllers */,
+				4A78A60425374CAC0047ACC9 /* Scenes */,
+				4A78A60825374CF30047ACC9 /* GameComponents */,
+				4A78A60325374C9C0047ACC9 /* Types */,
+				4A78A60925374D2A0047ACC9 /* MyUtils */,
+				4A78A60A25374D490047ACC9 /* Sounds */,
 				5E2451BD2525466500EE2601 /* Main.storyboard */,
-				5E2451C02525466600EE2601 /* Assets.xcassets */,
 				5E2451C22525466600EE2601 /* LaunchScreen.storyboard */,
+				5E2451C02525466600EE2601 /* Assets.xcassets */,
 				5E2451C52525466600EE2601 /* Info.plist */,
 			);
 			path = DamIt;
@@ -545,7 +601,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 76H5734JZW;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = DamIt/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -564,7 +620,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 76H5734JZW;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = DamIt/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
