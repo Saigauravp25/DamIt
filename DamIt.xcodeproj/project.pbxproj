@@ -17,6 +17,7 @@
 		5E2451DA2525466600EE2601 /* DamItUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E2451D92525466600EE2601 /* DamItUITests.swift */; };
 		5E2451F42525485200EE2601 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E2451F32525485200EE2601 /* SettingsViewController.swift */; };
 		5E2451F9252549DA00EE2601 /* CustomizeCharacterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E2451F8252549DA00EE2601 /* CustomizeCharacterViewController.swift */; };
+		5E3EA61E253A2396005282F8 /* LevelModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 5E3EA61C253A2396005282F8 /* LevelModel.xcdatamodeld */; };
 		5E415DC8252F99D600D208ED /* GameKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E415DC7252F99D600D208ED /* GameKit.framework */; };
 		5E415DD8252FB45600D208ED /* LevelSelectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E415DD7252FB45600D208ED /* LevelSelectViewController.swift */; };
 		5EE93D9D2536B05000843A43 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EE93D9C2536B05000843A43 /* GameViewController.swift */; };
@@ -76,6 +77,7 @@
 		5E2451DB2525466600EE2601 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5E2451F32525485200EE2601 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		5E2451F8252549DA00EE2601 /* CustomizeCharacterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomizeCharacterViewController.swift; sourceTree = "<group>"; };
+		5E3EA61D253A2396005282F8 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
 		5E415DC7252F99D600D208ED /* GameKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GameKit.framework; path = System/Library/Frameworks/GameKit.framework; sourceTree = SDKROOT; };
 		5E415DD7252FB45600D208ED /* LevelSelectViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelSelectViewController.swift; sourceTree = "<group>"; };
 		5EE93D9C2536B05000843A43 /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
@@ -206,6 +208,7 @@
 		5E2451AB2525466500EE2601 = {
 			isa = PBXGroup;
 			children = (
+				5E3EA61C253A2396005282F8 /* LevelModel.xcdatamodeld */,
 				5E2451B62525466500EE2601 /* DamIt */,
 				5E2451CD2525466600EE2601 /* DamItTests */,
 				5E2451D82525466600EE2601 /* DamItUITests */,
@@ -404,6 +407,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5EE93DB82536B08800843A43 /* Victory.swift in Sources */,
+				5E3EA61E253A2396005282F8 /* LevelModel.xcdatamodeld in Sources */,
 				5EE93DB52536B08800843A43 /* Ocean.swift in Sources */,
 				5EE93DB42536B08800843A43 /* Level.swift in Sources */,
 				5EE93DC02536B09900843A43 /* Direction.swift in Sources */,
@@ -757,6 +761,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		5E3EA61C253A2396005282F8 /* LevelModel.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				5E3EA61D253A2396005282F8 /* Model.xcdatamodel */,
+			);
+			currentVersion = 5E3EA61D253A2396005282F8 /* Model.xcdatamodel */;
+			path = LevelModel.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 5E2451AC2525466500EE2601 /* Project object */;
 }

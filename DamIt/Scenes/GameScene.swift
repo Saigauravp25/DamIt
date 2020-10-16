@@ -7,6 +7,7 @@
 
 import SpriteKit
 import GameplayKit
+import CoreData
 
 class GameScene: SKScene, SKPhysicsContactDelegate {
     
@@ -61,6 +62,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                 print("Unrecognized Gesture Direction")
         }
         let levelComplete = self.level?.checkLevelComplete()
+        //core data update to set value to true
         if levelComplete! {
             //Placeholder for now. Do action when level is complete.
             self.victoryText.drop()
@@ -105,6 +107,8 @@ extension GameScene {
     }
     
     func getLevelData() -> LevelDataFormat {
+        
+        
         let logList: [(x: Int,y: Int)] = [(0,0),(1,0),(2,0),(2,1),(3,1),(2,3),(3,3),(3,4),(2,7),(3,7),(1,8),(2,8),(3,8),(0,9),(1,9)]
         let rockList: [(x: Int,y: Int)] = [(3,0),(2,5),(3,5),(2,9),(3,9)]
         let beaverPos: (x: Int,y: Int) = (1,5)
@@ -112,6 +116,7 @@ extension GameScene {
         let width = 10
         let height = 4
         let levelData: LevelDataFormat = (id, width, height, logList, rockList, beaverPos)
+        //storeLevel( levelData: levelData)
         return levelData
     }
 }

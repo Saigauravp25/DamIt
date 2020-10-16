@@ -172,7 +172,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="896" height="414"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="88H-cs-SlO">
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="88H-cs-SlO">
                                 <rect key="frame" x="77" y="71" width="100" height="100"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Level 1" backgroundImage="woodenPlank"/>
@@ -181,11 +181,26 @@
                                     <segue destination="tJF-TI-Z4f" kind="showDetail" id="vV1-v0-No3"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" tag="1" contentMode="scaleToFill" fixedFrame="YES" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CjE-zW-Kvu">
+                                <rect key="frame" x="242" y="73" width="113" height="96"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Level 2" backgroundImage="woodenPlank"/>
+                            </button>
+                            <button opaque="NO" tag="2" contentMode="scaleToFill" fixedFrame="YES" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZMQ-0r-0pp">
+                                <rect key="frame" x="415" y="73" width="113" height="96"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Level 3" backgroundImage="woodenPlank"/>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Ns2-OH-6zD"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <navigationItem key="navigationItem" id="jem-aA-kSD"/>
+                    <connections>
+                        <outletCollection property="buttons" destination="88H-cs-SlO" collectionClass="NSMutableArray" id="4Dh-b5-IV6"/>
+                        <outletCollection property="buttons" destination="CjE-zW-Kvu" collectionClass="NSMutableArray" id="KpH-EE-yEu"/>
+                        <outletCollection property="buttons" destination="ZMQ-0r-0pp" collectionClass="NSMutableArray" id="eIb-K5-XU2"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aar-ep-Cv2" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
