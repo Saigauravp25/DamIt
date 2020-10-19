@@ -28,7 +28,6 @@
                                 <state key="normal" title="Single Player" backgroundImage="woodenPlank"/>
                                 <connections>
                                     <action selector="playerModeButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="qiO-2K-BVv"/>
-                                    <segue destination="5jH-JL-YEc" kind="show" identifier="LevelPackSelectSegue" id="Yrw-GR-qdq"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="56Z-5v-WPV">
@@ -63,6 +62,9 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <navigationItem key="navigationItem" id="9sY-nR-PmI"/>
+                    <connections>
+                        <segue destination="5jH-JL-YEc" kind="show" identifier="LevelPackSelectSegue" id="3TX-OJ-5Ie"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>

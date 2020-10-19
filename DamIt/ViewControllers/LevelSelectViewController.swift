@@ -14,23 +14,24 @@ class LevelSelectViewController: UIViewController {
     var levelsCompleted : [Bool]!
     
     @IBOutlet var buttons: [UIButton]!
+   
     
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationItem.title = "Level Select"
         
         //button set up
-//        buttonSetup()
+        buttonSetup()
         // Do any additional setup after loading the view.
     }
     
-//    func buttonSetup(){
-//        var index = 0
-//        for boolean in levelsCompleted {
-//            buttons[index].isEnabled = boolean
-//            index += 1
-//        }
-//    }
+    func buttonSetup(){
+        var index = 0
+        for boolean in levelsCompleted {
+            buttons[index].isEnabled = boolean
+            index += 1
+        }
+    }
     
     @IBAction func levelButtonPressed(_ sender: Any) {
     

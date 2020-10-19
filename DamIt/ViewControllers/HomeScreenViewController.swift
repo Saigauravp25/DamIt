@@ -16,7 +16,7 @@ class HomeScreenViewController: UIViewController, SettingsViewControllerDelegate
     let settingsSegueID = "settingsSegue"
     let levelPackSegueID = "LevelPackSelectSegue"
     
-    var levelData = [Bool]()
+   
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -27,12 +27,7 @@ class HomeScreenViewController: UIViewController, SettingsViewControllerDelegate
         
         //if no levels stored then store data
         //clearCoreData()
-        retrieveLevels()
-        if(levelData.count == 0){
-            levelData = Array(repeating:false, count: 3)
-            storeLevels()
-            retrieveLevels()
-        }
+     
         // Do any additional setup after loading the view.
     }
     
@@ -128,102 +123,5 @@ class HomeScreenViewController: UIViewController, SettingsViewControllerDelegate
     
     //MARK: - Storing level 1 stuff
     
-    func storeLevels() {
-        
-        let appDelegate = UIApplication.shared.delegate as! AppDelegate
-        let context = appDelegate.persistentContainer.viewContext
-        
-        let level = NSEntityDescription.insertNewObject(
-            forEntityName: "LevelData", into:context)
-        
-        level.setValue(true, forKey: "completed")
-        level.setValue(0, forKey: "id")
-        
-        let level1 = NSEntityDescription.insertNewObject(
-            forEntityName: "LevelData", into:context)
-        
-        level1.setValue(false, forKey: "completed")
-        level1.setValue(1, forKey: "id")
-        
-        let level2 = NSEntityDescription.insertNewObject(
-            forEntityName: "LevelData", into:context)
-        
-        level2.setValue(false, forKey: "completed")
-        level2.setValue(2, forKey: "id")
-        
-        // Commit the changes
-        do {
-            print("saving data")
-            try context.save()
-        } catch {
-            // if an error occurs
-            let nserror = error as NSError
-            NSLog("Unresolved error \(nserror), \(nserror.userInfo)")
-            abort()
-        }
-    }
-    
-    func clearCoreData() {
-        
-        let appDelegate = UIApplication.shared.delegate as! AppDelegate
-        let context = appDelegate.persistentContainer.viewContext
-        
-        let request = NSFetchRequest<NSFetchRequestResult>(entityName: "LevelData")
-        
-        var fetchedResults: [NSManagedObject]
-        
-        do {
-            try fetchedResults = context.fetch(request) as! [NSManagedObject]
-            
-            if fetchedResults.count > 0 {
-                
-                for result:AnyObject in fetchedResults {
-                    context.delete(result as! NSManagedObject)
-                    //print("\(result.value(forKey:"name")!) has been deleted")
-                }
-            }
-            try context.save()
-            
-        } catch {
-            // if an error occurs
-            let nserror = error as NSError
-            NSLog("Unresolved error \(nserror), \(nserror.userInfo)")
-            abort()
-        }
-        
-        
-    }
-    
-    func retrieveLevels() {
-        
-        let appDelegate = UIApplication.shared.delegate as! AppDelegate
-        let context = appDelegate.persistentContainer.viewContext
-        
-        let request = NSFetchRequest<NSFetchRequestResult>(entityName: "LevelData")
-        
-        var fetchedResults: [NSManagedObject]? = nil
-        
-//        insert predicates here
-        //let predicate = NSPredicate(format: "name CONTAINS[c] 'ie'")
-        //request.predicate = predicate
-        
-        do {
-            try fetchedResults = context.fetch(request) as? [NSManagedObject]
-        } catch {
-            // if an error occurs
-            let nserror = error as NSError
-            NSLog("Unresolved error \(nserror), \(nserror.userInfo)")
-            abort()
-        }
-        
-//        for level in fetchedResults! {
-//            if let completed = level.value(forKey: "completed") as? Bool{
-//                if let id = level.value(forKey: "id") as? Int{
-//                    levelData[id] = completed
-//                }
-//            }
-//        }
-        
-    }
 }
 
