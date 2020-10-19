@@ -5,6 +5,7 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17125"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -27,6 +28,7 @@
                                 <state key="normal" title="Single Player" backgroundImage="woodenPlank"/>
                                 <connections>
                                     <action selector="playerModeButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="qiO-2K-BVv"/>
+                                    <segue destination="5jH-JL-YEc" kind="show" identifier="LevelPackSelectSegue" id="Yrw-GR-qdq"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="56Z-5v-WPV">
@@ -61,9 +63,6 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <navigationItem key="navigationItem" id="9sY-nR-PmI"/>
-                    <connections>
-                        <segue destination="asj-rn-UgR" kind="show" identifier="LevelSelectSegue" id="xjE-4L-uaP"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
@@ -285,11 +284,78 @@
             </objects>
             <point key="canvasLocation" x="516" y="-729"/>
         </scene>
+        <!--Level Pack View Controller-->
+        <scene sceneID="fQx-9f-sdq">
+            <objects>
+                <viewController id="5jH-JL-YEc" customClass="LevelPackViewController" customModule="DamIt" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="PB2-8R-iSg">
+                        <rect key="frame" x="0.0" y="0.0" width="896" height="414"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="aBp-kO-nxQ">
+                                <rect key="frame" x="60" y="110" width="776" height="283"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="plU-wh-h99">
+                                    <size key="itemSize" width="520" height="263"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="check" id="vIq-og-jow" customClass="checkCollectionViewCell" customModule="DamIt" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="10" width="520" height="263"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="ClL-EU-zin">
+                                            <rect key="frame" x="0.0" y="0.0" width="520" height="263"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sTS-YY-UD1">
+                                                    <rect key="frame" x="6" y="42" width="487" height="194"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                                    <state key="normal" backgroundImage="woodenPlank">
+                                                        <color key="titleColor" systemColor="labelColor"/>
+                                                    </state>
+                                                    <connections>
+                                                        <action selector="levelButton:" destination="vIq-og-jow" eventType="touchUpInside" id="vMj-bb-NGO"/>
+                                                        <segue destination="asj-rn-UgR" kind="show" identifier="levelSegue" id="NPR-iC-TCH"/>
+                                                    </connections>
+                                                </button>
+                                            </subviews>
+                                        </collectionViewCellContentView>
+                                        <size key="customSize" width="520" height="263"/>
+                                        <connections>
+                                            <outlet property="buttontitle" destination="sTS-YY-UD1" id="Aud-PM-bjD"/>
+                                        </connections>
+                                    </collectionViewCell>
+                                </cells>
+                                <connections>
+                                    <outlet property="dataSource" destination="5jH-JL-YEc" id="6Rs-GY-oxm"/>
+                                    <outlet property="delegate" destination="5jH-JL-YEc" id="z9P-5A-9XR"/>
+                                </connections>
+                            </collectionView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="3P7-8i-plM"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="K94-JO-R3l"/>
+                    <connections>
+                        <outlet property="checkcollectionview" destination="aBp-kO-nxQ" id="Cs5-f1-NhC"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="FgU-hL-t4x" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1222.7678571428571" y="-730.43478260869574"/>
+        </scene>
     </scenes>
     <resources>
         <image name="gearshape.fill" catalog="system" width="128" height="121"/>
         <image name="homeScreen" width="1920" height="1080"/>
         <image name="woodenPlank" width="300" height="120"/>
+        <systemColor name="labelColor">
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

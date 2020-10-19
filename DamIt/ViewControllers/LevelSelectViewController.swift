@@ -20,17 +20,17 @@ class LevelSelectViewController: UIViewController {
         navigationItem.title = "Level Select"
         
         //button set up
-        buttonSetup()
+//        buttonSetup()
         // Do any additional setup after loading the view.
     }
     
-    func buttonSetup(){
-        var index = 0
-        for boolean in levelsCompleted {
-            buttons[index].isEnabled = boolean
-            index += 1
-        }
-    }
+//    func buttonSetup(){
+//        var index = 0
+//        for boolean in levelsCompleted {
+//            buttons[index].isEnabled = boolean
+//            index += 1
+//        }
+//    }
     
     @IBAction func levelButtonPressed(_ sender: Any) {
     

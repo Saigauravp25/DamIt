@@ -29,7 +29,7 @@ class SettingsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        navigationItem.backButtonTitle = "Settings"
+//        navigationItem.backButtonTitle = "Settings"
         // Do any additional setup after loading the view.
     }
     

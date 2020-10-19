@@ -41,6 +41,8 @@
 		5EE93DE62536B1DF00843A43 /* footstep.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5EE93DD22536B1AF00843A43 /* footstep.wav */; };
 		5EE93DE72536B1DF00843A43 /* pickUp.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5EE93DCE2536B1AF00843A43 /* pickUp.wav */; };
 		5EE93DE82536B1DF00843A43 /* step.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5EE93DD02536B1AF00843A43 /* step.wav */; };
+		68F5BCC5253D0349008B9DD4 /* LevelPackViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68F5BCC4253D0349008B9DD4 /* LevelPackViewController.swift */; };
+		68F5BCCA253D045D008B9DD4 /* checkCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68F5BCC9253D045D008B9DD4 /* checkCollectionViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -101,6 +103,8 @@
 		5EE93DD02536B1AF00843A43 /* step.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = step.wav; sourceTree = "<group>"; };
 		5EE93DD12536B1AF00843A43 /* putDown.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = putDown.wav; sourceTree = "<group>"; };
 		5EE93DD22536B1AF00843A43 /* footstep.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = footstep.wav; sourceTree = "<group>"; };
+		68F5BCC4253D0349008B9DD4 /* LevelPackViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelPackViewController.swift; sourceTree = "<group>"; };
+		68F5BCC9253D045D008B9DD4 /* checkCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = checkCollectionViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -192,6 +196,8 @@
 				5E2451F32525485200EE2601 /* SettingsViewController.swift */,
 				5E2451F8252549DA00EE2601 /* CustomizeCharacterViewController.swift */,
 				5EE93D9C2536B05000843A43 /* GameViewController.swift */,
+				68F5BCC4253D0349008B9DD4 /* LevelPackViewController.swift */,
+				68F5BCC9253D045D008B9DD4 /* checkCollectionViewCell.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -407,6 +413,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5EE93DB82536B08800843A43 /* Victory.swift in Sources */,
+				68F5BCCA253D045D008B9DD4 /* checkCollectionViewCell.swift in Sources */,
 				5E3EA61E253A2396005282F8 /* LevelModel.xcdatamodeld in Sources */,
 				5EE93DB52536B08800843A43 /* Ocean.swift in Sources */,
 				5EE93DB42536B08800843A43 /* Level.swift in Sources */,
@@ -428,6 +435,7 @@
 				5EE93DB72536B08800843A43 /* Restart.swift in Sources */,
 				5EE93DB62536B08800843A43 /* Player.swift in Sources */,
 				5EE93DB02536B08800843A43 /* Sky.swift in Sources */,
+				68F5BCC5253D0349008B9DD4 /* LevelPackViewController.swift in Sources */,
 				5EE93DBF2536B09900843A43 /* BlockType.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -607,6 +615,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 9TP2EB4BYX;
 				INFOPLIST_FILE = DamIt/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -626,6 +635,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 9TP2EB4BYX;
 				INFOPLIST_FILE = DamIt/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

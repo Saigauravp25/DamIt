@@ -14,14 +14,14 @@ class HomeScreenViewController: UIViewController, SettingsViewControllerDelegate
     
     
     let settingsSegueID = "settingsSegue"
-    let levelSegueID = "LevelSelectSegue"
+    let levelPackSegueID = "LevelPackSelectSegue"
     
     var levelData = [Bool]()
     override func viewDidLoad() {
         super.viewDidLoad()
         
         //navigationItem.title = "Home Screen"
-        navigationItem.backButtonTitle = "Home Screen"
+//        navigationItem.backButtonTitle = "Home Screen"
         authenticateUser()
         //retrieve data
         
@@ -92,9 +92,10 @@ class HomeScreenViewController: UIViewController, SettingsViewControllerDelegate
             vc.delegate = self
             vc.settingsArray = settingsArray()
         }
-        if(segue.identifier == "LevelSelectSegue" ){
-            let vc = segue.destination as! LevelSelectViewController
-            vc.levelsCompleted = levelData
+        if(segue.identifier == "LevelPackSelectSegue" ){
+            let vc = segue.destination as! LevelPackViewController
+            vc.delegate = self
+//            vc.levelsCompleted = levelData
         }
     }
     
@@ -122,7 +123,7 @@ class HomeScreenViewController: UIViewController, SettingsViewControllerDelegate
     }
     
     @IBAction func playerModeButtonPressed(_ sender: Any) {
-        performSegue(withIdentifier: levelSegueID , sender: self)
+        performSegue(withIdentifier: levelPackSegueID , sender: self)
     }
     
     //MARK: - Storing level 1 stuff
@@ -215,13 +216,13 @@ class HomeScreenViewController: UIViewController, SettingsViewControllerDelegate
             abort()
         }
         
-        for level in fetchedResults! {
-            if let completed = level.value(forKey: "completed") as? Bool{
-                if let id = level.value(forKey: "id") as? Int{
-                    levelData[id] = completed
-                }
-            }
-        }
+//        for level in fetchedResults! {
+//            if let completed = level.value(forKey: "completed") as? Bool{
+//                if let id = level.value(forKey: "id") as? Int{
+//                    levelData[id] = completed
+//                }
+//            }
+//        }
         
     }
 }
