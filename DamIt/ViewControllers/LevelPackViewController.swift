@@ -19,7 +19,6 @@ class LevelPackViewController: UIViewController {
         //clearCoreData()
         retrieveLevels()
         if(levelData.count == 0){
-            levelData = [false,false,false]
             storeLevels()
             retrieveLevels()
         }
@@ -132,6 +131,8 @@ extension LevelPackViewController {
         do {
             try fetchedResults = context.fetch(request) as? [NSManagedObject]
             if fetchedResults!.count > 0{
+                //results exist
+                levelData = Array(repeating: false, count: fetchedResults?.count ?? 0)
                 for level in fetchedResults!{
                     if let completed = level.value(forKey: "completed") as? Bool{
                         if let id = level.value(forKey: "id") as? Int{
