@@ -16,9 +16,10 @@ class LevelPackViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        levelData = Array(repeating:false, count: 3)
+        //clearCoreData()
         retrieveLevels()
         if(levelData.count == 0){
+            levelData = [false,false,false]
             storeLevels()
             retrieveLevels()
         }
@@ -101,7 +102,6 @@ extension LevelPackViewController {
                 
                 for result:AnyObject in fetchedResults {
                     context.delete(result as! NSManagedObject)
-                    //print("\(result.value(forKey:"name")!) has been deleted")
                 }
             }
             try context.save()
@@ -131,6 +131,15 @@ extension LevelPackViewController {
         
         do {
             try fetchedResults = context.fetch(request) as? [NSManagedObject]
+            if fetchedResults!.count > 0{
+                for level in fetchedResults!{
+                    if let completed = level.value(forKey: "completed") as? Bool{
+                        if let id = level.value(forKey: "id") as? Int{
+                            levelData[id] = completed
+                        }
+                    }
+                }
+            }
         } catch {
             // if an error occurs
             let nserror = error as NSError
@@ -138,13 +147,8 @@ extension LevelPackViewController {
             abort()
         }
         
-        for level in fetchedResults! {
-            if let completed = level.value(forKey: "completed") as? Bool{
-                if let id = level.value(forKey: "id") as? Int{
-                    levelData[id] = completed
-                }
-            }
-        }
+    
+      
         
     }
 }
