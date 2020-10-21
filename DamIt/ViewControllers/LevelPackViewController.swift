@@ -12,7 +12,7 @@ class LevelPackViewController: UIViewController {
 
     @IBOutlet weak var checkcollectionview: UICollectionView!
     var delegate: UIViewController!
-    var levelData = [Bool]()
+    var levelData = [String]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,7 +30,7 @@ class LevelPackViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if (segue.identifier == "levelSegue"){
             let vc = segue.destination as! LevelSelectViewController
-            vc.levelsCompleted = levelData
+            vc.levelData = levelData
         }
     }
 }
@@ -55,23 +55,28 @@ extension LevelPackViewController {
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         let context = appDelegate.persistentContainer.viewContext
         
-        let level = NSEntityDescription.insertNewObject(
-            forEntityName: "LevelData", into:context)
-        
-        level.setValue(true, forKey: "completed")
-        level.setValue(0, forKey: "id")
-        
         let level1 = NSEntityDescription.insertNewObject(
             forEntityName: "LevelData", into:context)
         
-        level1.setValue(false, forKey: "completed")
-        level1.setValue(1, forKey: "id")
+        level1.setValue(true, forKey: "completed")
+        level1.setValue(0101, forKey: "id")
+        let level1Encoding = "01011004RLLLLLAAAAAALLAALAAARRBAAAAALLAALLLARRLL"
+        level1.setValue(level1Encoding, forKey: "encoding")
         
         let level2 = NSEntityDescription.insertNewObject(
             forEntityName: "LevelData", into:context)
-        
+        let level2Encoding = "01021604LLLLRAAARRLAAAAARRAAAAAALAAALLLARRAARBAARRLLAAAAAAAARRLARLLLRLLL"
         level2.setValue(false, forKey: "completed")
-        level2.setValue(2, forKey: "id")
+        level2.setValue(0102, forKey: "id")
+        level2.setValue(level2Encoding, forKey: "encoding")
+        
+        let level3 = NSEntityDescription.insertNewObject(
+            forEntityName: "LevelData", into:context)
+        
+        level3.setValue(false, forKey: "completed")
+        level3.setValue(0103, forKey: "id")
+        let level3Encoding = "01031004RLLARLAALAAARAAARRLARRBARLLAAAAARRAALLLA"
+        level3.setValue(level3Encoding, forKey: "encoding")
         
         // Commit the changes
         do {
@@ -124,19 +129,19 @@ extension LevelPackViewController {
         
         var fetchedResults: [NSManagedObject]? = nil
         
-//        insert predicates here
-        //let predicate = NSPredicate(format: "name CONTAINS[c] 'ie'")
-        //request.predicate = predicate
         
         do {
             try fetchedResults = context.fetch(request) as? [NSManagedObject]
             if fetchedResults!.count > 0{
                 //results exist
-                levelData = Array(repeating: false, count: fetchedResults?.count ?? 0)
+                levelData = Array(repeating: "", count: fetchedResults?.count ?? 0)
                 for level in fetchedResults!{
                     if let completed = level.value(forKey: "completed") as? Bool{
                         if let id = level.value(forKey: "id") as? Int{
-                            levelData[id] = completed
+                            if let encoding = level.value(forKey: "encoding") as? String {
+                                let index = id % 10 - 1
+                                levelData[index] = encoding
+                            }
                         }
                     }
                 }

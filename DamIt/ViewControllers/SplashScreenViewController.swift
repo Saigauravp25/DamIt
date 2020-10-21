@@ -9,8 +9,10 @@ import UIKit
 
 class SplashScreenViewController: UIViewController {
 
+    
     @IBOutlet weak var waveImage: UIImageView!
     override func viewDidLoad() {
+        
         navigationController?.setNavigationBarHidden(true, animated: true)
         super.viewDidLoad()
         let gradient = CAGradientLayer()
@@ -33,7 +35,9 @@ class SplashScreenViewController: UIViewController {
                      "mainScreen") {
                         vc.modalTransitionStyle = .crossDissolve
                         vc.modalPresentationStyle = .fullScreen
-                        self.present(vc, animated: true, completion: nil)
+                        let navigationController = UINavigationController(rootViewController: vc)
+
+                        self.present(navigationController, animated: true, completion: nil)
                     }
                 })
             }

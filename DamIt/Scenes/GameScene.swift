@@ -11,6 +11,7 @@ import CoreData
 
 class GameScene: SKScene, SKPhysicsContactDelegate {
     
+    public var levelEncoding: String = ""
     var sky: Sky!
     var groundNode = Ground()
     var mountainNode = Mountain()
@@ -27,7 +28,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         self.view?.showsPhysics = false
         self.backgroundColor = UIColor(hex: 0x006994) //0xB3E5FC
         self.setupNodes()
-        level = Level(levelData: self.getLevelData(), for: self)
+        level = Level(levelData: self.getLevelData(levelData: levelEncoding), for: self)
         addSwipe()
     }
     
@@ -109,20 +110,25 @@ extension GameScene {
         self.victoryText.setupText(self)
     }
     
-    func getLevelData() -> LevelDataFormat {
+    func getLevelData(levelData: String) -> LevelDataFormat {
         
         var levelDecoder: LevelDataDecoder!
         
         //Store the Level Encoding String in CoreData
+//        let level1Encoding = "01011004RLLLLLAAAAAALLAALAAARRBAAAAALLAALLLARRLL"
+//        levelDecoder = LevelDataDecoder(for: level1Encoding)
+//        let level1Data = levelDecoder.getLevelDataFromEncoding()
+//        
+//        let level2Encoding = "01021604LLLLRAAARRLAAAAARRAAAAAALAAALLLARRAARBAARRLLAAAAAAAARRLARLLLRLLL"
+//        levelDecoder = LevelDataDecoder(for: level2Encoding)
+//        let level2Data = levelDecoder.getLevelDataFromEncoding()
+//        
+//        let level3Encoding = "01031004RLLARLAALAAARAAARRLARRBARLLAAAAARRAALLLA"
+//        levelDecoder = LevelDataDecoder(for: level3Encoding)
+//        let level3Data = levelDecoder.getLevelDataFromEncoding()
         
-        let level1Encoding = "01011004RLLLLLAAAAAALLAALAAARRBAAAAALLAALLLARRLL"
-        levelDecoder = LevelDataDecoder(for: level1Encoding)
-        let level1Data = levelDecoder.getLevelDataFromEncoding()
-        
-        let level2Encoding = "01021604LLLLRAAARRLAAAAARRAAAAAALAAALLLARRAARBAARRLLAAAAAAAARRLARLLLRLLL"
-        levelDecoder = LevelDataDecoder(for: level2Encoding)
-        let level2Data = levelDecoder.getLevelDataFromEncoding()
-        
-        return level2Data
+        levelDecoder = LevelDataDecoder(for: levelData)
+        let data = levelDecoder.getLevelDataFromEncoding()
+        return data
     }
 }

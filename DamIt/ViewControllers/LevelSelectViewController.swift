@@ -12,6 +12,11 @@ class LevelSelectViewController: UIViewController {
 
     
     var levelsCompleted : [Bool]!
+    var levelData: [String]!
+    
+    var selectedLevelEncoding = ""
+    
+    let segue: String = "gameSegue"
     
     @IBOutlet var buttons: [UIButton]!
    
@@ -19,30 +24,27 @@ class LevelSelectViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationItem.title = "Level Select"
-        
-        //button set up
-        buttonSetup()
-        // Do any additional setup after loading the view.
     }
     
-    func buttonSetup(){
-        var index = 0
-        for boolean in levelsCompleted {
-            buttons[index].isEnabled = boolean
-            index += 1
-        }
-    }
+//    func buttonSetup(){
+//        var index = 0
+//        for boolean in levelsCompleted {
+//            buttons[index].isEnabled = boolean
+//            index += 1
+//        }
+//    }
     
     @IBAction func levelButtonPressed(_ sender: Any) {
+        let button = sender as! UIButton
+        let tag = button.tag
+        selectedLevelEncoding = levelData[tag]
+        performSegue(withIdentifier: segue, sender: self)
+    }
     
-    }
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+        if (segue.identifier == self.segue) {
+            let vc = segue.destination as! GameViewController
+            vc.levelEncoding = selectedLevelEncoding
+        }
     }
-    */
 }

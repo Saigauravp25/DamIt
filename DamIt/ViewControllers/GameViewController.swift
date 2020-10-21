@@ -11,6 +11,8 @@ import GameplayKit
 
 class GameViewController: UIViewController {
     
+    var levelEncoding: String!
+
     var skView: SKView!
     
     @IBOutlet weak var pauseButtonOutlet: UIButton!
@@ -45,7 +47,9 @@ class GameViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        //print("LEVEL ENCODING FOR GAME SCENE: \(levelEncoding)")
         let scene = GameScene(size: CGSize(width: 2048.0, height: 1536.0))
+        scene.levelEncoding = levelEncoding
         scene.scaleMode = .aspectFill
         
         let skView = view as! SKView

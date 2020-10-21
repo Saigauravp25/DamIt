@@ -10,8 +10,6 @@ import GameKit
 import CoreData
 
 class HomeScreenViewController: UIViewController, SettingsViewControllerDelegate {
-
-    
     
     let settingsSegueID = "settingsSegue"
     let levelPackSegueID = "LevelPackSelectSegue"
@@ -20,16 +18,6 @@ class HomeScreenViewController: UIViewController, SettingsViewControllerDelegate
     override func viewDidLoad() {
         navigationController?.setNavigationBarHidden(true, animated: true)
         super.viewDidLoad()
-        
-        //navigationItem.title = "Home Screen"
-//        navigationItem.backButtonTitle = "Home Screen"
-        authenticateUser()
-        //retrieve data
-        
-        //if no levels stored then store data
-        //clearCoreData()
-     
-        // Do any additional setup after loading the view.
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -40,23 +28,6 @@ class HomeScreenViewController: UIViewController, SettingsViewControllerDelegate
         super.viewWillDisappear(animated)
         navigationController?.setNavigationBarHidden(false, animated: true)
     }
-    
-    func authenticateUser(){
-        let player = GKLocalPlayer.local
-        player.authenticateHandler = { vc, error in
-            guard error == nil else {
-                let alert = UIAlertController (title: "OOPS, an error Occured", message: "please try again later", preferredStyle: .alert)
-                alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
-                print(error?.localizedDescription ?? "")
-                return
-            }
-            if let vc = vc {
-                self.present(vc, animated: true, completion: nil)
-            }
-        }
-    }
-
-
     
     func changedSoundFX(isOn: Bool) {
         // change user defaults
@@ -96,7 +67,6 @@ class HomeScreenViewController: UIViewController, SettingsViewControllerDelegate
         if(segue.identifier == "LevelPackSelectSegue" ){
             let vc = segue.destination as! LevelPackViewController
             vc.delegate = self
-//            vc.levelsCompleted = levelData
         }
     }
     
@@ -126,8 +96,6 @@ class HomeScreenViewController: UIViewController, SettingsViewControllerDelegate
     @IBAction func playerModeButtonPressed(_ sender: Any) {
         performSegue(withIdentifier: levelPackSegueID , sender: self)
     }
-    
-    //MARK: - Storing level 1 stuff
     
 }
 
