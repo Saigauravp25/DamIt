@@ -12,7 +12,6 @@ import GameplayKit
 class GameViewController: UIViewController {
     
     var levelEncoding: String!
-
     var skView: SKView!
     
     @IBOutlet weak var pauseButtonOutlet: UIButton!
@@ -41,7 +40,7 @@ class GameViewController: UIViewController {
     }
     
     @IBAction func backButton(_ sender: UIButton) {
-        
+        self.dismiss(animated: true, completion: nil)
     }
     
     
