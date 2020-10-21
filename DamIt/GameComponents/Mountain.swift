@@ -38,8 +38,8 @@ extension Mountain {
         leftMountain2.zPosition = 5.0
         rightMountain2.zPosition = 5.0
         rightMountain2.xScale = -1.0
-        leftMountain2.position = CGPoint(x: scene.frame.size.width / 2 + 400, y: 400.0)
-        rightMountain2.position = CGPoint(x: scene.frame.size.width / 2 - 400, y: 400.0)
+        leftMountain2.position = CGPoint(x: scene.frame.size.width / 2 + 400, y: 300.0)
+        rightMountain2.position = CGPoint(x: scene.frame.size.width / 2 - 400, y: 300.0)
         scene.addChild(leftMountain2)
         scene.addChild(rightMountain2)
         
