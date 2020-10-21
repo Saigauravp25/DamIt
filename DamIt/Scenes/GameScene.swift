@@ -17,7 +17,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     var oceanNode = Ocean()
     var logo = Logo()
     var victoryText = Victory()
-    var restartNode = Restart()
+//    var restartNode = Restart()
     var level: Level?
     let putDownSound = SKAction.playSoundFileNamed("putDown.wav", waitForCompletion: false)
     let floodSound = SKAction.playSoundFileNamed("flood.wav", waitForCompletion: false)
@@ -45,6 +45,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     }
 
     @objc func handleSwipe(sender: UISwipeGestureRecognizer) {
+        if self.isPaused {
+            return
+        }
         let direction = sender.direction
         switch direction {
             case .right:
@@ -69,27 +72,27 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         }
     }
     
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        for touch in touches {
-            let location = touch.location(in: self)
-            let touchedNode = atPoint(location)
-            if touchedNode.name == "Restart" {
-                self.setupNodes()
-                self.oceanNode.flood()
-                touchedNode.run(floodSound)
-                self.logo.show()
-                self.restartNode.hide()
-//                self.victoryText.hide()
-                DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) { // Change `2.0` to the desired number of seconds.
-                    self.logo.hide()
-                    self.setupNodes()
-                    self.oceanNode.unflood()
-                    self.restartNode.show()
-                    self.level = Level(levelData: self.getLevelData(), for: self)
-                }
-            }
-        }
-    }
+//    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+//        for touch in touches {
+//            let location = touch.location(in: self)
+//            let touchedNode = atPoint(location)
+//            if touchedNode.name == "Restart" {
+//                self.setupNodes()
+//                self.oceanNode.flood()
+//                touchedNode.run(floodSound)
+//                self.logo.show()
+//                self.restartNode.hide()
+////                self.victoryText.hide()
+//                DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) { // Change `2.0` to the desired number of seconds.
+//                    self.logo.hide()
+//                    self.setupNodes()
+//                    self.oceanNode.unflood()
+//                    self.restartNode.show()
+//                    self.level = Level(levelData: self.getLevelData(), for: self)
+//                }
+//            }
+//        }
+//    }
 }
 
 extension GameScene {
@@ -101,7 +104,7 @@ extension GameScene {
         self.groundNode.setupGround(self)
         self.mountainNode.setupMountains(self)
         self.oceanNode.setupOcean(self)
-        self.restartNode.setupRetryButton(self)
+//        self.restartNode.setupRetryButton(self)
         self.logo.setupLogo(self)
         self.victoryText.setupText(self)
     }

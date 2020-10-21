@@ -282,14 +282,46 @@
                     <view key="view" contentMode="scaleToFill" id="44D-Y2-l6c" customClass="SKView">
                         <rect key="frame" x="0.0" y="0.0" width="896" height="414"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" alpha="0.75" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="psW-KC-zQg">
+                                <rect key="frame" x="418" y="25" width="60" height="59"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal" backgroundImage="pause.circle.fill" catalog="system"/>
+                                <connections>
+                                    <action selector="pauseButton:" destination="tJF-TI-Z4f" eventType="touchUpInside" id="rFX-Yt-Uke"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" alpha="0.75" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CQI-m6-iKf">
+                                <rect key="frame" x="64" y="25" width="60" height="59"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal" backgroundImage="arrowshape.turn.up.left.circle.fill" catalog="system"/>
+                                <connections>
+                                    <action selector="backButton:" destination="tJF-TI-Z4f" eventType="touchUpInside" id="1bp-3q-3o2"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" alpha="0.75" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tw6-Ek-zU3">
+                                <rect key="frame" x="772" y="21" width="60" height="59"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal" backgroundImage="arrow.counterclockwise.circle.fill" catalog="system"/>
+                                <connections>
+                                    <action selector="restartButton:" destination="tJF-TI-Z4f" eventType="touchUpInside" id="2xT-jQ-9YN"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="4gc-Ms-xy1"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <navigationItem key="navigationItem" id="HC2-RW-D15"/>
+                    <connections>
+                        <outlet property="pauseButtonOutlet" destination="psW-KC-zQg" id="E1J-Kc-2aY"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yjG-xb-A4T" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1971" y="-88"/>
+            <point key="canvasLocation" x="1970.7589285714284" y="-88.405797101449281"/>
         </scene>
         <!--Customize Character View Controller-->
         <scene sceneID="Nc6-5l-SaK">
@@ -420,9 +452,12 @@
         </scene>
     </scenes>
     <resources>
+        <image name="arrow.counterclockwise.circle.fill" catalog="system" width="128" height="121"/>
+        <image name="arrowshape.turn.up.left.circle.fill" catalog="system" width="128" height="121"/>
         <image name="damItLogo" width="503" height="252"/>
         <image name="gearshape.fill" catalog="system" width="128" height="121"/>
         <image name="homeScreen" width="1920" height="1080"/>
+        <image name="pause.circle.fill" catalog="system" width="128" height="121"/>
         <image name="wave" width="1200" height="445"/>
         <image name="woodenPlank" width="300" height="120"/>
         <systemColor name="labelColor">
