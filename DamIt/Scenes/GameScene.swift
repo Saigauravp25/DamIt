@@ -112,6 +112,7 @@ extension GameScene {
     
     func getLevelData(levelData: String) -> LevelDataFormat {
         
+        self.levelEncoding = levelData
         var levelDecoder: LevelDataDecoder!
         
         //Store the Level Encoding String in CoreData

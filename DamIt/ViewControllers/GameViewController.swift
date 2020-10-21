@@ -36,7 +36,7 @@ class GameViewController: UIViewController {
             gameScene.setupNodes()
             gameScene.oceanNode.unflood()
 //            gameScene.restartNode.show()
-            gameScene.level = Level(levelData: gameScene.getLevelData(), for: gameScene)
+            gameScene.level = Level(levelData: gameScene.getLevelData(levelData: gameScene.levelEncoding), for: gameScene)
         }
     }
     
