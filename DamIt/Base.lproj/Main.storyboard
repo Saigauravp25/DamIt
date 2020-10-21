@@ -9,10 +9,40 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
+        <!--Splash Screen View Controller-->
+        <scene sceneID="21I-j0-WJT">
+            <objects>
+                <viewController id="ySr-Ek-gIf" customClass="SplashScreenViewController" customModule="DamIt" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="gcQ-MZ-Jyu">
+                        <rect key="frame" x="0.0" y="0.0" width="896" height="414"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="damItLogo" translatesAutoresizingMaskIntoConstraints="NO" id="Uqw-GC-6Jh">
+                                <rect key="frame" x="326" y="110" width="240" height="128"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="wave" translatesAutoresizingMaskIntoConstraints="NO" id="06h-e4-Tjn">
+                                <rect key="frame" x="-167" y="231" width="1098" height="508"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="gAP-Kv-6vV"/>
+                        <color key="backgroundColor" red="0.0" green="0.41176470588235292" blue="0.58039215686274503" alpha="1" colorSpace="calibratedRGB"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="rLM-Dm-pLP"/>
+                    <connections>
+                        <outlet property="waveImage" destination="06h-e4-Tjn" id="KXV-66-YkY"/>
+                        <segue destination="BYZ-38-t0r" kind="show" id="Zow-dC-5Ej"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="3C1-Gv-oqf" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="449" y="-543"/>
+        </scene>
         <!--Home Screen View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="HomeScreenViewController" customModule="DamIt" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="mainScreen" id="BYZ-38-t0r" customClass="HomeScreenViewController" customModule="DamIt" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="896" height="414"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -279,12 +309,12 @@
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="fPX-fg-24W"/>
+                        <segue destination="ySr-Ek-gIf" kind="relationship" relationship="rootViewController" id="oHa-Jy-qJH"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nEQ-26-w2t" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="516" y="-729"/>
+            <point key="canvasLocation" x="364" y="-1346"/>
         </scene>
         <!--Level Pack View Controller-->
         <scene sceneID="fQx-9f-sdq">
@@ -352,8 +382,10 @@
         </scene>
     </scenes>
     <resources>
+        <image name="damItLogo" width="503" height="252"/>
         <image name="gearshape.fill" catalog="system" width="128" height="121"/>
         <image name="homeScreen" width="1920" height="1080"/>
+        <image name="wave" width="1200" height="445"/>
         <image name="woodenPlank" width="300" height="120"/>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

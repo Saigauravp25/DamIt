@@ -18,6 +18,7 @@ class HomeScreenViewController: UIViewController, SettingsViewControllerDelegate
     
    
     override func viewDidLoad() {
+        navigationController?.setNavigationBarHidden(true, animated: true)
         super.viewDidLoad()
         
         //navigationItem.title = "Home Screen"
@@ -33,6 +34,11 @@ class HomeScreenViewController: UIViewController, SettingsViewControllerDelegate
     
     override func viewWillAppear(_ animated: Bool) {
         self.navigationController?.isNavigationBarHidden = true
+    }
+    override func viewWillDisappear(_ animated: Bool) {
+        // make nav bar  come back for next pages
+        super.viewWillDisappear(animated)
+        navigationController?.setNavigationBarHidden(false, animated: true)
     }
     
     func authenticateUser(){

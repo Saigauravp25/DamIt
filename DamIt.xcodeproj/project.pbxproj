@@ -41,6 +41,7 @@
 		5EE93DE62536B1DF00843A43 /* footstep.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5EE93DD22536B1AF00843A43 /* footstep.wav */; };
 		5EE93DE72536B1DF00843A43 /* pickUp.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5EE93DCE2536B1AF00843A43 /* pickUp.wav */; };
 		5EE93DE82536B1DF00843A43 /* step.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5EE93DD02536B1AF00843A43 /* step.wav */; };
+		681D4E87253F809A00687CBF /* SplashScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 681D4E86253F809A00687CBF /* SplashScreenViewController.swift */; };
 		68F5BCC5253D0349008B9DD4 /* LevelPackViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68F5BCC4253D0349008B9DD4 /* LevelPackViewController.swift */; };
 		68F5BCCA253D045D008B9DD4 /* checkCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68F5BCC9253D045D008B9DD4 /* checkCollectionViewCell.swift */; };
 /* End PBXBuildFile section */
@@ -103,6 +104,7 @@
 		5EE93DD02536B1AF00843A43 /* step.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = step.wav; sourceTree = "<group>"; };
 		5EE93DD12536B1AF00843A43 /* putDown.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = putDown.wav; sourceTree = "<group>"; };
 		5EE93DD22536B1AF00843A43 /* footstep.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = footstep.wav; sourceTree = "<group>"; };
+		681D4E86253F809A00687CBF /* SplashScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashScreenViewController.swift; sourceTree = "<group>"; };
 		68F5BCC4253D0349008B9DD4 /* LevelPackViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelPackViewController.swift; sourceTree = "<group>"; };
 		68F5BCC9253D045D008B9DD4 /* checkCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = checkCollectionViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -198,6 +200,7 @@
 				5EE93D9C2536B05000843A43 /* GameViewController.swift */,
 				68F5BCC4253D0349008B9DD4 /* LevelPackViewController.swift */,
 				68F5BCC9253D045D008B9DD4 /* checkCollectionViewCell.swift */,
+				681D4E86253F809A00687CBF /* SplashScreenViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -428,6 +431,7 @@
 				5EE93DB32536B08800843A43 /* Ground.swift in Sources */,
 				5EE93DB92536B08800843A43 /* Mountain.swift in Sources */,
 				5E2451F9252549DA00EE2601 /* CustomizeCharacterViewController.swift in Sources */,
+				681D4E87253F809A00687CBF /* SplashScreenViewController.swift in Sources */,
 				5EE93DB12536B08800843A43 /* Logo.swift in Sources */,
 				5EE93DCA2536B13000843A43 /* SKTexture+Ext.swift in Sources */,
 				5E2451BA2525466500EE2601 /* SceneDelegate.swift in Sources */,
