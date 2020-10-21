@@ -10,9 +10,12 @@ import SpriteKit
 import GameplayKit
 
 class GameViewController: UIViewController {
+    
+    var levelEncoding: String!
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        print("LEVEL ENCODING FOR GAME SCENE: \(levelEncoding)")
         let scene = GameScene(size: CGSize(width: 2048.0, height: 1536.0))
         scene.scaleMode = .aspectFill
         

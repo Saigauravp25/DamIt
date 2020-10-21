@@ -120,6 +120,10 @@ extension GameScene {
         levelDecoder = LevelDataDecoder(for: level2Encoding)
         let level2Data = levelDecoder.getLevelDataFromEncoding()
         
-        return level2Data
+        let level3Encoding = "01031004RLLARLAALAAARAAARRLARRBARLLAAAAARRAALLLA"
+        levelDecoder = LevelDataDecoder(for: level3Encoding)
+        let level3Data = levelDecoder.getLevelDataFromEncoding()
+        
+        return level3Data
     }
 }
