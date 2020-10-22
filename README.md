@@ -4,7 +4,7 @@
 Our scenes are currently built out for iPhone 11 Pro Max only
 
 ### Contributions
-Kishan Solanki - KS46487 (30%):
+##### Kishan Solanki - KS46487 (30%):
   * Core Data for Level Storage 
   * Building out Application UIViews w/ Delegates
   * Merging App Navigation Repo w/ Game Repo
@@ -12,7 +12,7 @@ Kishan Solanki - KS46487 (30%):
   * GameCenter Functionality that was later scraped
   
   
-Saigaurav Purushothaman - SP43976 (50%):
+#### Saigaurav Purushothaman - SP43976 (50%):
   * Coded fully functional Console Application of the Game (Block, Player, and Level Classes)
   * Sourced or Created necessary Assets such as Images, Logos, and Sounds for SpriteKit
   * Implemented remaining GameComponents
