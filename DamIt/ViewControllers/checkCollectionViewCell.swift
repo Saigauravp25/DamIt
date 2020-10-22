@@ -13,6 +13,4 @@ class checkCollectionViewCell: UICollectionViewCell {
     @IBAction func levelButton(_ sender: Any) {
         
     }
-    
-    
 }

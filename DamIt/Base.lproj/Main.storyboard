@@ -445,7 +445,7 @@
                                                     </state>
                                                     <connections>
                                                         <action selector="levelButton:" destination="vIq-og-jow" eventType="touchUpInside" id="vMj-bb-NGO"/>
-                                                        <segue destination="asj-rn-UgR" kind="show" identifier="levelSegue" id="NPR-iC-TCH"/>
+                                                        <segue destination="asj-rn-UgR" kind="show" identifier="levelSegue" id="rAJ-UY-GtP"/>
                                                     </connections>
                                                 </button>
                                             </subviews>

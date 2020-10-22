@@ -24,12 +24,11 @@ class LevelPackViewController: UIViewController {
         }
     }
     
-
-    
-
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if (segue.identifier == "levelSegue"){
             let vc = segue.destination as! LevelSelectViewController
+            let button = sender as? UIButton
+            vc.levelPack = button?.tag
             vc.levelData = levelData
         }
     }
@@ -41,9 +40,8 @@ extension LevelPackViewController: UICollectionViewDelegate, UICollectionViewDat
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = checkcollectionview.dequeueReusableCell(withReuseIdentifier: "check", for: indexPath) as? checkCollectionViewCell
-      
-
         cell?.buttontitle.setTitle("Level Pack \(String(indexPath.row + 1))", for: .normal)
+        cell?.buttontitle.tag = indexPath.row + 1
         return cell!
     }
     
