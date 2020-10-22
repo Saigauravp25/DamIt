@@ -236,7 +236,7 @@
                                     <action selector="levelButtonPressed:" destination="asj-rn-UgR" eventType="touchUpInside" id="RBX-qd-CSa"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" tag="2" contentMode="scaleToFill" fixedFrame="YES" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SZJ-tj-Ge0">
+                            <button opaque="NO" tag="4" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SZJ-tj-Ge0">
                                 <rect key="frame" x="711" y="79" width="100" height="100"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Level 5" backgroundImage="woodenPlank"/>
@@ -244,7 +244,7 @@
                                     <action selector="levelButtonPressed:" destination="asj-rn-UgR" eventType="touchUpInside" id="fov-Wm-58C"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QXZ-gI-A0H">
+                            <button opaque="NO" tag="5" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QXZ-gI-A0H">
                                 <rect key="frame" x="84" y="236" width="100" height="100"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Level 6" backgroundImage="woodenPlank"/>
@@ -293,6 +293,11 @@
                         <outletCollection property="buttons" destination="88H-cs-SlO" collectionClass="NSMutableArray" id="4Dh-b5-IV6"/>
                         <outletCollection property="buttons" destination="CjE-zW-Kvu" collectionClass="NSMutableArray" id="KpH-EE-yEu"/>
                         <outletCollection property="buttons" destination="ZMQ-0r-0pp" collectionClass="NSMutableArray" id="eIb-K5-XU2"/>
+                        <outletCollection property="buttons" destination="HXq-sw-rP1" collectionClass="NSMutableArray" id="ppZ-S5-0OX"/>
+                        <outletCollection property="buttons" destination="SZJ-tj-Ge0" collectionClass="NSMutableArray" id="1QU-5p-U7c"/>
+                        <outletCollection property="buttons" destination="QXZ-gI-A0H" collectionClass="NSMutableArray" id="fGS-ju-SXU"/>
+                        <outletCollection property="buttons" destination="m0G-DQ-DjO" collectionClass="NSMutableArray" id="D3h-e1-li1"/>
+                        <outletCollection property="buttons" destination="aPd-11-28N" collectionClass="NSMutableArray" id="Phi-GF-oGF"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aar-ep-Cv2" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

@@ -26,9 +26,9 @@ class LevelSelectViewController: UIViewController {
         navigationItem.title = "Level Select"
         // hardcoded for now 
         if levelPack != 1 {
-            buttons[0].isEnabled = false
-            buttons[1].isEnabled = false
-            buttons[2].isEnabled = false
+            for button in buttons {
+                button.isEnabled = false
+            }
         }
     }
     
