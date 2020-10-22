@@ -24,12 +24,11 @@ class LevelPackViewController: UIViewController {
         }
     }
     
-
-    
-
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if (segue.identifier == "levelSegue"){
             let vc = segue.destination as! LevelSelectViewController
+            let button = sender as? UIButton
+            vc.levelPack = button?.tag
             vc.levelData = levelData
         }
     }
@@ -41,9 +40,8 @@ extension LevelPackViewController: UICollectionViewDelegate, UICollectionViewDat
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = checkcollectionview.dequeueReusableCell(withReuseIdentifier: "check", for: indexPath) as? checkCollectionViewCell
-      
-
         cell?.buttontitle.setTitle("Level Pack \(String(indexPath.row + 1))", for: .normal)
+        cell?.buttontitle.tag = indexPath.row + 1
         return cell!
     }
     
@@ -78,6 +76,14 @@ extension LevelPackViewController {
         level3.setValue(0103, forKey: "id")
         let level3Encoding = "01031004RLLARLAALAAARAAARRLARRBARLLAAAAARRAALLLA"
         level3.setValue(level3Encoding, forKey: "encoding")
+        
+        let level4 = NSEntityDescription.insertNewObject(
+            forEntityName: "LevelData", into:context)
+        
+        level4.setValue(false, forKey: "completed")
+        level4.setValue(0104, forKey: "id")
+        let level4Encoding = "01041004RLLLRLLARLAARAAARLAARRBAAAAARAAARLAARRL"
+        level4.setValue(level4Encoding, forKey: "encoding")
         
         let level9 = NSEntityDescription.insertNewObject(
             forEntityName: "LevelData", into:context)
@@ -156,8 +162,8 @@ extension LevelPackViewController {
                 for level in fetchedResults!{
                     if let completed = level.value(forKey: "completed") as? Bool{
                         if let id = level.value(forKey: "id") as? Int{
-                            if let encoding = level.value(forKey: "encoding") as? String {
                                 let levelNum = Int(encoding.substring(with: 2..<4))
+                                let index = levelNum! - 1
                                 let index = levelNum! - 1
                                 levelData[index] = encoding
                             }

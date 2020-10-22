@@ -15,7 +15,7 @@ class LevelSelectViewController: UIViewController {
     var levelData: [String]!
     
     var selectedLevelEncoding = ""
-    
+    var levelPack: Int!
     let segue: String = "gameSegue"
     
     @IBOutlet var buttons: [UIButton]!
@@ -24,6 +24,12 @@ class LevelSelectViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationItem.title = "Level Select"
+        // hardcoded for now 
+        if levelPack != 1 {
+            buttons[0].isEnabled = false
+            buttons[1].isEnabled = false
+            buttons[2].isEnabled = false
+        }
     }
     
 //    func buttonSetup(){
