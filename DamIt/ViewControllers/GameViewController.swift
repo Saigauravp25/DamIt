@@ -12,9 +12,20 @@ import GameplayKit
 class GameViewController: UIViewController {
     
     var levelEncoding: String!
+    var levelData: [String]!
+    var currentLevel: Int!
     var skView: SKView!
     
     @IBOutlet weak var pauseButtonOutlet: UIButton!
+    
+    @IBOutlet weak var nextLevelButtonOutlet: UIButton!
+    
+    @IBAction func nextLevelButton(_ sender: UIButton) {
+        currentLevel = (currentLevel + 1) % 10 //loop in this level pack until future level packs are made
+        levelEncoding = levelData[currentLevel]
+        (skView.scene as! GameScene).levelEncoding = levelEncoding
+        skView.presentScene(skView.scene)
+    }
     
     @IBAction func pauseButton(_ sender: UIButton) {
         self.skView.isPaused = !self.skView.isPaused
@@ -23,6 +34,7 @@ class GameViewController: UIViewController {
     }
     
     @IBAction func restartButton(_ sender: UIButton) {
+        nextLevelButtonOutlet.isHidden = true
         var xForce = 50.0
         var yForce = 50.0
         let gameScene = self.skView.scene as! GameScene
@@ -52,7 +64,7 @@ class GameViewController: UIViewController {
             yForce *= (Bool.random() ? 1 : -1)
             block.physicsBody?.applyImpulse(CGVector(dx: xForce, dy: yForce))
         }
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.0){
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.0) {
 //            gameScene.setupNodes()
             gameScene.oceanNode.run(gameScene.floodSound)
             gameScene.logo.show()
@@ -76,9 +88,11 @@ class GameViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        nextLevelButtonOutlet.isHidden = true
         //print("LEVEL ENCODING FOR GAME SCENE: \(levelEncoding)")
         let scene = GameScene(size: CGSize(width: 2048.0, height: 1536.0))
         scene.levelEncoding = levelEncoding
+        scene.nextLevelButton = self.nextLevelButtonOutlet
         scene.scaleMode = .aspectFill
         
         let skView = view as! SKView

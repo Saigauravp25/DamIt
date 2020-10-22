@@ -9,6 +9,10 @@ import SpriteKit
 import GameplayKit
 import CoreData
 
+let blockBitMask = UInt32(1)
+let beaverBitMask = UInt32(2)
+let victoryTextBitMask = UInt32(4)
+
 class GameScene: SKScene, SKPhysicsContactDelegate {
     
     public var levelEncoding: String = ""
@@ -19,6 +23,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     var oceanNode = Ocean()
     var logo = Logo()
     var victoryText = Victory()
+    var nextLevelButton: UIButton!
 //    var restartNode = Restart()
     var level: Level?
     let putDownSound = SKAction.playSoundFileNamed("putDown.wav", waitForCompletion: false)
@@ -47,7 +52,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     }
 
     @objc func handleSwipe(sender: UISwipeGestureRecognizer) {
-        if self.isPaused || self.isComplete {
+        if self.isPaused { //|| self.isComplete
             return
         }
         let direction = sender.direction
@@ -72,6 +77,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             //Placeholder for now. Do action when level is complete.
             self.isComplete = true
             self.victoryText.drop()
+            DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
+                self.nextLevelButton.isHidden = false
+            }
         }
     }
     
@@ -101,6 +109,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
 extension GameScene {
         
     func setupNodes() {
+        self.nextLevelButton.isHidden = true
         self.isComplete = false
         self.removeAllChildren()
         self.sky = Sky(for: self)

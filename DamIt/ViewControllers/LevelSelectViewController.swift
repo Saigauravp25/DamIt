@@ -13,6 +13,7 @@ class LevelSelectViewController: UIViewController {
     
     var levelsCompleted : [Bool]!
     var levelData: [String]!
+    var currentLevel: Int!
     
     var selectedLevelEncoding = ""
     var levelPack: Int!
@@ -42,15 +43,17 @@ class LevelSelectViewController: UIViewController {
     
     @IBAction func levelButtonPressed(_ sender: Any) {
         let button = sender as! UIButton
-        let tag = button.tag
-        selectedLevelEncoding = levelData[tag]
+        self.currentLevel = button.tag
+        selectedLevelEncoding = levelData[self.currentLevel]
         performSegue(withIdentifier: segue, sender: self)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if (segue.identifier == self.segue) {
             let vc = segue.destination as! GameViewController
-            vc.levelEncoding = selectedLevelEncoding
+            vc.levelEncoding = self.selectedLevelEncoding
+            vc.levelData = self.levelData
+            vc.currentLevel = self.currentLevel
         }
     }
 }

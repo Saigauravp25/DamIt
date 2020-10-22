@@ -308,7 +308,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" alpha="0.75" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="psW-KC-zQg">
-                                <rect key="frame" x="418" y="25" width="60" height="59"/>
+                                <rect key="frame" x="142" y="24" width="60" height="59"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <state key="normal" backgroundImage="pause.circle.fill" catalog="system"/>
@@ -334,12 +334,22 @@
                                     <action selector="restartButton:" destination="tJF-TI-Z4f" eventType="touchUpInside" id="2xT-jQ-9YN"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" alpha="0.90000000000000002" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aC5-Ok-NUn">
+                                <rect key="frame" x="363" y="21.666666666666686" width="170" height="129"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="tintColor" red="0.093308128416538239" green="0.57960408926010132" blue="0.32794743776321411" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <state key="normal" backgroundImage="arrow.right.square.fill" catalog="system"/>
+                                <connections>
+                                    <action selector="nextLevelButton:" destination="tJF-TI-Z4f" eventType="touchUpInside" id="e2f-dQ-qeB"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="4gc-Ms-xy1"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <navigationItem key="navigationItem" id="HC2-RW-D15"/>
                     <connections>
+                        <outlet property="nextLevelButtonOutlet" destination="aC5-Ok-NUn" id="k2q-RL-HSe"/>
                         <outlet property="pauseButtonOutlet" destination="psW-KC-zQg" id="E1J-Kc-2aY"/>
                     </connections>
                 </viewController>
@@ -478,6 +488,7 @@
     </scenes>
     <resources>
         <image name="arrow.counterclockwise.circle.fill" catalog="system" width="128" height="121"/>
+        <image name="arrow.right.square.fill" catalog="system" width="128" height="114"/>
         <image name="arrowshape.turn.up.left.circle.fill" catalog="system" width="128" height="121"/>
         <image name="damItLogo" width="503" height="252"/>
         <image name="gearshape.fill" catalog="system" width="128" height="121"/>

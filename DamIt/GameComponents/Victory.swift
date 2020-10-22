@@ -32,6 +32,8 @@ extension Victory {
 //        self.physicsBody?.usesPreciseCollisionDetection = true
         self.physicsBody?.isDynamic = false
         self.physicsBody?.restitution = 0.25
+        self.physicsBody?.categoryBitMask = victoryTextBitMask
+        self.physicsBody?.collisionBitMask = blockBitMask
         self.physicsBody!.contactTestBitMask = self.physicsBody!.collisionBitMask
 //        self.physicsBody = SKPhysicsBody(texture: self.texture!, size: CGSize(width: self.frame.size.width, height: self.frame.size.height))
 //        self.physicsBody = SKPhysicsBody(texture: self.texture!, alphaThreshold: 0.3, size: self.size)
