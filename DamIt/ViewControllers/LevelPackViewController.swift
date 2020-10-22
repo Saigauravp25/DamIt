@@ -74,7 +74,7 @@ extension LevelPackViewController {
         
         level3.setValue(false, forKey: "completed")
         level3.setValue(0103, forKey: "id")
-        let level3Encoding = "01031004RLLARLAALAAARAAARRLARRBARLLAAAAARRAALLLA"
+        let level3Encoding = "01031003RLLRLALAARAARRLRRBRLLAAARRALLL"
         level3.setValue(level3Encoding, forKey: "encoding")
         
         let level4 = NSEntityDescription.insertNewObject(
@@ -82,7 +82,7 @@ extension LevelPackViewController {
         
         level4.setValue(false, forKey: "completed")
         level4.setValue(0104, forKey: "id")
-        let level4Encoding = "01041004RLLLRLLARLAARAAARLAARRBAAAAARAAARLAARRL"
+        let level4Encoding = "01041004RLLLRLLARLAARAAARLAARRBAAAAARAAARLAARRLA"
         level4.setValue(level4Encoding, forKey: "encoding")
         
         let level9 = NSEntityDescription.insertNewObject(
@@ -162,8 +162,8 @@ extension LevelPackViewController {
                 for level in fetchedResults!{
                     if let completed = level.value(forKey: "completed") as? Bool{
                         if let id = level.value(forKey: "id") as? Int{
+                            if let encoding = level.value(forKey: "encoding") as? String {
                                 let levelNum = Int(encoding.substring(with: 2..<4))
-                                let index = levelNum! - 1
                                 let index = levelNum! - 1
                                 levelData[index] = encoding
                             }
@@ -177,9 +177,5 @@ extension LevelPackViewController {
             NSLog("Unresolved error \(nserror), \(nserror.userInfo)")
             abort()
         }
-        
-    
-      
-        
     }
 }
