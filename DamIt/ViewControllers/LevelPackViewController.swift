@@ -85,6 +85,22 @@ extension LevelPackViewController {
         let level4Encoding = "01041004RLLLRLLARLAARAAARLAARRBAAAAARAAARLAARRLA"
         level4.setValue(level4Encoding, forKey: "encoding")
         
+        let level7 = NSEntityDescription.insertNewObject(
+            forEntityName: "LevelData", into:context)
+        
+        level7.setValue(false, forKey: "completed")
+        level7.setValue(0107, forKey: "id")
+        let level7Encoding = "01071006RLLLLLRLLLLLRLLAAARLAAAARRAAAAAAAAAARLBAAARLLAAARLAAAARLLLAA"
+        level7.setValue(level7Encoding, forKey: "encoding")
+        
+        let level8 = NSEntityDescription.insertNewObject(
+            forEntityName: "LevelData", into:context)
+        
+        level8.setValue(false, forKey: "completed")
+        level8.setValue(0108, forKey: "id")
+        let level8Encoding = "01081806RAAAAARAAAAARLAAAARLLAAARAAAAARAAAAARLLLLLRAAAAARAAAAARLLAAARAAAAARAAAAARLLLAARAAAAARLLAAARLAAAARBAAAARLLAAA"
+        level8.setValue(level8Encoding, forKey: "encoding")
+        
         let level9 = NSEntityDescription.insertNewObject(
             forEntityName: "LevelData", into:context)
         

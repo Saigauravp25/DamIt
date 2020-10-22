@@ -23,7 +23,12 @@ Our scenes are currently built out for iPhone 11 Pro Max only
   * Built User Interface for GameViewController and GameScene
   * Created necessary Types and Utilities
   * Devised and Implemented Level Encoding and Decoding Scheme for Ease of Level Creation and Storage
-
+  
+  #### Nirav Lalsinghani - NVL225 (5%)
+  * Designed and Created App Icon Image
+  * Added levels 7 and 8 Level Pack 1
+  * Created TutorialViewController 
+  * Added how to play information for users
 
 
 ### Differences 

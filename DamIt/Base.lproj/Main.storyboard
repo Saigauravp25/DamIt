@@ -51,31 +51,13 @@
                                 <rect key="frame" x="0.0" y="0.0" width="896" height="414"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5EO-zy-Nla">
-                                <rect key="frame" x="355" y="157" width="187" height="65"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <state key="normal" title="Single Player" backgroundImage="woodenPlank"/>
-                                <connections>
-                                    <action selector="playerModeButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="qiO-2K-BVv"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="56Z-5v-WPV">
-                                <rect key="frame" x="354" y="230" width="188" height="65"/>
+                                <rect key="frame" x="354" y="197" width="188" height="65"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <state key="normal" title="Co-op" backgroundImage="woodenPlank"/>
                                 <connections>
                                     <action selector="playerModeButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Jwb-bp-a45"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7E3-Qp-Ces">
-                                <rect key="frame" x="355" y="303" width="187" height="65"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <state key="normal" title="Multiplayer" backgroundImage="woodenPlank"/>
-                                <connections>
-                                    <action selector="playerModeButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="0Ud-J6-o9c"/>
                                 </connections>
                             </button>
                             <button opaque="NO" alpha="0.90000000000000002" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="219-Ic-Sp5">
@@ -85,6 +67,33 @@
                                 <state key="normal" backgroundImage="gearshape.fill" catalog="system"/>
                                 <connections>
                                     <segue destination="GA1-dz-i3L" kind="show" identifier="settingsSegue" id="xfS-3K-alE"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7E3-Qp-Ces">
+                                <rect key="frame" x="354" y="266" width="187" height="65"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal" title="Multiplayer" backgroundImage="woodenPlank"/>
+                                <connections>
+                                    <action selector="playerModeButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="0Ud-J6-o9c"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="h7j-7A-pOI">
+                                <rect key="frame" x="354" y="332" width="189" height="65"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal" title="Tutorial" backgroundImage="woodenPlank"/>
+                                <connections>
+                                    <segue destination="YcM-rw-A4m" kind="show" identifier="tutorialSegue" id="cub-JY-TNj"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5EO-zy-Nla">
+                                <rect key="frame" x="354" y="130" width="187" height="65"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal" title="Single Player" backgroundImage="woodenPlank"/>
+                                <connections>
+                                    <action selector="playerModeButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="qiO-2K-BVv"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -99,6 +108,39 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="515.625" y="182.60869565217394"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="JBe-qe-apX">
+            <objects>
+                <viewController id="YcM-rw-A4m" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="s4u-k1-iCu">
+                        <rect key="frame" x="0.0" y="0.0" width="896" height="414"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="How To Play" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2FG-HE-X2x">
+                                <rect key="frame" x="402" y="68" width="93" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="10" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="73C-NV-kch">
+                                <rect key="frame" x="33" y="78" width="831" height="315"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <mutableString key="text">Dam It is a puzzle game in which the player is tasked with the job of building  an effective dam. An effective dam is one that is completely flush with no extraneous pieces. The player moves the beaver around the stage and uses it to pick up and place down logs  in order to solve the puzzle. The player can move the beaver left and right by swiping in the corresponding direction and can pick up and place down logs by swiping down. Beavers can only pick up log blocks that it is facing and standing right in front of. Beavers can also only climb up one block high heights, but can jump down from any block height. Try to solve the puzzles in the shortest time possible, but be careful not to get your beaver stuck, otherwise you will have to restart the level.</mutableString>
+                                <fontDescription key="fontDescription" type="system" pointSize="21"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="QQ7-kE-hWT"/>
+                        <color key="backgroundColor" red="0.1865332723" green="0.28615212439999999" blue="0.57649922369999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="VNi-UH-eCN"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="oOd-nO-9XW" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="140.625" y="953.62318840579712"/>
         </scene>
         <!--Settings View Controller-->
         <scene sceneID="s8W-fc-Lpy">
@@ -193,7 +235,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PCP-h9-U5L" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="532" y="955"/>
+            <point key="canvasLocation" x="830" y="954"/>
         </scene>
         <!--Level Select View Controller-->
         <scene sceneID="iYE-gP-NSu">
@@ -252,7 +294,7 @@
                                     <action selector="levelButtonPressed:" destination="asj-rn-UgR" eventType="touchUpInside" id="AtE-vY-tOm"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" tag="1" contentMode="scaleToFill" fixedFrame="YES" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NBP-DS-m1T">
+                            <button opaque="NO" tag="6" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NBP-DS-m1T">
                                 <rect key="frame" x="241" y="236" width="100" height="100"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Level 7" backgroundImage="woodenPlank"/>
@@ -260,7 +302,7 @@
                                     <action selector="levelButtonPressed:" destination="asj-rn-UgR" eventType="touchUpInside" id="2nN-Uf-FVy"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" tag="2" contentMode="scaleToFill" fixedFrame="YES" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="myI-E1-vvQ">
+                            <button opaque="NO" tag="7" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="myI-E1-vvQ">
                                 <rect key="frame" x="398" y="236" width="100" height="100"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Level 8" backgroundImage="woodenPlank"/>
@@ -400,7 +442,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7Y2-tT-F63" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1238.1696428571429" y="953.62318840579712"/>
+            <point key="canvasLocation" x="1493" y="954"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="ZDx-5x-2K7">
