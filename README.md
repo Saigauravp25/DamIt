@@ -25,7 +25,7 @@
   * Created necessary Types and Utilities
   * Devised and Implemented Level Encoding and Decoding Scheme for Ease of Level Creation and Storage
   * Designed multiple Levels
-  * Added Constraints to all Views so the app can run on any device of any size (iPhone or iPad)
+  * Added Constraints to all Views
 
 
 ### Differences 
