@@ -12,7 +12,6 @@
   * GameCenter Functionality that was later scraped
   * Designed multiple Levels
   
-  
 #### Saigaurav Purushothaman - SP43976 (50%):
   * Coded fully functional Console Application of the Game (Block, Player, and Level Classes)
   * Sourced or Created necessary Assets such as Images, Logos, and Sounds for SpriteKit
@@ -32,8 +31,6 @@
   *  Designed multiple levels
   *  Designed Level Pack Screen and Functionality
   *  Assisted with Core Data for Level storage
-  
-  )
   
   #### Nirav Lalsinghani - NVL225 (5%)
   * Designed and Created App Icon Image

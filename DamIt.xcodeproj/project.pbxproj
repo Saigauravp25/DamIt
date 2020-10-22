@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		4ADAA8682540378900A1472D /* String+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ADAA8672540378900A1472D /* String+Ext.swift */; };
 		4ADAA870254052C800A1472D /* LevelDataDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ADAA86F254052C800A1472D /* LevelDataDecoder.swift */; };
+		5DECBADB254239A200A12D1E /* TutorialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DECBADA254239A200A12D1E /* TutorialViewController.swift */; };
 		5E2451B82525466500EE2601 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E2451B72525466500EE2601 /* AppDelegate.swift */; };
 		5E2451BA2525466500EE2601 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E2451B92525466500EE2601 /* SceneDelegate.swift */; };
 		5E2451BC2525466500EE2601 /* HomeScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E2451BB2525466500EE2601 /* HomeScreenViewController.swift */; };
@@ -69,6 +70,7 @@
 /* Begin PBXFileReference section */
 		4ADAA8672540378900A1472D /* String+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Ext.swift"; sourceTree = "<group>"; };
 		4ADAA86F254052C800A1472D /* LevelDataDecoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelDataDecoder.swift; sourceTree = "<group>"; };
+		5DECBADA254239A200A12D1E /* TutorialViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialViewController.swift; sourceTree = "<group>"; };
 		5E2451B42525466500EE2601 /* DamIt.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DamIt.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5E2451B72525466500EE2601 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5E2451B92525466500EE2601 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -204,6 +206,7 @@
 				681D4E86253F809A00687CBF /* SplashScreenViewController.swift */,
 				5E2451BB2525466500EE2601 /* HomeScreenViewController.swift */,
 				5E2451F32525485200EE2601 /* SettingsViewController.swift */,
+				5DECBADA254239A200A12D1E /* TutorialViewController.swift */,
 				5E2451F8252549DA00EE2601 /* CustomizeCharacterViewController.swift */,
 				68F5BCC9253D045D008B9DD4 /* checkCollectionViewCell.swift */,
 				68F5BCC4253D0349008B9DD4 /* LevelPackViewController.swift */,
@@ -441,6 +444,7 @@
 				5EE93DB32536B08800843A43 /* Ground.swift in Sources */,
 				5EE93DB92536B08800843A43 /* Mountain.swift in Sources */,
 				4ADAA8682540378900A1472D /* String+Ext.swift in Sources */,
+				5DECBADB254239A200A12D1E /* TutorialViewController.swift in Sources */,
 				5E2451F9252549DA00EE2601 /* CustomizeCharacterViewController.swift in Sources */,
 				681D4E87253F809A00687CBF /* SplashScreenViewController.swift in Sources */,
 				5EE93DB12536B08800843A43 /* Logo.swift in Sources */,

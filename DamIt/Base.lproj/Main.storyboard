@@ -60,8 +60,8 @@
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="homeScreen" translatesAutoresizingMaskIntoConstraints="NO" id="dGf-vZ-xcl">
                                 <rect key="frame" x="0.0" y="-21" width="896" height="435"/>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5EO-zy-Nla">
-                                <rect key="frame" x="291.33333333333337" y="133.66666666666666" width="313.33333333333337" height="74.666666666666657"/>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5EO-zy-Nla">
+                                <rect key="frame" x="151" y="170" width="313.33333333333337" height="74.666666666666657"/>
                                 <fontDescription key="fontDescription" name="MarkerFelt-Wide" family="Marker Felt" pointSize="30"/>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <state key="normal" title="Single Player" backgroundImage="woodenPlank">
@@ -71,8 +71,8 @@
                                     <action selector="playerModeButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="qiO-2K-BVv"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="56Z-5v-WPV">
-                                <rect key="frame" x="291.33333333333337" y="223.33333333333334" width="313.33333333333337" height="74.333333333333343"/>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="56Z-5v-WPV">
+                                <rect key="frame" x="151" y="264" width="313.33333333333337" height="74.333333333333343"/>
                                 <fontDescription key="fontDescription" name="MarkerFelt-Wide" family="Marker Felt" pointSize="30"/>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <state key="normal" title="Co-op" backgroundImage="woodenPlank">
@@ -82,19 +82,8 @@
                                     <action selector="playerModeButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Jwb-bp-a45"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" alpha="0.90000000000000002" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="219-Ic-Sp5" userLabel="Settings">
-                                <rect key="frame" x="640" y="148" width="46.666666666666629" height="46"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" secondItem="219-Ic-Sp5" secondAttribute="height" multiplier="1:1" id="puv-rp-E7l"/>
-                                </constraints>
-                                <color key="tintColor" systemColor="systemGrayColor"/>
-                                <state key="normal" backgroundImage="gearshape.fill" catalog="system"/>
-                                <connections>
-                                    <segue destination="GA1-dz-i3L" kind="presentation" identifier="settingsSegue" modalPresentationStyle="fullScreen" id="xfS-3K-alE"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7E3-Qp-Ces">
-                                <rect key="frame" x="291.33333333333337" y="312.66666666666669" width="313.33333333333337" height="74.666666666666686"/>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7E3-Qp-Ces">
+                                <rect key="frame" x="473" y="170" width="313.33333333333337" height="74.666666666666686"/>
                                 <fontDescription key="fontDescription" name="MarkerFelt-Wide" family="Marker Felt" pointSize="30"/>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <state key="normal" title="Multiplayer" backgroundImage="woodenPlank">
@@ -102,6 +91,28 @@
                                 </state>
                                 <connections>
                                     <action selector="playerModeButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="0Ud-J6-o9c"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1RJ-On-0WF">
+                                <rect key="frame" x="472" y="264" width="313" height="75"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="MarkerFelt-Wide" family="Marker Felt" pointSize="30"/>
+                                <state key="normal" title="Tutorial" backgroundImage="woodenPlank">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <segue destination="qd6-rk-0UN" kind="show" identifier="tutorialSegue" id="uVm-SN-Ylw"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" alpha="0.90000000000000002" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="219-Ic-Sp5" userLabel="Settings">
+                                <rect key="frame" x="767" y="115.33333333333337" width="46.666666666666629" height="46"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="219-Ic-Sp5" secondAttribute="height" multiplier="1:1" id="puv-rp-E7l"/>
+                                </constraints>
+                                <color key="tintColor" systemColor="systemGrayColor"/>
+                                <state key="normal" backgroundImage="gearshape.fill" catalog="system"/>
+                                <connections>
+                                    <segue destination="GA1-dz-i3L" kind="presentation" identifier="settingsSegue" modalPresentationStyle="fullScreen" id="xfS-3K-alE"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -137,6 +148,49 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="363.61607142857139" y="444.92753623188412"/>
+        </scene>
+        <!--Tutorial View Controller-->
+        <scene sceneID="g8m-rq-M77">
+            <objects>
+                <viewController id="qd6-rk-0UN" customClass="TutorialViewController" customModule="DamIt" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Wgg-Vg-mqH">
+                        <rect key="frame" x="0.0" y="0.0" width="896" height="414"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="10" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HtO-Lw-ShP">
+                                <rect key="frame" x="64" y="99" width="768" height="294"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <string key="text">Dam It is a puzzle game in which the player is tasked with the job of building an effective dam. An effective dam is one that is completely flush with no extraneous pieces. The player moves the beaver around the stage and uses it to pick up and place down logs in order to solve the puzzle. The player can move the beaver left and right by swiping in the corresponding direction and can pick up and place down logs by swiping down. Beavers can only pick up log blocks that it is facing and standing right in front of. Beavers can also only climb up one block high heights, but can jump down from any block height. Try to solve the puzzles in the shortest time possible, but be careful not to get your beaver stuck, otherwise you will have to restart the level.</string>
+                                <fontDescription key="fontDescription" name="MarkerFelt-Wide" family="Marker Felt" pointSize="22"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" alpha="0.75" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hSI-gU-ni2" userLabel="Back">
+                                <rect key="frame" x="64" y="18.000000000000455" width="71.666666666666686" height="70.333333333333343"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal" backgroundImage="arrowshape.turn.up.left.circle.fill" catalog="system"/>
+                                <connections>
+                                    <action selector="backButton:" destination="qd6-rk-0UN" eventType="touchUpInside" id="FOu-hS-QSn"/>
+                                    <action selector="backButton:" destination="GA1-dz-i3L" eventType="touchUpInside" id="rcc-6G-DYB"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="How to Play" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AsH-Fp-gak">
+                                <rect key="frame" x="104" y="29" width="688" height="47"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="MarkerFelt-Wide" family="Marker Felt" pointSize="29"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="d5n-Bt-HvT"/>
+                        <color key="backgroundColor" red="0.1865332723" green="0.28615212439999999" blue="0.57649922369999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="Lqc-hX-7VT"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="pnb-kS-9Lz" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-265.17857142857144" y="1356.521739130435"/>
         </scene>
         <!--Settings View Controller-->
         <scene sceneID="s8W-fc-Lpy">
@@ -346,7 +400,7 @@
                                     <action selector="levelButtonPressed:" destination="asj-rn-UgR" eventType="touchUpInside" id="AtE-vY-tOm"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" tag="1" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NBP-DS-m1T">
+                            <button opaque="NO" tag="6" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NBP-DS-m1T">
                                 <rect key="frame" x="238" y="257.33333333333331" width="100" height="100"/>
                                 <fontDescription key="fontDescription" name="MarkerFelt-Wide" family="Marker Felt" pointSize="50"/>
                                 <state key="normal" title="7" backgroundImage="woodenPlank">
@@ -356,7 +410,7 @@
                                     <action selector="levelButtonPressed:" destination="asj-rn-UgR" eventType="touchUpInside" id="2nN-Uf-FVy"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" tag="2" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="myI-E1-vvQ">
+                            <button opaque="NO" tag="7" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="myI-E1-vvQ">
                                 <rect key="frame" x="398" y="257.33333333333331" width="100" height="100"/>
                                 <fontDescription key="fontDescription" name="MarkerFelt-Wide" family="Marker Felt" pointSize="50"/>
                                 <state key="normal" title="8" backgroundImage="woodenPlank">
