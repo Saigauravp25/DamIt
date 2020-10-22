@@ -50,7 +50,7 @@ class SettingsViewController: UIViewController {
     }
     
     func disclosureAlert() {
-        let controller = UIAlertController(title: "Disclosure", message: "Player Skin Selection not yet implemented. Planned for Beta Release.", preferredStyle: .alert)
+        let controller = UIAlertController(title: "Disclosure", message: "These features are not yet implemented. Planned for Beta Release.", preferredStyle: .alert)
         let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
         controller.addAction(okAction)
         present(controller, animated: true, completion: nil)
