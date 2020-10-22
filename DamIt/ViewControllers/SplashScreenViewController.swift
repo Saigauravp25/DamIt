@@ -23,7 +23,7 @@ class SplashScreenViewController: UIViewController {
         waveImage.layer.insertSublayer(gradient, at: 0)
         view.addSubview(waveImage)
         
-        UIView.animate(withDuration: 1, delay: 0, options: .curveEaseIn, animations:{
+        UIView.animate(withDuration: 2, delay: 0, options: .curveEaseIn, animations:{
             self.waveImage.frame.origin.y -= 400
             self.waveImage.frame.origin.x += 100
             self.view.backgroundColor = UIColor.clear
