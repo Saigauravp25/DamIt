@@ -27,6 +27,7 @@ extension Victory {
     
     func setupText(_ scene: SKScene) {
         self.position = CGPoint(x: scene.frame.size.width / 2, y: scene.frame.size.height)
+        self.zRotation = 0
         self.physicsBody = SKPhysicsBody(texture: self.texture!, size: self.texture!.size())
 //        self.physicsBody?.usesPreciseCollisionDetection = true
         self.physicsBody?.isDynamic = false

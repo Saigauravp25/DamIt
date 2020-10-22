@@ -36,7 +36,7 @@ extension Ocean {
     }
     
     func flood() {
-        self.zPosition = 2.0
+        self.zPosition = 0.0 //2.0
     }
     
     func unflood() {

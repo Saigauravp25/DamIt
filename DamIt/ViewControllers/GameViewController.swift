@@ -23,20 +23,50 @@ class GameViewController: UIViewController {
     }
     
     @IBAction func restartButton(_ sender: UIButton) {
+        var xForce = 50.0
+        var yForce = 50.0
         let gameScene = self.skView.scene as! GameScene
-        gameScene.setupNodes()
+//        gameScene.victoryText.hide()
         gameScene.oceanNode.flood()
-        gameScene.oceanNode.run(gameScene.floodSound)
-        gameScene.logo.show()
-//        gameScene.restartNode.hide()
-//                self.victoryText.hide()
-        DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) { // Change `2.0` to the desired number of seconds.
-            gameScene.logo.hide()
-            gameScene.setupNodes()
-            gameScene.oceanNode.unflood()
-//            gameScene.restartNode.show()
-            gameScene.level = Level(levelData: gameScene.getLevelData(levelData: gameScene.levelEncoding), for: gameScene)
+        gameScene.enumerateChildNodes(withName: "Log") {
+            (node, stop) in
+            let block = node as! Block
+            block.activateGravity()
+            xForce *= (Bool.random() ? 1 : -1)
+            yForce *= (Bool.random() ? 1 : -1)
+            block.physicsBody?.applyImpulse(CGVector(dx: xForce, dy: yForce))
         }
+        gameScene.enumerateChildNodes(withName: "Rock") {
+            (node, stop) in
+            let block = node as! Block
+            block.activateGravity()
+            xForce *= (Bool.random() ? 1 : -1)
+            yForce *= (Bool.random() ? 1 : -1)
+            block.physicsBody?.applyImpulse(CGVector(dx: xForce, dy: yForce))
+        }
+        gameScene.enumerateChildNodes(withName: "Beaver") {
+            (node, stop) in
+            let block = node as! Block
+            block.activateGravity()
+            xForce *= (Bool.random() ? 1 : -1)
+            yForce *= (Bool.random() ? 1 : -1)
+            block.physicsBody?.applyImpulse(CGVector(dx: xForce, dy: yForce))
+        }
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.0){
+//            gameScene.setupNodes()
+            gameScene.oceanNode.run(gameScene.floodSound)
+            gameScene.logo.show()
+    //        gameScene.restartNode.hide()
+    //                self.victoryText.hide()
+            DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) { // Change `2.0` to the desired number of seconds.
+                gameScene.logo.hide()
+                gameScene.setupNodes()
+                gameScene.oceanNode.unflood()
+    //            gameScene.restartNode.show()
+                gameScene.level = Level(levelData: gameScene.getLevelData(levelData: gameScene.levelEncoding), for: gameScene)
+            }
+        }
+        
     }
     
     @IBAction func backButton(_ sender: UIButton) {

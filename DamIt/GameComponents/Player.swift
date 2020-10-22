@@ -20,7 +20,7 @@ class Player: Block {
         self.direction = direction
         self.hasLog = hasLog
         super.init(x: x, y: y, type: .beaver, scene: scene, levelDim: levelDim)
-        self.physicsBody = nil
+//        self.physicsBody = nil
         self.zPosition = 2
     }
     

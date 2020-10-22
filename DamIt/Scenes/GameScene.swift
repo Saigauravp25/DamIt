@@ -12,6 +12,7 @@ import CoreData
 class GameScene: SKScene, SKPhysicsContactDelegate {
     
     public var levelEncoding: String = ""
+    var isComplete = false
     var sky: Sky!
     var groundNode = Ground()
     var mountainNode = Mountain()
@@ -46,7 +47,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     }
 
     @objc func handleSwipe(sender: UISwipeGestureRecognizer) {
-        if self.isPaused {
+        if self.isPaused || self.isComplete {
             return
         }
         let direction = sender.direction
@@ -69,6 +70,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         //core data update to set value to true
         if levelComplete! {
             //Placeholder for now. Do action when level is complete.
+            self.isComplete = true
             self.victoryText.drop()
         }
     }
@@ -99,6 +101,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
 extension GameScene {
         
     func setupNodes() {
+        self.isComplete = false
         self.removeAllChildren()
         self.sky = Sky(for: self)
         self.sky.createStarLayers()

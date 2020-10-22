@@ -85,6 +85,7 @@ extension Block {
         // Physics
         self.physicsBody = SKPhysicsBody(texture: self.texture!, size: self.texture!.size())
         self.physicsBody?.isDynamic = false
+//        self.physicsBody?.affectedByGravity = true
         scene.addChild(self)
     }
     
@@ -98,5 +99,9 @@ extension Block {
             let imageName = beaver.direction == .right ? "beaverRight" : "beaverLeft"
             beaver.texture = SKTexture(imageNamed: imageName)
         }
+    }
+    
+    func activateGravity() {
+        self.physicsBody?.isDynamic = true
     }
 }
