@@ -1,7 +1,7 @@
 # DamIt README (Group 13)
 
 ## Comments
-Our scenes are currently built out for iPhone 11 Pro Max only
+  * Please run this app/game on a real device to get the best performace. Any iOS device or model is supported.
 
 ### Contributions
 #### Kishan Solanki - KS46487 (30%):
