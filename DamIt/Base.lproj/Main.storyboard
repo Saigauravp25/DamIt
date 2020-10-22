@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="eH5-0D-iBj">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="ySr-Ek-gIf">
     <device id="retina6_5" orientation="landscape" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17125"/>
@@ -18,10 +18,14 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="damItLogo" translatesAutoresizingMaskIntoConstraints="NO" id="Uqw-GC-6Jh">
-                                <rect key="frame" x="179.33333333333331" y="50.666666666666671" width="537.33333333333348" height="248.33333333333331"/>
+                                <rect key="frame" x="179.33333333333331" y="33.000000000000014" width="537.33333333333348" height="248.33333333333337"/>
                             </imageView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="wave" translatesAutoresizingMaskIntoConstraints="NO" id="06h-e4-Tjn">
-                                <rect key="frame" x="-273" y="262.66666666666669" width="1200" height="445.00000000000006"/>
+                                <rect key="frame" x="-548" y="196.33333333333337" width="1600" height="550"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="550" id="0DM-Cu-tIt"/>
+                                    <constraint firstAttribute="width" constant="1600" id="Lpl-pv-pTu"/>
+                                </constraints>
                             </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="gAP-Kv-6vV"/>
@@ -29,8 +33,8 @@
                         <constraints>
                             <constraint firstItem="Uqw-GC-6Jh" firstAttribute="centerX" secondItem="gAP-Kv-6vV" secondAttribute="centerX" id="EVM-EY-wca"/>
                             <constraint firstItem="Uqw-GC-6Jh" firstAttribute="height" secondItem="gcQ-MZ-Jyu" secondAttribute="height" multiplier="0.6" id="WHS-8L-Rfp"/>
-                            <constraint firstItem="06h-e4-Tjn" firstAttribute="trailing" secondItem="gAP-Kv-6vV" secondAttribute="trailing" constant="75" id="Yo3-m7-gYH"/>
-                            <constraint firstItem="06h-e4-Tjn" firstAttribute="centerY" secondItem="gAP-Kv-6vV" secondAttribute="centerY" multiplier="2.22" id="Zz6-hd-CSZ"/>
+                            <constraint firstItem="06h-e4-Tjn" firstAttribute="trailing" secondItem="gAP-Kv-6vV" secondAttribute="trailing" constant="200" id="Yo3-m7-gYH"/>
+                            <constraint firstItem="06h-e4-Tjn" firstAttribute="top" secondItem="Uqw-GC-6Jh" secondAttribute="bottom" constant="-85" id="aFG-zq-pSh"/>
                             <constraint firstItem="Uqw-GC-6Jh" firstAttribute="width" secondItem="gcQ-MZ-Jyu" secondAttribute="width" multiplier="0.6" id="aGi-kO-lHG"/>
                             <constraint firstItem="Uqw-GC-6Jh" firstAttribute="centerY" secondItem="gAP-Kv-6vV" secondAttribute="centerY" multiplier="0.8" id="yAD-yv-sX6"/>
                         </constraints>
@@ -38,12 +42,12 @@
                     <navigationItem key="navigationItem" id="rLM-Dm-pLP"/>
                     <connections>
                         <outlet property="waveImage" destination="06h-e4-Tjn" id="KXV-66-YkY"/>
-                        <segue destination="BYZ-38-t0r" kind="show" id="Zow-dC-5Ej"/>
+                        <segue destination="BYZ-38-t0r" kind="presentation" identifier="mainScreenSegue" modalPresentationStyle="fullScreen" modalTransitionStyle="crossDissolve" id="Zow-dC-5Ej"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3C1-Gv-oqf" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="449" y="-543"/>
+            <point key="canvasLocation" x="363.61607142857139" y="-471.01449275362324"/>
         </scene>
         <!--Home Screen View Controller-->
         <scene sceneID="tne-QT-ifu">
@@ -54,39 +58,48 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="homeScreen" translatesAutoresizingMaskIntoConstraints="NO" id="dGf-vZ-xcl">
-                                <rect key="frame" x="0.0" y="11.666666666666657" width="896" height="414"/>
+                                <rect key="frame" x="0.0" y="-21" width="896" height="435"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5EO-zy-Nla">
-                                <rect key="frame" x="354.66666666666669" y="157.66666666666666" width="187.00000000000006" height="65"/>
+                                <rect key="frame" x="291.33333333333337" y="133.66666666666666" width="313.33333333333337" height="74.666666666666657"/>
+                                <fontDescription key="fontDescription" name="MarkerFelt-Wide" family="Marker Felt" pointSize="30"/>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <state key="normal" title="Single Player" backgroundImage="woodenPlank"/>
+                                <state key="normal" title="Single Player" backgroundImage="woodenPlank">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
                                 <connections>
                                     <action selector="playerModeButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="qiO-2K-BVv"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="56Z-5v-WPV">
-                                <rect key="frame" x="354.66666666666669" y="237.66666666666663" width="187.00000000000006" height="65"/>
+                                <rect key="frame" x="291.33333333333337" y="223.33333333333334" width="313.33333333333337" height="74.333333333333343"/>
+                                <fontDescription key="fontDescription" name="MarkerFelt-Wide" family="Marker Felt" pointSize="30"/>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <state key="normal" title="Co-op" backgroundImage="woodenPlank"/>
+                                <state key="normal" title="Co-op" backgroundImage="woodenPlank">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
                                 <connections>
                                     <action selector="playerModeButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Jwb-bp-a45"/>
                                 </connections>
                             </button>
                             <button opaque="NO" alpha="0.90000000000000002" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="219-Ic-Sp5" userLabel="Settings">
-                                <rect key="frame" x="577" y="170" width="40.666666666666629" height="40"/>
+                                <rect key="frame" x="640" y="148" width="46.666666666666629" height="46"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="219-Ic-Sp5" secondAttribute="height" multiplier="1:1" id="puv-rp-E7l"/>
                                 </constraints>
                                 <color key="tintColor" systemColor="systemGrayColor"/>
                                 <state key="normal" backgroundImage="gearshape.fill" catalog="system"/>
                                 <connections>
-                                    <segue destination="GA1-dz-i3L" kind="show" identifier="settingsSegue" id="xfS-3K-alE"/>
+                                    <segue destination="GA1-dz-i3L" kind="presentation" identifier="settingsSegue" modalPresentationStyle="fullScreen" id="xfS-3K-alE"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7E3-Qp-Ces">
-                                <rect key="frame" x="354.66666666666669" y="317.66666666666669" width="187.00000000000006" height="65"/>
+                                <rect key="frame" x="291.33333333333337" y="312.66666666666669" width="313.33333333333337" height="74.666666666666686"/>
+                                <fontDescription key="fontDescription" name="MarkerFelt-Wide" family="Marker Felt" pointSize="30"/>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <state key="normal" title="Multiplayer" backgroundImage="woodenPlank"/>
+                                <state key="normal" title="Multiplayer" backgroundImage="woodenPlank">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
                                 <connections>
                                     <action selector="playerModeButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="0Ud-J6-o9c"/>
                                 </connections>
@@ -100,17 +113,17 @@
                             <constraint firstItem="56Z-5v-WPV" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="7KW-UR-ADy"/>
                             <constraint firstItem="56Z-5v-WPV" firstAttribute="width" secondItem="5EO-zy-Nla" secondAttribute="width" id="8jY-5a-FsE"/>
                             <constraint firstItem="219-Ic-Sp5" firstAttribute="centerY" secondItem="5EO-zy-Nla" secondAttribute="centerY" id="BrN-ex-Jhf"/>
-                            <constraint firstItem="5EO-zy-Nla" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="0.208705" id="J6O-ug-Rab"/>
+                            <constraint firstItem="5EO-zy-Nla" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="0.35" id="J6O-ug-Rab"/>
                             <constraint firstItem="7E3-Qp-Ces" firstAttribute="width" secondItem="56Z-5v-WPV" secondAttribute="width" id="LP8-kg-aad"/>
                             <constraint firstItem="56Z-5v-WPV" firstAttribute="top" secondItem="5EO-zy-Nla" secondAttribute="bottom" constant="15" id="Lqt-xI-2or"/>
                             <constraint firstItem="7E3-Qp-Ces" firstAttribute="top" secondItem="56Z-5v-WPV" secondAttribute="bottom" constant="15" id="Ogb-N8-yOb"/>
                             <constraint firstItem="56Z-5v-WPV" firstAttribute="height" secondItem="5EO-zy-Nla" secondAttribute="height" id="RkA-Uh-UMp"/>
-                            <constraint firstItem="5EO-zy-Nla" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="0.157005" id="YmQ-I8-AZK"/>
+                            <constraint firstItem="5EO-zy-Nla" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="0.18" id="YmQ-I8-AZK"/>
                             <constraint firstItem="dGf-vZ-xcl" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="Yw1-E0-ubm"/>
                             <constraint firstItem="dGf-vZ-xcl" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" id="bFc-l1-V6O"/>
                             <constraint firstItem="5EO-zy-Nla" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="ghz-27-ZGH"/>
                             <constraint firstItem="7E3-Qp-Ces" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="hSA-FX-GXw"/>
-                            <constraint firstItem="dGf-vZ-xcl" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" id="nAh-Im-6L6"/>
+                            <constraint firstItem="dGf-vZ-xcl" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="1.05" id="nAh-Im-6L6"/>
                             <constraint firstItem="5EO-zy-Nla" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" multiplier="0.87" id="q99-ZJ-LNG"/>
                             <constraint firstItem="7E3-Qp-Ces" firstAttribute="height" secondItem="56Z-5v-WPV" secondAttribute="height" id="wpk-zk-syH"/>
                             <constraint firstItem="219-Ic-Sp5" firstAttribute="height" secondItem="5EO-zy-Nla" secondAttribute="height" multiplier="0.625641" id="xWr-Kg-QsD"/>
@@ -118,12 +131,12 @@
                     </view>
                     <navigationItem key="navigationItem" id="9sY-nR-PmI"/>
                     <connections>
-                        <segue destination="5jH-JL-YEc" kind="show" identifier="LevelPackSelectSegue" id="3TX-OJ-5Ie"/>
+                        <segue destination="5jH-JL-YEc" kind="presentation" identifier="LevelPackSelectSegue" modalPresentationStyle="fullScreen" id="3TX-OJ-5Ie"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="515.625" y="182.60869565217394"/>
+            <point key="canvasLocation" x="363.61607142857139" y="444.92753623188412"/>
         </scene>
         <!--Settings View Controller-->
         <scene sceneID="s8W-fc-Lpy">
@@ -134,68 +147,82 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Settings" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Iqx-m0-JOL">
-                                <rect key="frame" x="379" y="64" width="138" height="47"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="39"/>
+                                <rect key="frame" x="376.33333333333331" y="3.3333333333333321" width="143.66666666666669" height="52"/>
+                                <fontDescription key="fontDescription" name="MarkerFelt-Wide" family="Marker Felt" pointSize="40"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sound FX" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hRR-Lu-g9k">
-                                <rect key="frame" x="246" y="131" width="225" height="25"/>
+                                <rect key="frame" x="242.66666666666663" y="75.333333333333329" width="500" height="40"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="25" id="wXW-cB-ns3"/>
-                                    <constraint firstAttribute="width" constant="225" id="xMf-go-ELr"/>
+                                    <constraint firstAttribute="height" constant="40" id="wXW-cB-ns3"/>
+                                    <constraint firstAttribute="width" constant="500" id="xMf-go-ELr"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <fontDescription key="fontDescription" name="MarkerFelt-Wide" family="Marker Felt" pointSize="30"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Background Music" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WSP-eH-5Ss">
-                                <rect key="frame" x="246" y="176" width="163" height="24"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <rect key="frame" x="242.66666666666666" y="135.33333333333334" width="362.33333333333337" height="38.666666666666657"/>
+                                <fontDescription key="fontDescription" name="MarkerFelt-Wide" family="Marker Felt" pointSize="30"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Notifications" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dsE-R0-zsN">
-                                <rect key="frame" x="246" y="220" width="111" height="24"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <rect key="frame" x="242.66666666666669" y="194" width="246.66666666666669" height="38.333333333333343"/>
+                                <fontDescription key="fontDescription" name="MarkerFelt-Wide" family="Marker Felt" pointSize="30"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Touch Controls/D-pad" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CyX-nf-7R4">
-                                <rect key="frame" x="246" y="264" width="194" height="24"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <rect key="frame" x="242.66666666666666" y="252.33333333333334" width="431.33333333333337" height="38.333333333333343"/>
+                                <fontDescription key="fontDescription" name="MarkerFelt-Wide" family="Marker Felt" pointSize="30"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="76x-cb-9hB">
-                                <rect key="frame" x="580.33333333333337" y="128" width="51" height="31"/>
+                                <rect key="frame" x="602.66666666666663" y="80" width="51" height="31"/>
                                 <connections>
                                     <action selector="settingsToggleChanged:" destination="GA1-dz-i3L" eventType="valueChanged" id="Buo-Xa-tHZ"/>
                                 </connections>
                             </switch>
                             <switch opaque="NO" tag="1" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Zdc-VB-gXy">
-                                <rect key="frame" x="580.33333333333337" y="172.33333333333334" width="51" height="31"/>
+                                <rect key="frame" x="602.66666666666663" y="139.33333333333334" width="51" height="31"/>
                                 <connections>
                                     <action selector="settingsToggleChanged:" destination="GA1-dz-i3L" eventType="valueChanged" id="cXr-vN-xT0"/>
                                 </connections>
                             </switch>
                             <switch opaque="NO" tag="2" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6g6-yP-gKr">
-                                <rect key="frame" x="580.33333333333337" y="216.33333333333334" width="51" height="31"/>
+                                <rect key="frame" x="602.66666666666663" y="197.66666666666666" width="51" height="31"/>
                                 <connections>
                                     <action selector="settingsToggleChanged:" destination="GA1-dz-i3L" eventType="valueChanged" id="n8f-xx-rS9"/>
                                 </connections>
                             </switch>
                             <switch opaque="NO" tag="3" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="GKh-tw-eRp">
-                                <rect key="frame" x="580.33333333333337" y="260.33333333333331" width="51" height="31"/>
+                                <rect key="frame" x="602.66666666666663" y="256" width="51" height="31"/>
                                 <connections>
                                     <action selector="settingsToggleChanged:" destination="GA1-dz-i3L" eventType="valueChanged" id="kkg-EU-ItQ"/>
                                 </connections>
                             </switch>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KUc-qL-E4P">
-                                <rect key="frame" x="375.66666666666669" y="345.66666666666669" width="145.00000000000006" height="30"/>
-                                <state key="normal" title="Customize Character"/>
+                                <rect key="frame" x="224" y="316.33333333333331" width="448" height="75"/>
+                                <fontDescription key="fontDescription" name="MarkerFelt-Wide" family="Marker Felt" pointSize="30"/>
+                                <state key="normal" title="Customize Character" backgroundImage="woodenPlank">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
                                 <connections>
-                                    <segue destination="9uD-OA-Fhh" kind="show" identifier="customizeCharacterSegue" id="vzh-Jc-d3R"/>
+                                    <segue destination="9uD-OA-Fhh" kind="presentation" identifier="customizeCharacterSegue" modalPresentationStyle="fullScreen" id="vzh-Jc-d3R"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" alpha="0.75" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GkJ-ff-Jp5" userLabel="Back">
+                                <rect key="frame" x="64" y="21" width="71.666666666666686" height="70.333333333333343"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="GkJ-ff-Jp5" secondAttribute="height" multiplier="1:1" id="b8O-sI-sY1"/>
+                                </constraints>
+                                <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal" backgroundImage="arrowshape.turn.up.left.circle.fill" catalog="system"/>
+                                <connections>
+                                    <action selector="backButton:" destination="GA1-dz-i3L" eventType="touchUpInside" id="ZT7-XS-Tif"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -204,28 +231,33 @@
                         <constraints>
                             <constraint firstItem="CyX-nf-7R4" firstAttribute="height" secondItem="dsE-R0-zsN" secondAttribute="height" id="12C-SH-kuI"/>
                             <constraint firstItem="KUc-qL-E4P" firstAttribute="centerX" secondItem="5Bf-gf-wMe" secondAttribute="centerX" id="14D-uU-H4H"/>
+                            <constraint firstItem="GkJ-ff-Jp5" firstAttribute="top" secondItem="5Bf-gf-wMe" secondAttribute="top" constant="20" id="2Ez-Qq-MBB"/>
                             <constraint firstItem="dsE-R0-zsN" firstAttribute="leading" secondItem="WSP-eH-5Ss" secondAttribute="leading" id="75F-04-dHv"/>
                             <constraint firstItem="WSP-eH-5Ss" firstAttribute="width" secondItem="hRR-Lu-g9k" secondAttribute="width" multiplier="0.724444" id="7KJ-GB-faP"/>
-                            <constraint firstItem="KUc-qL-E4P" firstAttribute="centerY" secondItem="5Bf-gf-wMe" secondAttribute="centerY" multiplier="1.65" id="7aK-jI-A3D"/>
+                            <constraint firstItem="KUc-qL-E4P" firstAttribute="centerY" secondItem="5Bf-gf-wMe" secondAttribute="centerY" multiplier="1.8" id="7aK-jI-A3D"/>
                             <constraint firstItem="WSP-eH-5Ss" firstAttribute="height" secondItem="hRR-Lu-g9k" secondAttribute="height" multiplier="0.96" id="9l4-t5-hfa"/>
                             <constraint firstItem="CyX-nf-7R4" firstAttribute="width" secondItem="dsE-R0-zsN" secondAttribute="width" multiplier="1.74775" id="CAe-ZF-vg5"/>
+                            <constraint firstItem="GkJ-ff-Jp5" firstAttribute="width" secondItem="p2N-H9-fHu" secondAttribute="width" multiplier="0.0799851" id="CXc-IS-Mnc"/>
                             <constraint firstItem="Zdc-VB-gXy" firstAttribute="leading" secondItem="76x-cb-9hB" secondAttribute="leading" id="FzM-Jh-J4w"/>
                             <constraint firstItem="WSP-eH-5Ss" firstAttribute="top" secondItem="hRR-Lu-g9k" secondAttribute="bottom" constant="20" id="KaO-ce-Heh"/>
                             <constraint firstItem="GKh-tw-eRp" firstAttribute="leading" secondItem="6g6-yP-gKr" secondAttribute="leading" id="KhZ-G5-rRo"/>
                             <constraint firstItem="GKh-tw-eRp" firstAttribute="centerY" secondItem="CyX-nf-7R4" secondAttribute="centerY" id="Nz1-9v-NTv"/>
                             <constraint firstItem="CyX-nf-7R4" firstAttribute="top" secondItem="dsE-R0-zsN" secondAttribute="bottom" constant="20" id="Q8h-dL-REG"/>
                             <constraint firstItem="76x-cb-9hB" firstAttribute="centerY" secondItem="hRR-Lu-g9k" secondAttribute="centerY" id="RZx-X9-st0"/>
-                            <constraint firstItem="hRR-Lu-g9k" firstAttribute="centerX" secondItem="5Bf-gf-wMe" secondAttribute="centerX" multiplier="0.8" id="XAm-7H-rEe"/>
+                            <constraint firstItem="hRR-Lu-g9k" firstAttribute="centerX" secondItem="5Bf-gf-wMe" secondAttribute="centerX" multiplier="1.1" id="XAm-7H-rEe"/>
                             <constraint firstItem="Zdc-VB-gXy" firstAttribute="centerY" secondItem="WSP-eH-5Ss" secondAttribute="centerY" id="YXd-YO-lPn"/>
                             <constraint firstItem="dsE-R0-zsN" firstAttribute="top" secondItem="WSP-eH-5Ss" secondAttribute="bottom" constant="20" id="ats-Jr-O3h"/>
                             <constraint firstItem="Iqx-m0-JOL" firstAttribute="centerX" secondItem="5Bf-gf-wMe" secondAttribute="centerX" id="axf-M0-zq2"/>
+                            <constraint firstItem="GkJ-ff-Jp5" firstAttribute="leading" secondItem="5Bf-gf-wMe" secondAttribute="leading" constant="20" id="eZh-gJ-jya"/>
                             <constraint firstItem="WSP-eH-5Ss" firstAttribute="leading" secondItem="hRR-Lu-g9k" secondAttribute="leading" id="g40-XK-znW"/>
                             <constraint firstItem="6g6-yP-gKr" firstAttribute="centerY" secondItem="dsE-R0-zsN" secondAttribute="centerY" id="lOD-Ap-NQL"/>
                             <constraint firstItem="hRR-Lu-g9k" firstAttribute="top" secondItem="Iqx-m0-JOL" secondAttribute="bottom" constant="20" id="lyj-ri-eL2"/>
-                            <constraint firstItem="Iqx-m0-JOL" firstAttribute="centerY" secondItem="5Bf-gf-wMe" secondAttribute="centerY" multiplier="0.4" id="oaH-id-q2b"/>
+                            <constraint firstItem="Iqx-m0-JOL" firstAttribute="centerY" secondItem="5Bf-gf-wMe" secondAttribute="centerY" multiplier="0.15" id="oaH-id-q2b"/>
                             <constraint firstItem="dsE-R0-zsN" firstAttribute="height" secondItem="WSP-eH-5Ss" secondAttribute="height" id="tp8-KW-Qbz"/>
                             <constraint firstItem="dsE-R0-zsN" firstAttribute="width" secondItem="WSP-eH-5Ss" secondAttribute="width" multiplier="0.680982" id="uOJ-gb-uPz"/>
-                            <constraint firstItem="76x-cb-9hB" firstAttribute="centerX" secondItem="5Bf-gf-wMe" secondAttribute="centerX" multiplier="1.35" id="zV0-i7-y2I"/>
+                            <constraint firstItem="KUc-qL-E4P" firstAttribute="height" secondItem="p2N-H9-fHu" secondAttribute="height" multiplier="0.181159" id="wqf-8j-Fbg"/>
+                            <constraint firstItem="KUc-qL-E4P" firstAttribute="width" secondItem="p2N-H9-fHu" secondAttribute="width" multiplier="0.5" id="yW0-oA-mCk"/>
+                            <constraint firstItem="76x-cb-9hB" firstAttribute="centerX" secondItem="5Bf-gf-wMe" secondAttribute="centerX" multiplier="1.4" id="zV0-i7-y2I"/>
                             <constraint firstItem="6g6-yP-gKr" firstAttribute="leading" secondItem="Zdc-VB-gXy" secondAttribute="leading" id="zVx-x6-yA5"/>
                             <constraint firstItem="CyX-nf-7R4" firstAttribute="leading" secondItem="dsE-R0-zsN" secondAttribute="leading" id="zvO-xF-Ojk"/>
                         </constraints>
@@ -240,7 +272,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PCP-h9-U5L" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="531.69642857142856" y="953.62318840579712"/>
+            <point key="canvasLocation" x="363.61607142857139" y="1356.521739130435"/>
         </scene>
         <!--Level Select View Controller-->
         <scene sceneID="iYE-gP-NSu">
@@ -251,77 +283,118 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="88H-cs-SlO">
-                                <rect key="frame" x="78" y="81" width="100" height="100"/>
-                                <state key="normal" title="Level 1" backgroundImage="woodenPlank"/>
+                                <rect key="frame" x="78" y="97.333333333333314" width="100" height="100"/>
+                                <fontDescription key="fontDescription" name="MarkerFelt-Wide" family="Marker Felt" pointSize="50"/>
+                                <state key="normal" title="1" backgroundImage="woodenPlank">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
                                 <connections>
                                     <action selector="levelButtonPressed:" destination="asj-rn-UgR" eventType="touchUpInside" id="CBf-OK-kWm"/>
-                                    <segue destination="tJF-TI-Z4f" kind="showDetail" identifier="gameSegue" id="vV1-v0-No3"/>
+                                    <segue destination="tJF-TI-Z4f" kind="presentation" identifier="gameSegue" modalPresentationStyle="fullScreen" id="vV1-v0-No3"/>
                                 </connections>
                             </button>
                             <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CjE-zW-Kvu">
-                                <rect key="frame" x="238" y="81" width="100" height="100"/>
-                                <state key="normal" title="Level 2" backgroundImage="woodenPlank"/>
+                                <rect key="frame" x="238" y="97.333333333333314" width="100" height="100"/>
+                                <fontDescription key="fontDescription" name="MarkerFelt-Wide" family="Marker Felt" pointSize="50"/>
+                                <state key="normal" title="2" backgroundImage="woodenPlank">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
                                 <connections>
                                     <action selector="levelButtonPressed:" destination="asj-rn-UgR" eventType="touchUpInside" id="LAT-tz-XHD"/>
                                 </connections>
                             </button>
                             <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZMQ-0r-0pp">
-                                <rect key="frame" x="398" y="81" width="100" height="100"/>
+                                <rect key="frame" x="398" y="97.333333333333314" width="100" height="100"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="ZMQ-0r-0pp" secondAttribute="height" multiplier="1:1" id="Cqm-xN-pZU"/>
                                 </constraints>
-                                <state key="normal" title="Level 3" backgroundImage="woodenPlank"/>
+                                <fontDescription key="fontDescription" name="MarkerFelt-Wide" family="Marker Felt" pointSize="50"/>
+                                <state key="normal" title="3" backgroundImage="woodenPlank">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
                                 <connections>
                                     <action selector="levelButtonPressed:" destination="asj-rn-UgR" eventType="touchUpInside" id="Yno-gR-UsR"/>
                                 </connections>
                             </button>
                             <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HXq-sw-rP1">
-                                <rect key="frame" x="558" y="81" width="100" height="100"/>
-                                <state key="normal" title="Level 4" backgroundImage="woodenPlank"/>
+                                <rect key="frame" x="558" y="97.333333333333314" width="100" height="100"/>
+                                <fontDescription key="fontDescription" name="MarkerFelt-Wide" family="Marker Felt" pointSize="50"/>
+                                <state key="normal" title="4" backgroundImage="woodenPlank">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
                                 <connections>
                                     <action selector="levelButtonPressed:" destination="asj-rn-UgR" eventType="touchUpInside" id="RBX-qd-CSa"/>
                                 </connections>
                             </button>
                             <button opaque="NO" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SZJ-tj-Ge0">
-                                <rect key="frame" x="718" y="81" width="100" height="100"/>
-                                <state key="normal" title="Level 5" backgroundImage="woodenPlank"/>
+                                <rect key="frame" x="718" y="97.333333333333314" width="100" height="100"/>
+                                <fontDescription key="fontDescription" name="MarkerFelt-Wide" family="Marker Felt" pointSize="50"/>
+                                <state key="normal" title="5" backgroundImage="woodenPlank">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
                                 <connections>
                                     <action selector="levelButtonPressed:" destination="asj-rn-UgR" eventType="touchUpInside" id="fov-Wm-58C"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QXZ-gI-A0H">
-                                <rect key="frame" x="78" y="261" width="100" height="100"/>
-                                <state key="normal" title="Level 6" backgroundImage="woodenPlank"/>
+                                <rect key="frame" x="78" y="257.33333333333331" width="100" height="100"/>
+                                <fontDescription key="fontDescription" name="MarkerFelt-Wide" family="Marker Felt" pointSize="50"/>
+                                <state key="normal" title="6" backgroundImage="woodenPlank">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
                                 <connections>
                                     <action selector="levelButtonPressed:" destination="asj-rn-UgR" eventType="touchUpInside" id="AtE-vY-tOm"/>
                                 </connections>
                             </button>
                             <button opaque="NO" tag="1" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NBP-DS-m1T">
-                                <rect key="frame" x="238" y="261" width="100" height="100"/>
-                                <state key="normal" title="Level 7" backgroundImage="woodenPlank"/>
+                                <rect key="frame" x="238" y="257.33333333333331" width="100" height="100"/>
+                                <fontDescription key="fontDescription" name="MarkerFelt-Wide" family="Marker Felt" pointSize="50"/>
+                                <state key="normal" title="7" backgroundImage="woodenPlank">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
                                 <connections>
                                     <action selector="levelButtonPressed:" destination="asj-rn-UgR" eventType="touchUpInside" id="2nN-Uf-FVy"/>
                                 </connections>
                             </button>
                             <button opaque="NO" tag="2" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="myI-E1-vvQ">
-                                <rect key="frame" x="398" y="261" width="100" height="100"/>
-                                <state key="normal" title="Level 8" backgroundImage="woodenPlank"/>
+                                <rect key="frame" x="398" y="257.33333333333331" width="100" height="100"/>
+                                <fontDescription key="fontDescription" name="MarkerFelt-Wide" family="Marker Felt" pointSize="50"/>
+                                <state key="normal" title="8" backgroundImage="woodenPlank">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
                                 <connections>
                                     <action selector="levelButtonPressed:" destination="asj-rn-UgR" eventType="touchUpInside" id="g9Y-6j-cPi"/>
                                 </connections>
                             </button>
                             <button opaque="NO" tag="8" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="m0G-DQ-DjO">
-                                <rect key="frame" x="558" y="261" width="100" height="100"/>
-                                <state key="normal" title="Level 9" backgroundImage="woodenPlank"/>
+                                <rect key="frame" x="558" y="257.33333333333331" width="100" height="100"/>
+                                <fontDescription key="fontDescription" name="MarkerFelt-Wide" family="Marker Felt" pointSize="50"/>
+                                <state key="normal" title="9" backgroundImage="woodenPlank">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
                                 <connections>
                                     <action selector="levelButtonPressed:" destination="asj-rn-UgR" eventType="touchUpInside" id="MKU-Px-uiO"/>
                                 </connections>
                             </button>
                             <button opaque="NO" tag="9" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aPd-11-28N">
-                                <rect key="frame" x="718" y="261" width="100" height="100"/>
-                                <state key="normal" title="Level 10" backgroundImage="woodenPlank"/>
+                                <rect key="frame" x="718" y="257.33333333333331" width="100" height="100"/>
+                                <fontDescription key="fontDescription" name="MarkerFelt-Wide" family="Marker Felt" pointSize="50"/>
+                                <state key="normal" title="10" backgroundImage="woodenPlank">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
                                 <connections>
                                     <action selector="levelButtonPressed:" destination="asj-rn-UgR" eventType="touchUpInside" id="ylq-5A-HmT"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" alpha="0.75" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hf4-cj-2hY" userLabel="Back">
+                                <rect key="frame" x="64" y="21" width="71.666666666666686" height="70.333333333333343"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="hf4-cj-2hY" secondAttribute="height" multiplier="1:1" id="OYc-3e-N51"/>
+                                </constraints>
+                                <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal" backgroundImage="arrowshape.turn.up.left.circle.fill" catalog="system"/>
+                                <connections>
+                                    <action selector="backButton:" destination="asj-rn-UgR" eventType="touchUpInside" id="bk7-py-f2r"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -330,7 +403,9 @@
                         <constraints>
                             <constraint firstItem="aPd-11-28N" firstAttribute="width" secondItem="myI-E1-vvQ" secondAttribute="width" id="1xf-zF-L3Z"/>
                             <constraint firstItem="aPd-11-28N" firstAttribute="height" secondItem="myI-E1-vvQ" secondAttribute="height" id="31S-iM-g2s"/>
+                            <constraint firstItem="hf4-cj-2hY" firstAttribute="leading" secondItem="Ns2-OH-6zD" secondAttribute="leading" constant="20" id="4dW-D8-nYo"/>
                             <constraint firstItem="ZMQ-0r-0pp" firstAttribute="centerX" secondItem="Ns2-OH-6zD" secondAttribute="centerX" id="7mQ-fN-D4O"/>
+                            <constraint firstItem="hf4-cj-2hY" firstAttribute="top" secondItem="Ns2-OH-6zD" secondAttribute="top" constant="20" id="7me-RG-Cd8"/>
                             <constraint firstItem="ZMQ-0r-0pp" firstAttribute="width" secondItem="CjE-zW-Kvu" secondAttribute="width" id="8s9-pE-viZ"/>
                             <constraint firstItem="CjE-zW-Kvu" firstAttribute="width" secondItem="88H-cs-SlO" secondAttribute="width" id="90X-HL-GZ8"/>
                             <constraint firstItem="SZJ-tj-Ge0" firstAttribute="leading" secondItem="HXq-sw-rP1" secondAttribute="trailing" constant="60" id="9Db-Ri-V6o"/>
@@ -344,6 +419,7 @@
                             <constraint firstItem="HXq-sw-rP1" firstAttribute="width" secondItem="ZMQ-0r-0pp" secondAttribute="width" id="Ldh-vo-OGO"/>
                             <constraint firstItem="SZJ-tj-Ge0" firstAttribute="width" secondItem="HXq-sw-rP1" secondAttribute="width" id="MaV-zS-moX"/>
                             <constraint firstItem="NBP-DS-m1T" firstAttribute="height" secondItem="myI-E1-vvQ" secondAttribute="height" id="NON-J9-zdw"/>
+                            <constraint firstItem="hf4-cj-2hY" firstAttribute="width" secondItem="EoH-cD-Gc4" secondAttribute="width" multiplier="0.0799851" id="NW4-SH-qIR"/>
                             <constraint firstItem="m0G-DQ-DjO" firstAttribute="centerX" secondItem="HXq-sw-rP1" secondAttribute="centerX" id="Ndp-Kb-szG"/>
                             <constraint firstItem="CjE-zW-Kvu" firstAttribute="centerY" secondItem="ZMQ-0r-0pp" secondAttribute="centerY" id="Oq0-tX-qya"/>
                             <constraint firstItem="ZMQ-0r-0pp" firstAttribute="leading" secondItem="CjE-zW-Kvu" secondAttribute="trailing" constant="60" id="QrP-8p-QE8"/>
@@ -354,7 +430,7 @@
                             <constraint firstItem="myI-E1-vvQ" firstAttribute="centerX" secondItem="ZMQ-0r-0pp" secondAttribute="centerX" id="WPK-IR-cec"/>
                             <constraint firstItem="SZJ-tj-Ge0" firstAttribute="centerY" secondItem="HXq-sw-rP1" secondAttribute="centerY" id="XET-bH-tpq"/>
                             <constraint firstItem="HXq-sw-rP1" firstAttribute="height" secondItem="ZMQ-0r-0pp" secondAttribute="height" id="XKb-5P-fiO"/>
-                            <constraint firstItem="ZMQ-0r-0pp" firstAttribute="centerY" secondItem="Ns2-OH-6zD" secondAttribute="centerY" multiplier="0.6" id="ZD0-ys-8Ug"/>
+                            <constraint firstItem="ZMQ-0r-0pp" firstAttribute="centerY" secondItem="Ns2-OH-6zD" secondAttribute="centerY" multiplier="0.75" id="ZD0-ys-8Ug"/>
                             <constraint firstItem="m0G-DQ-DjO" firstAttribute="height" secondItem="myI-E1-vvQ" secondAttribute="height" id="Zu6-VG-bxb"/>
                             <constraint firstItem="CjE-zW-Kvu" firstAttribute="leading" secondItem="88H-cs-SlO" secondAttribute="trailing" constant="60" id="bRq-gx-5Da"/>
                             <constraint firstItem="88H-cs-SlO" firstAttribute="centerY" secondItem="CjE-zW-Kvu" secondAttribute="centerY" id="e8r-N2-Wgh"/>
@@ -365,7 +441,7 @@
                             <constraint firstItem="ZMQ-0r-0pp" firstAttribute="height" secondItem="CjE-zW-Kvu" secondAttribute="height" id="nG0-ip-77J"/>
                             <constraint firstItem="ZMQ-0r-0pp" firstAttribute="width" secondItem="EoH-cD-Gc4" secondAttribute="width" multiplier="0.111607" id="t2q-ML-Jb6"/>
                             <constraint firstItem="QXZ-gI-A0H" firstAttribute="height" secondItem="NBP-DS-m1T" secondAttribute="height" id="vBa-BW-20O"/>
-                            <constraint firstItem="myI-E1-vvQ" firstAttribute="top" secondItem="ZMQ-0r-0pp" secondAttribute="bottom" constant="80" id="wbu-Oe-exR"/>
+                            <constraint firstItem="myI-E1-vvQ" firstAttribute="top" secondItem="ZMQ-0r-0pp" secondAttribute="bottom" constant="60" id="wbu-Oe-exR"/>
                             <constraint firstItem="myI-E1-vvQ" firstAttribute="width" secondItem="ZMQ-0r-0pp" secondAttribute="width" id="zZY-ef-ioq"/>
                         </constraints>
                     </view>
@@ -378,7 +454,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aar-ep-Cv2" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1222.7678571428571" y="113.04347826086958"/>
+            <point key="canvasLocation" x="1077" y="445"/>
         </scene>
         <!--Game View Controller-->
         <scene sceneID="oGd-kZ-89P">
@@ -454,7 +530,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yjG-xb-A4T" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1970.7589285714284" y="-88.405797101449281"/>
+            <point key="canvasLocation" x="1780" y="445"/>
         </scene>
         <!--Customize Character View Controller-->
         <scene sceneID="Nc6-5l-SaK">
@@ -465,27 +541,47 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" tag="1" contentMode="scaleToFill" restorationIdentifier="1" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="q2B-C8-QPy">
-                                <rect key="frame" x="65.666666666666686" y="120.66666666666669" width="215" height="196"/>
+                                <rect key="frame" x="65.666666666666686" y="118" width="215" height="196"/>
                                 <color key="backgroundColor" red="0.090628929436206818" green="0.13630816340446472" blue="0.66188251972198486" alpha="0.999755859375" colorSpace="custom" customColorSpace="sRGB"/>
-                                <state key="normal" title="Skin 1"/>
+                                <fontDescription key="fontDescription" name="MarkerFelt-Wide" family="Marker Felt" pointSize="30"/>
+                                <state key="normal" title="Skin 1">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
                                 <connections>
                                     <action selector="skinStyleSelected:" destination="9uD-OA-Fhh" eventType="touchUpInside" id="J6E-Je-mYo"/>
                                 </connections>
                             </button>
                             <button opaque="NO" tag="2" contentMode="scaleToFill" restorationIdentifier="2" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="w4E-p9-fV4">
-                                <rect key="frame" x="340.66666666666669" y="120.66666666666669" width="215.00000000000006" height="196"/>
+                                <rect key="frame" x="340.66666666666669" y="118" width="215.00000000000006" height="196"/>
                                 <color key="backgroundColor" red="0.085670508444309235" green="0.37673044204711914" blue="0.20074617862701416" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <state key="normal" title="Skin 2"/>
+                                <fontDescription key="fontDescription" name="MarkerFelt-Wide" family="Marker Felt" pointSize="30"/>
+                                <state key="normal" title="Skin 2">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
                                 <connections>
                                     <action selector="skinStyleSelected:" destination="9uD-OA-Fhh" eventType="touchUpInside" id="8ad-9l-5Ic"/>
                                 </connections>
                             </button>
                             <button opaque="NO" tag="3" contentMode="scaleToFill" restorationIdentifier="3" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bOO-Ab-iL1">
-                                <rect key="frame" x="615.66666666666663" y="120.66666666666669" width="215" height="196"/>
+                                <rect key="frame" x="615.66666666666663" y="118" width="215" height="196"/>
                                 <color key="backgroundColor" red="0.58159011602401733" green="0.15501704812049866" blue="0.091957531869411469" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <state key="normal" title="Skin 3"/>
+                                <fontDescription key="fontDescription" name="MarkerFelt-Wide" family="Marker Felt" pointSize="30"/>
+                                <state key="normal" title="Skin 3">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
                                 <connections>
                                     <action selector="skinStyleSelected:" destination="9uD-OA-Fhh" eventType="touchUpInside" id="EVd-gC-PfF"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" alpha="0.75" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FGk-HZ-QqX" userLabel="Back">
+                                <rect key="frame" x="64" y="21" width="71.666666666666686" height="70.333333333333343"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="FGk-HZ-QqX" secondAttribute="height" multiplier="1:1" id="o0z-H9-BgW"/>
+                                </constraints>
+                                <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal" backgroundImage="arrowshape.turn.up.left.circle.fill" catalog="system"/>
+                                <connections>
+                                    <action selector="backButton:" destination="9uD-OA-Fhh" eventType="touchUpInside" id="JnM-nP-gjm"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -493,16 +589,19 @@
                         <color key="backgroundColor" red="0.18019958059999999" green="0.29484189890000001" blue="0.57488495110000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="bOO-Ab-iL1" firstAttribute="leading" secondItem="w4E-p9-fV4" secondAttribute="trailing" constant="60" id="6Ob-be-GVB"/>
-                            <constraint firstItem="q2B-C8-QPy" firstAttribute="centerY" secondItem="vzN-9g-FNM" secondAttribute="centerY" id="F7Z-fy-LF2"/>
+                            <constraint firstItem="FGk-HZ-QqX" firstAttribute="width" secondItem="aiJ-Wu-Y7a" secondAttribute="width" multiplier="0.0799851" id="7QK-g7-0o0"/>
+                            <constraint firstItem="bOO-Ab-iL1" firstAttribute="centerY" secondItem="w4E-p9-fV4" secondAttribute="centerY" id="9NQ-Dr-DJd"/>
                             <constraint firstItem="w4E-p9-fV4" firstAttribute="height" secondItem="q2B-C8-QPy" secondAttribute="height" id="FKe-kR-WvT"/>
+                            <constraint firstItem="FGk-HZ-QqX" firstAttribute="top" secondItem="vzN-9g-FNM" secondAttribute="top" constant="20.000000000000455" id="IaY-72-FF7"/>
+                            <constraint firstItem="FGk-HZ-QqX" firstAttribute="leading" secondItem="vzN-9g-FNM" secondAttribute="leading" constant="20" id="LZc-Oz-I0X"/>
                             <constraint firstItem="q2B-C8-QPy" firstAttribute="height" secondItem="aiJ-Wu-Y7a" secondAttribute="height" multiplier="0.47343" id="W8P-62-QGy"/>
                             <constraint firstItem="w4E-p9-fV4" firstAttribute="centerX" secondItem="vzN-9g-FNM" secondAttribute="centerX" id="WEd-hu-B9u"/>
                             <constraint firstItem="bOO-Ab-iL1" firstAttribute="height" secondItem="w4E-p9-fV4" secondAttribute="height" id="XJt-WA-emD"/>
+                            <constraint firstItem="q2B-C8-QPy" firstAttribute="centerY" secondItem="w4E-p9-fV4" secondAttribute="centerY" id="c7N-EG-Uz4"/>
                             <constraint firstItem="q2B-C8-QPy" firstAttribute="width" secondItem="aiJ-Wu-Y7a" secondAttribute="width" multiplier="0.239955" id="hws-17-qpI"/>
                             <constraint firstItem="w4E-p9-fV4" firstAttribute="width" secondItem="q2B-C8-QPy" secondAttribute="width" id="jRo-e4-hxg"/>
-                            <constraint firstItem="w4E-p9-fV4" firstAttribute="centerY" secondItem="vzN-9g-FNM" secondAttribute="centerY" id="mE6-PH-xeU"/>
+                            <constraint firstItem="w4E-p9-fV4" firstAttribute="centerY" secondItem="vzN-9g-FNM" secondAttribute="centerY" multiplier="1.1" id="mE6-PH-xeU"/>
                             <constraint firstItem="w4E-p9-fV4" firstAttribute="leading" secondItem="q2B-C8-QPy" secondAttribute="trailing" constant="60" id="tlW-0v-hav"/>
-                            <constraint firstItem="bOO-Ab-iL1" firstAttribute="centerY" secondItem="vzN-9g-FNM" secondAttribute="centerY" id="uy0-GI-xwh"/>
                             <constraint firstItem="bOO-Ab-iL1" firstAttribute="width" secondItem="w4E-p9-fV4" secondAttribute="width" id="xRd-Mm-IpB"/>
                         </constraints>
                     </view>
@@ -510,26 +609,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7Y2-tT-F63" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1238.1696428571429" y="953.62318840579712"/>
-        </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="ZDx-5x-2K7">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="eH5-0D-iBj" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="iXT-NW-X0g">
-                        <rect key="frame" x="0.0" y="0.0" width="896" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                        <color key="barTintColor" red="0.12984204290000001" green="0.12984612579999999" blue="0.12984395030000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="ySr-Ek-gIf" kind="relationship" relationship="rootViewController" id="oHa-Jy-qJH"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="nEQ-26-w2t" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="364" y="-1346"/>
+            <point key="canvasLocation" x="1078" y="1357"/>
         </scene>
         <!--Level Pack View Controller-->
         <scene sceneID="fQx-9f-sdq">
@@ -540,31 +620,31 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="aBp-kO-nxQ">
-                                <rect key="frame" x="0.0" y="33.666666666666657" width="896" height="370"/>
+                                <rect key="frame" x="0.0" y="92.000000000000014" width="896" height="248.33333333333337"/>
                                 <color key="backgroundColor" red="0.18019958063446403" green="0.29484189894824298" blue="0.57488495110000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="plU-wh-h99">
-                                    <size key="itemSize" width="240" height="240"/>
+                                    <size key="itemSize" width="475" height="239.33333333333337"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="check" id="vIq-og-jow" customClass="checkCollectionViewCell" customModule="DamIt" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="54.666666666666664" width="240" height="240"/>
+                                        <rect key="frame" x="0.0" y="4.666666666666667" width="475" height="239.33333333333337"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="ClL-EU-zin">
-                                            <rect key="frame" x="0.0" y="0.0" width="240" height="240"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="475" height="239.33333333333337"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sTS-YY-UD1">
-                                                    <rect key="frame" x="20" y="20" width="200" height="200"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                                    <rect key="frame" x="39.666666666666657" y="20" width="395.66666666666674" height="199.33333333333334"/>
+                                                    <fontDescription key="fontDescription" name="MarkerFelt-Wide" family="Marker Felt" pointSize="50"/>
                                                     <state key="normal" backgroundImage="woodenPlank">
-                                                        <color key="titleColor" systemColor="labelColor"/>
+                                                        <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     </state>
                                                     <connections>
                                                         <action selector="levelButton:" destination="vIq-og-jow" eventType="touchUpInside" id="vMj-bb-NGO"/>
-                                                        <segue destination="asj-rn-UgR" kind="show" identifier="levelSegue" id="rAJ-UY-GtP"/>
+                                                        <segue destination="asj-rn-UgR" kind="presentation" identifier="levelSegue" modalPresentationStyle="fullScreen" id="rAJ-UY-GtP"/>
                                                     </connections>
                                                 </button>
                                             </subviews>
@@ -575,7 +655,7 @@
                                                 <constraint firstItem="sTS-YY-UD1" firstAttribute="centerY" secondItem="ClL-EU-zin" secondAttribute="centerY" id="o6G-CJ-264"/>
                                             </constraints>
                                         </collectionViewCellContentView>
-                                        <size key="customSize" width="240" height="240"/>
+                                        <size key="customSize" width="475" height="239.33333333333337"/>
                                         <connections>
                                             <outlet property="buttontitle" destination="sTS-YY-UD1" id="Aud-PM-bjD"/>
                                         </connections>
@@ -586,13 +666,27 @@
                                     <outlet property="delegate" destination="5jH-JL-YEc" id="z9P-5A-9XR"/>
                                 </connections>
                             </collectionView>
+                            <button opaque="NO" alpha="0.75" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bt3-gd-iDv" userLabel="Back">
+                                <rect key="frame" x="64" y="21" width="71.666666666666686" height="70.333333333333343"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="bt3-gd-iDv" secondAttribute="height" multiplier="1:1" id="T1P-pT-7iD"/>
+                                </constraints>
+                                <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal" backgroundImage="arrowshape.turn.up.left.circle.fill" catalog="system"/>
+                                <connections>
+                                    <action selector="backButton:" destination="5jH-JL-YEc" eventType="touchUpInside" id="qES-UJ-31v"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="3P7-8i-plM"/>
                         <color key="backgroundColor" red="0.18019958059999999" green="0.29484189890000001" blue="0.57488495110000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="aBp-kO-nxQ" firstAttribute="width" secondItem="PB2-8R-iSg" secondAttribute="width" id="0QN-d7-ELJ"/>
-                            <constraint firstItem="aBp-kO-nxQ" firstAttribute="height" secondItem="PB2-8R-iSg" secondAttribute="height" multiplier="0.89372" id="fUT-Ni-6mg"/>
-                            <constraint firstItem="aBp-kO-nxQ" firstAttribute="centerY" secondItem="3P7-8i-plM" secondAttribute="centerY" id="y5g-PN-82A"/>
+                            <constraint firstItem="bt3-gd-iDv" firstAttribute="top" secondItem="3P7-8i-plM" secondAttribute="top" constant="20" id="5GS-EM-zwx"/>
+                            <constraint firstItem="bt3-gd-iDv" firstAttribute="leading" secondItem="3P7-8i-plM" secondAttribute="leading" constant="20" id="5w2-Wi-Imz"/>
+                            <constraint firstItem="aBp-kO-nxQ" firstAttribute="height" secondItem="PB2-8R-iSg" secondAttribute="height" multiplier="0.6" id="fUT-Ni-6mg"/>
+                            <constraint firstItem="bt3-gd-iDv" firstAttribute="width" secondItem="aBp-kO-nxQ" secondAttribute="width" multiplier="0.0799851" id="mfx-SQ-eJj"/>
+                            <constraint firstItem="aBp-kO-nxQ" firstAttribute="centerY" secondItem="3P7-8i-plM" secondAttribute="centerY" multiplier="1.1" id="y5g-PN-82A"/>
                             <constraint firstItem="aBp-kO-nxQ" firstAttribute="centerX" secondItem="3P7-8i-plM" secondAttribute="centerX" id="zpL-aX-CHA"/>
                         </constraints>
                     </view>
@@ -603,7 +697,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FgU-hL-t4x" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1222.7678571428571" y="-730.43478260869574"/>
+            <point key="canvasLocation" x="1076.7857142857142" y="-471.01449275362324"/>
         </scene>
     </scenes>
     <resources>
@@ -616,9 +710,6 @@
         <image name="pause.circle.fill" catalog="system" width="128" height="121"/>
         <image name="wave" width="1200" height="445"/>
         <image name="woodenPlank" width="300" height="120"/>
-        <systemColor name="labelColor">
-            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

@@ -8,8 +8,9 @@ Our scenes are currently built out for iPhone 11 Pro Max only
   * Core Data for Level Storage 
   * Building out Application UIViews w/ Delegates
   * Merging App Navigation Repo w/ Game Repo
-  * NSUserDefauls for User Settings + Custom Skin Preferences
+  * NSUserDefaults for User Settings + Custom Skin Preferences
   * GameCenter Functionality that was later scraped
+  * Designed multiple Levels
   
   
 #### Saigaurav Purushothaman - SP43976 (50%):
@@ -23,7 +24,8 @@ Our scenes are currently built out for iPhone 11 Pro Max only
   * Built User Interface for GameViewController and GameScene
   * Created necessary Types and Utilities
   * Devised and Implemented Level Encoding and Decoding Scheme for Ease of Level Creation and Storage
-
+  * Designed multiple Levels
+  * Added Constraints to all Views so the app can run on any device of any size (iPhone or iPad)
 
 
 ### Differences 

@@ -13,6 +13,10 @@ class LevelPackViewController: UIViewController {
     @IBOutlet weak var checkcollectionview: UICollectionView!
     var delegate: UIViewController!
     var levelData = [String]()
+    
+    @IBAction func backButton(_ sender: UIButton) {
+        self.dismiss(animated: true, completion: nil)
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()

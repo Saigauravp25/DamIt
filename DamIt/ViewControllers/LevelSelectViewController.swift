@@ -21,10 +21,13 @@ class LevelSelectViewController: UIViewController {
     
     @IBOutlet var buttons: [UIButton]!
    
+    @IBAction func backButton(_ sender: UIButton) {
+        self.dismiss(animated: true, completion: nil)
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        navigationItem.title = "Level Select"
+//        navigationItem.title = "Level Select"
         // hardcoded for now 
         if levelPack != 1 {
             buttons[0].isEnabled = false
