@@ -53,7 +53,7 @@ class LevelDataDecoder {
             default:
                 print("Unknown Character In Level Encoding")
             }
-            row = (row + 1) % 4
+            row = (row + 1) % height
             if row == 0 {
                 col += 1
             }

@@ -65,6 +65,7 @@ extension LevelPackViewController {
         
         let level2 = NSEntityDescription.insertNewObject(
             forEntityName: "LevelData", into:context)
+        
         let level2Encoding = "01021604LLLLRAAARRLAAAAARRAAAAAALAAALLLARRAARBAARRLLAAAAAAAARRLARLLLRLLL"
         level2.setValue(false, forKey: "completed")
         level2.setValue(0102, forKey: "id")
@@ -77,6 +78,23 @@ extension LevelPackViewController {
         level3.setValue(0103, forKey: "id")
         let level3Encoding = "01031004RLLARLAALAAARAAARRLARRBARLLAAAAARRAALLLA"
         level3.setValue(level3Encoding, forKey: "encoding")
+        
+        let level9 = NSEntityDescription.insertNewObject(
+            forEntityName: "LevelData", into:context)
+        
+        level9.setValue(false, forKey: "completed")
+        level9.setValue(0109, forKey: "id")
+        let level9Encoding = "01091405LLLLLAAAAARRLLLLLLLALAAAALLAAALLLLARLLAALLBAALAAAARRAAALLLAARRLLLRRLLL"
+        level9.setValue(level9Encoding, forKey: "encoding")
+        
+        let level10 = NSEntityDescription.insertNewObject(
+            forEntityName: "LevelData", into:context)
+        
+        level10.setValue(false, forKey: "completed")
+        level10.setValue(0110, forKey: "id")
+        let level10Encoding = "01101805RRLAALLAAAAAAAARRLAAAAAAAAAAAALAAAARLLAALLBAAAAAAARRLLARAAAARRLLLAAAAARLLAARLAAARLAAARLLLL"
+        //01101805RRLAALLAAAAAAAARRLAAAAAAAAAAAALAAAARLLAALLBAAAAAAARRLLARAAAARRLLLLAAAARLAAARLLAARLLLARLLLL
+        level10.setValue(level10Encoding, forKey: "encoding")
         
         // Commit the changes
         do {
@@ -134,12 +152,13 @@ extension LevelPackViewController {
             try fetchedResults = context.fetch(request) as? [NSManagedObject]
             if fetchedResults!.count > 0{
                 //results exist
-                levelData = Array(repeating: "", count: fetchedResults?.count ?? 0)
+                levelData = Array(repeating: "", count: 10)
                 for level in fetchedResults!{
                     if let completed = level.value(forKey: "completed") as? Bool{
                         if let id = level.value(forKey: "id") as? Int{
                             if let encoding = level.value(forKey: "encoding") as? String {
-                                let index = id % 10 - 1
+                                let levelNum = Int(encoding.substring(with: 2..<4))
+                                let index = levelNum! - 1
                                 levelData[index] = encoding
                             }
                         }
