@@ -24,6 +24,7 @@ class GameViewController: UIViewController {
         currentLevel = (currentLevel + 1) % 10 //loop in this level pack until future level packs are made
         levelEncoding = levelData[currentLevel]
         (skView.scene as! GameScene).levelEncoding = levelEncoding
+        nextLevelButtonOutlet.isHidden = true
         skView.presentScene(skView.scene)
     }
     

@@ -13,10 +13,14 @@ class LevelPackViewController: UIViewController {
     @IBOutlet weak var checkcollectionview: UICollectionView!
     var delegate: UIViewController!
     var levelData = [String]()
+    
+    @IBAction func backButton(_ sender: UIButton) {
+        self.dismiss(animated: true, completion: nil)
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        //clearCoreData()
+        clearCoreData()
         retrieveLevels()
         if(levelData.count == 0){
             storeLevels()
@@ -85,6 +89,21 @@ extension LevelPackViewController {
         let level4Encoding = "01041004RLLLRLLARLAARAAARLAARRBAAAAARAAARLAARRLA"
         level4.setValue(level4Encoding, forKey: "encoding")
         
+        let level5 = NSEntityDescription.insertNewObject(
+            forEntityName: "LevelData", into:context)
+
+        level5.setValue(false, forKey: "completed")
+        level5.setValue(0105, forKey: "id")
+        let level5Encoding = "01051407RLLLLLALLLLLAARRLLAAALLLAAAARLAAAAARBAAAAARRAAAAARAAAAAARRRAAAALLLLAAALLAAAAALAAAAAALLAAAAALLLLLL"
+        level5.setValue(level5Encoding, forKey: "encoding")
+        
+        let level6 = NSEntityDescription.insertNewObject(
+            forEntityName: "LevelData", into:context)
+
+        level6.setValue(false, forKey: "completed")
+        level6.setValue(0106, forKey: "id")
+        let level6Encoding = "01061106LLLLAALLAAAALBAAAARRAAAALLLAAAAAAAAALLLAAALLLLAALLLLLALLLLLLRRLAAA"
+        level6.setValue(level6Encoding, forKey: "encoding")
         let level7 = NSEntityDescription.insertNewObject(
             forEntityName: "LevelData", into:context)
         

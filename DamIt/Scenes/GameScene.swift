@@ -52,7 +52,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     }
 
     @objc func handleSwipe(sender: UISwipeGestureRecognizer) {
-        if self.isPaused { //|| self.isComplete
+        if self.isPaused || self.isComplete {
             return
         }
         let direction = sender.direction

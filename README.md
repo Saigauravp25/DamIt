@@ -1,15 +1,16 @@
 # DamIt README (Group 13)
 
 ## Comments
-Our scenes are currently built out for iPhone 11 Pro Max only
+  * Please run this app/game on a real device to get the best performace. Any iOS device or model is supported.
 
 ### Contributions
-#### Kishan Solanki - KS46487 (30%):
+#### Kishan Solanki - KS46487 (25%):
   * Core Data for Level Storage 
   * Building out Application UIViews w/ Delegates
   * Merging App Navigation Repo w/ Game Repo
-  * NSUserDefauls for User Settings + Custom Skin Preferences
+  * NSUserDefaults for User Settings + Custom Skin Preferences
   * GameCenter Functionality that was later scraped
+  * Designed multiple Levels
   
   
 #### Saigaurav Purushothaman - SP43976 (50%):
@@ -23,6 +24,16 @@ Our scenes are currently built out for iPhone 11 Pro Max only
   * Built User Interface for GameViewController and GameScene
   * Created necessary Types and Utilities
   * Devised and Implemented Level Encoding and Decoding Scheme for Ease of Level Creation and Storage
+  * Designed multiple Levels
+  * Added Constraints to all Views
+  
+  #### Nikhil Bodicharla - NB24499 (20%):
+  *  Built out Splash Screen with animations
+  *  Designed multiple levels
+  *  Designed Level Pack Screen and Functionality
+  *  Assisted with Core Data for Level storage
+  
+  )
   
   #### Nirav Lalsinghani - NVL225 (5%)
   * Designed and Created App Icon Image
