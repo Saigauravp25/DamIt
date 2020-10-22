@@ -69,15 +69,6 @@
                                     <action selector="playerModeButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Jwb-bp-a45"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="219-Ic-Sp5">
-                                <rect key="frame" x="626" y="200" width="22" height="22"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <state key="normal" title="Button" image="gearshape.fill" catalog="system"/>
-                                <connections>
-                                    <segue destination="GA1-dz-i3L" kind="show" identifier="settingsSegue" id="xfS-3K-alE"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7E3-Qp-Ces">
                                 <rect key="frame" x="355" y="303" width="187" height="65"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -85,6 +76,15 @@
                                 <state key="normal" title="Multiplayer" backgroundImage="woodenPlank"/>
                                 <connections>
                                     <action selector="playerModeButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="0Ud-J6-o9c"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" alpha="0.90000000000000002" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="219-Ic-Sp5">
+                                <rect key="frame" x="577" y="169.33333333333337" width="40" height="40"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="tintColor" systemColor="systemGrayColor"/>
+                                <state key="normal" backgroundImage="gearshape.fill" catalog="system"/>
+                                <connections>
+                                    <segue destination="GA1-dz-i3L" kind="show" identifier="settingsSegue" id="xfS-3K-alE"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -181,7 +181,7 @@
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="5Bf-gf-wMe"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" red="0.18019958059999999" green="0.29484189890000001" blue="0.57488495110000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
                     <navigationItem key="navigationItem" id="uOR-a8-c5L"/>
                     <connections>
@@ -286,7 +286,7 @@
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Ns2-OH-6zD"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" red="0.18019958059999999" green="0.29484189890000001" blue="0.57488495110000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
                     <navigationItem key="navigationItem" id="jem-aA-kSD"/>
                     <connections>
@@ -384,7 +384,7 @@
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vzN-9g-FNM"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" red="0.18019958059999999" green="0.29484189890000001" blue="0.57488495110000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
                     <navigationItem key="navigationItem" id="BcK-PX-IMm"/>
                 </viewController>
@@ -400,6 +400,7 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="iXT-NW-X0g">
                         <rect key="frame" x="0.0" y="0.0" width="896" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" red="0.12984204290000001" green="0.12984612579999999" blue="0.12984395030000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
@@ -421,23 +422,23 @@
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="aBp-kO-nxQ">
                                 <rect key="frame" x="0.0" y="44" width="896" height="370"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <color key="backgroundColor" red="0.18019958063446403" green="0.29484189894824298" blue="0.57488495110000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="plU-wh-h99">
-                                    <size key="itemSize" width="263" height="263"/>
+                                    <size key="itemSize" width="240" height="240"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="check" id="vIq-og-jow" customClass="checkCollectionViewCell" customModule="DamIt" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="43" width="263" height="263"/>
+                                        <rect key="frame" x="0.0" y="54.666666666666664" width="240" height="240"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="ClL-EU-zin">
-                                            <rect key="frame" x="0.0" y="0.0" width="263" height="263"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="240" height="240"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sTS-YY-UD1">
-                                                    <rect key="frame" x="31" y="31" width="200" height="200"/>
+                                                    <rect key="frame" x="20" y="19" width="200" height="200"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                                     <state key="normal" backgroundImage="woodenPlank">
@@ -450,7 +451,7 @@
                                                 </button>
                                             </subviews>
                                         </collectionViewCellContentView>
-                                        <size key="customSize" width="263" height="263"/>
+                                        <size key="customSize" width="240" height="240"/>
                                         <connections>
                                             <outlet property="buttontitle" destination="sTS-YY-UD1" id="Aud-PM-bjD"/>
                                         </connections>
@@ -463,7 +464,7 @@
                             </collectionView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="3P7-8i-plM"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" red="0.18019958059999999" green="0.29484189890000001" blue="0.57488495110000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
                     <navigationItem key="navigationItem" id="K94-JO-R3l"/>
                     <connections>
@@ -489,6 +490,9 @@
         </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemGrayColor">
+            <color red="0.55686274509803924" green="0.55686274509803924" blue="0.57647058823529407" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
