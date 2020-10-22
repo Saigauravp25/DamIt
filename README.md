@@ -1,5 +1,8 @@
 # DamIt README (Group 13)
 
+## Comments
+Our scenes are currently built out for iPhone 11 Pro Max only
+
 ### Contributions
 Kishan Solanki - KS46487 (30%):
     - Core Data for Level Storage 
