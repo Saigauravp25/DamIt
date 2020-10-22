@@ -7,6 +7,8 @@
 
 import Foundation
 
+typealias LevelDataFormat = (id: String, width: Int, height: Int, logs: [(x: Int,y: Int)], rocks: [(x: Int,y: Int)], beaver: (x: Int,y: Int))
+
 class LevelDataDecoder {
     
     var encoding: String!
