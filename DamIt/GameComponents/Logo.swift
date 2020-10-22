@@ -13,7 +13,7 @@ class Logo: SKSpriteNode {
         let texture = SKTexture(imageNamed: "damItLogo")
         super.init(texture: texture, color: .clear, size: texture.size())
         self.name = "Logo"
-        self.zPosition = 4.0
+        self.zPosition = 0.5
         self.anchorPoint = CGPoint(x: 0.5, y: 0.5)
         self.isHidden = true
     }
@@ -26,7 +26,7 @@ class Logo: SKSpriteNode {
 extension Logo {
     
     func setupLogo(_ scene: SKScene) {
-        self.position = CGPoint(x: scene.frame.size.width / 2, y: scene.frame.size.height / 3)
+        self.position = CGPoint(x: scene.frame.size.width / 2, y: scene.frame.size.height / 2 - 50)
         scene.addChild(self)
     }
     

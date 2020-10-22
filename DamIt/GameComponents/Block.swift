@@ -83,8 +83,11 @@ extension Block {
         let blockPos: (x:Int, y:Int) = self.getBlockPosition()
         self.position = CGPoint(x: xPad + CGFloat(blockPos.x) * self.frame.width, y: yPad + CGFloat(blockPos.y) * self.frame.height)
         // Physics
+        self.physicsBody?.categoryBitMask = blockBitMask
+        self.physicsBody?.collisionBitMask = beaverBitMask | victoryTextBitMask
         self.physicsBody = SKPhysicsBody(texture: self.texture!, size: self.texture!.size())
         self.physicsBody?.isDynamic = false
+//        self.physicsBody?.affectedByGravity = true
         scene.addChild(self)
     }
     
@@ -98,5 +101,9 @@ extension Block {
             let imageName = beaver.direction == .right ? "beaverRight" : "beaverLeft"
             beaver.texture = SKTexture(imageNamed: imageName)
         }
+    }
+    
+    func activateGravity() {
+        self.physicsBody?.isDynamic = true
     }
 }

@@ -21,6 +21,10 @@ class SettingsViewController: UIViewController {
     @IBOutlet var notificationsSwitch: UISwitch!
     @IBOutlet var touchControlSwitch: UISwitch!
     
+    @IBAction func backButton(_ sender: UIButton) {
+        self.dismiss(animated: true, completion: nil)
+    }
+    
     let customizeSegueID = "customizeCharacterSegue"
     var delegate: SettingsViewControllerDelegate!
     var settingsArray: [Bool]!
@@ -39,6 +43,17 @@ class SettingsViewController: UIViewController {
         notificationsSwitch.isOn = settingsArray[2]
         touchControlSwitch.isOn = settingsArray[3]
         
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        disclosureAlert()
+    }
+    
+    func disclosureAlert() {
+        let controller = UIAlertController(title: "Disclosure", message: "These features are not yet implemented. Planned for Beta Release.", preferredStyle: .alert)
+        let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+        controller.addAction(okAction)
+        present(controller, animated: true, completion: nil)
     }
     
     @IBAction func settingsToggleChanged(_ sender: Any) {

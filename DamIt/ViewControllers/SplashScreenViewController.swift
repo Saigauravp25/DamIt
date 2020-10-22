@@ -13,7 +13,7 @@ class SplashScreenViewController: UIViewController {
     @IBOutlet weak var waveImage: UIImageView!
     override func viewDidLoad() {
         
-        navigationController?.setNavigationBarHidden(true, animated: true)
+//        navigationController?.setNavigationBarHidden(true, animated: true)
         super.viewDidLoad()
         let gradient = CAGradientLayer()
         gradient.frame = waveImage.bounds
@@ -23,22 +23,15 @@ class SplashScreenViewController: UIViewController {
         waveImage.layer.insertSublayer(gradient, at: 0)
         view.addSubview(waveImage)
         
-        UIView.animate(withDuration: 1, delay: 0, options: .curveEaseIn, animations:{
+        UIView.animate(withDuration: 3, delay: 0, options: .curveEaseInOut, animations:{
             self.waveImage.frame.origin.y -= 400
-            self.waveImage.frame.origin.x += 100
-            self.view.backgroundColor = UIColor.clear
+            self.waveImage.frame.origin.x += 400
+            self.view.backgroundColor = UIColor.brown
             self.waveImage.backgroundColor = UIColor.clear
         }, completion: { done in
             if done{
                 DispatchQueue.main.asyncAfter(deadline: .now(), execute: {
-                    if let vc = self.storyboard?.instantiateViewController(withIdentifier:
-                     "mainScreen") {
-                        vc.modalTransitionStyle = .crossDissolve
-                        vc.modalPresentationStyle = .fullScreen
-                        let navigationController = UINavigationController(rootViewController: vc)
-
-                        self.present(navigationController, animated: true, completion: nil)
-                    }
+                    self.performSegue(withIdentifier: "mainScreenSegue", sender: nil)
                 })
             }
             
@@ -53,7 +46,7 @@ class SplashScreenViewController: UIViewController {
     override func viewWillDisappear(_ animated: Bool) {
         // make nav bar  come back for next pages
         super.viewWillDisappear(animated)
-        navigationController?.setNavigationBarHidden(false, animated: true)
+//        navigationController?.setNavigationBarHidden(false, animated: true)
     }
     
 

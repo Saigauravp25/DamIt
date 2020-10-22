@@ -16,17 +16,17 @@ class HomeScreenViewController: UIViewController, SettingsViewControllerDelegate
     
    
     override func viewDidLoad() {
-        navigationController?.setNavigationBarHidden(true, animated: true)
+//        navigationController?.setNavigationBarHidden(true, animated: true)
         super.viewDidLoad()
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        self.navigationController?.isNavigationBarHidden = true
+//        self.navigationController?.isNavigationBarHidden = true
     }
     override func viewWillDisappear(_ animated: Bool) {
         // make nav bar  come back for next pages
         super.viewWillDisappear(animated)
-        navigationController?.setNavigationBarHidden(false, animated: true)
+//        navigationController?.setNavigationBarHidden(false, animated: true)
     }
     
     func changedSoundFX(isOn: Bool) {
@@ -58,7 +58,7 @@ class HomeScreenViewController: UIViewController, SettingsViewControllerDelegate
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        self.navigationController?.isNavigationBarHidden = false
+//        self.navigationController?.isNavigationBarHidden = false
         if (segue.identifier == settingsSegueID){
             let vc = segue.destination as! SettingsViewController
             vc.delegate = self
