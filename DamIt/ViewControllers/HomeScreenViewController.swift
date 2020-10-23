@@ -93,8 +93,19 @@ class HomeScreenViewController: UIViewController, SettingsViewControllerDelegate
         return arr
     }
     
-    @IBAction func playerModeButtonPressed(_ sender: Any) {
+    @IBAction func playerModeButtonPressed(_ sender: UIButton) {
+        let tag = sender.tag
+        if tag == 1 || tag == 2 {
+            disclosureAlert()
+        }
         performSegue(withIdentifier: levelPackSegueID , sender: self)
+    }
+    
+    func disclosureAlert() {
+        let controller = UIAlertController(title: "Disclosure", message: "This mode is not yet implemented. Planned as a strech goal or future release.", preferredStyle: .alert)
+        let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+        controller.addAction(okAction)
+        present(controller, animated: true, completion: nil)
     }
     
 }

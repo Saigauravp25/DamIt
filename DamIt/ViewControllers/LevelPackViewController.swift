@@ -20,7 +20,7 @@ class LevelPackViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        clearCoreData()
+//        clearCoreData()
         retrieveLevels()
         if(levelData.count == 0){
             storeLevels()
@@ -68,7 +68,7 @@ extension LevelPackViewController {
         let level2 = NSEntityDescription.insertNewObject(
             forEntityName: "LevelData", into:context)
         
-        let level2Encoding = "01021604LLLLRAAARRLAAAAARRAAAAAALAAALLLARRAARBAARRLLAAAAAAAARRLARLLLRLLL"
+        let level2Encoding = "01021003RLLRLALAARAARRLRRBRLLAAARRALLL"
         level2.setValue(false, forKey: "completed")
         level2.setValue(0102, forKey: "id")
         level2.setValue(level2Encoding, forKey: "encoding")
@@ -78,7 +78,7 @@ extension LevelPackViewController {
         
         level3.setValue(false, forKey: "completed")
         level3.setValue(0103, forKey: "id")
-        let level3Encoding = "01031003RLLRLALAARAARRLRRBRLLAAARRALLL"
+        let level3Encoding = "01031004RLLLRLLARLAARAAARLAARRBAAAAARAAARLAARRLA"
         level3.setValue(level3Encoding, forKey: "encoding")
         
         let level4 = NSEntityDescription.insertNewObject(
@@ -86,7 +86,7 @@ extension LevelPackViewController {
         
         level4.setValue(false, forKey: "completed")
         level4.setValue(0104, forKey: "id")
-        let level4Encoding = "01041004RLLLRLLARLAARAAARLAARRBAAAAARAAARLAARRLA"
+        let level4Encoding = "01041006RLLLLLRLLLLLRLLAAARLAAAARRAAAAAAAAAARLBAAARLLAAARLAAAARLLLAA"
         level4.setValue(level4Encoding, forKey: "encoding")
         
         let level5 = NSEntityDescription.insertNewObject(
@@ -94,7 +94,7 @@ extension LevelPackViewController {
 
         level5.setValue(false, forKey: "completed")
         level5.setValue(0105, forKey: "id")
-        let level5Encoding = "01051407RLLLLLALLLLLAARRLLAAALLLAAAARLAAAAARBAAAAARRAAAAARAAAAAARRRAAAALLLLAAALLAAAAALAAAAAALLAAAAALLLLLL"
+        let level5Encoding = "01051405LLLLLAAAAARRLLLLLLLALAAAALLAAALLLLARLLAALLBAALAAAARRAAALLLAARRLLLRRLLL"
         level5.setValue(level5Encoding, forKey: "encoding")
         
         let level6 = NSEntityDescription.insertNewObject(
@@ -102,14 +102,14 @@ extension LevelPackViewController {
 
         level6.setValue(false, forKey: "completed")
         level6.setValue(0106, forKey: "id")
-        let level6Encoding = "01061106LLLLAALLAAAALBAAAARRAAAALLLAAAAAAAAALLLAAALLLLAALLLLLALLLLLLRRLAAA"
+        let level6Encoding = "01061407RLLLLLALLLLLAARRLLAAALLLAAAARLAAAAARBAAAAARRAAAAARAAAAAARRRAAAALLLLAAALLAAAAALAAAAAALLAAAAALLLLLL"
         level6.setValue(level6Encoding, forKey: "encoding")
         let level7 = NSEntityDescription.insertNewObject(
             forEntityName: "LevelData", into:context)
         
         level7.setValue(false, forKey: "completed")
         level7.setValue(0107, forKey: "id")
-        let level7Encoding = "01071006RLLLLLRLLLLLRLLAAARLAAAARRAAAAAAAAAARLBAAARLLAAARLAAAARLLLAA"
+        let level7Encoding = "01071106LLLLAALLAAAALBAAAARRAAAALLLAAAAAAAAALLLAAALLLLAALLLLLALLLLLLRRLAAA"
         level7.setValue(level7Encoding, forKey: "encoding")
         
         let level8 = NSEntityDescription.insertNewObject(
@@ -125,7 +125,7 @@ extension LevelPackViewController {
         
         level9.setValue(false, forKey: "completed")
         level9.setValue(0109, forKey: "id")
-        let level9Encoding = "01091405LLLLLAAAAARRLLLLLLLALAAAALLAAALLLLARLLAALLBAALAAAARRAAALLLAARRLLLRRLLL"
+        let level9Encoding = "01091604LLLLRAAARRLAAAAARRAAAAAALAAALLLARRAARBAARRLLAAAAAAAARRLARLLLRLLL"
         level9.setValue(level9Encoding, forKey: "encoding")
         
         let level10 = NSEntityDescription.insertNewObject(
