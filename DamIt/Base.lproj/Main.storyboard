@@ -175,7 +175,7 @@
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="10" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HtO-Lw-ShP">
                                 <rect key="frame" x="44.666666666666686" y="50.666666666666657" width="806.66666666666652" height="331"/>
-                                <mutableString key="text">      Dam It is a puzzle game where the player is tasked with building an effective dam. An effective dam is one that is completely flush with no blocks left over. The player moves the beaver around the stage and uses him to pick up and place down logs to solve the puzzle. The player can move the beaver left and right by swiping in the corresponding direction and can pick up and place down logs by swiping down. Beavers can only pick up logs that they are facing and standing right in front of. Beavers can only climb up a height of one block at a time, but can jump down from any number of blocks. Be careful not to get your beaver stuck, otherwise you risk having to restart and flood your dam.</mutableString>
+                                <string key="text">      Dam It is a puzzle game where the player is tasked with building an effective dam. An effective dam is one that is completely flush with no blocks left over. The player moves the beaver around the stage and uses him to pick up and place down logs to solve the puzzle. The player can move the beaver left and right by swiping in the corresponding direction and can pick up and place down logs by swiping down. Beavers can only pick up logs that they are facing and standing right in front of. Beavers can only climb up a height of one block at a time, but can jump down from any number of blocks. Be careful not to get your beaver stuck, otherwise you risk having to restart and flood your dam.</string>
                                 <fontDescription key="fontDescription" name="MarkerFelt-Wide" family="Marker Felt" pointSize="19"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -540,6 +540,8 @@
                         <outletCollection property="buttons" destination="QXZ-gI-A0H" collectionClass="NSMutableArray" id="fGS-ju-SXU"/>
                         <outletCollection property="buttons" destination="m0G-DQ-DjO" collectionClass="NSMutableArray" id="D3h-e1-li1"/>
                         <outletCollection property="buttons" destination="aPd-11-28N" collectionClass="NSMutableArray" id="Phi-GF-oGF"/>
+                        <outletCollection property="buttons" destination="NBP-DS-m1T" collectionClass="NSMutableArray" id="fJR-Gg-So4"/>
+                        <outletCollection property="buttons" destination="myI-E1-vvQ" collectionClass="NSMutableArray" id="aGt-Qi-CSg"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aar-ep-Cv2" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
