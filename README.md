@@ -40,3 +40,6 @@
 
 
 ### Differences 
+  * No negative deviations from our proposed plan for the Alpha Release.
+  * Scrapped work on GameCenter due to development account issues; it was not a part of Alpha anyways.
+  * Ahead of schedule in terms of animations and other features. Some Beta features already implemented.
