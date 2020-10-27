@@ -812,9 +812,12 @@
                                 </connections>
                             </segmentedControl>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4he-Pj-oJ7">
-                                <rect key="frame" x="394" y="299" width="109" height="30"/>
+                                <rect key="frame" x="390" y="299" width="109" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Sign in"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <state key="normal" title="Sign in">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
                                 <connections>
                                     <action selector="signUp:" destination="UXz-Be-Kny" eventType="touchUpInside" id="zb1-zH-t5L"/>
                                 </connections>
@@ -882,7 +885,7 @@
                             </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="JDr-pc-dkj"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" red="0.0" green="0.41176470588235292" blue="0.58039215686274503" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
                     <navigationItem key="navigationItem" id="1MZ-bW-8bF"/>
                     <connections>
