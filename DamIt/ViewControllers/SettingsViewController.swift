@@ -16,6 +16,13 @@ protocol SettingsViewControllerDelegate {
 class SettingsViewController: UIViewController {
     
     
+    var notificationManager: NotificationManager!
+    let customizeSegueID = "customizeCharacterSegue"
+    var delegate: SettingsViewControllerDelegate!
+    var settingsArray: [Bool]!
+    
+    var style: Int?
+    
     @IBOutlet var soundSwitch: UISwitch!
     @IBOutlet var backgroundMusicSwitch: UISwitch!
     @IBOutlet var notificationsSwitch: UISwitch!
@@ -25,16 +32,8 @@ class SettingsViewController: UIViewController {
         self.dismiss(animated: true, completion: nil)
     }
     
-    let customizeSegueID = "customizeCharacterSegue"
-    var delegate: SettingsViewControllerDelegate!
-    var settingsArray: [Bool]!
-    
-    var style: Int?
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-//        navigationItem.backButtonTitle = "Settings"
-        // Do any additional setup after loading the view.
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -42,7 +41,6 @@ class SettingsViewController: UIViewController {
         backgroundMusicSwitch.isOn = settingsArray[1]
         notificationsSwitch.isOn = settingsArray[2]
         touchControlSwitch.isOn = settingsArray[3]
-        
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -70,6 +68,11 @@ class SettingsViewController: UIViewController {
             case 2:
                 //notificaitons
                 delegate.changedDailyNotification(isOn: toggle.isOn)
+                if(toggle.isOn){
+                    notificationManager.scheduleNotifications()
+                } else {
+                    notificationManager.unscheduleNotifications()
+                }
                 print(toggle.isOn)
             case 3 :
                 //dpad
