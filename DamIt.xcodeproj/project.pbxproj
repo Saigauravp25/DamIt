@@ -24,6 +24,7 @@
 		5E415DC8252F99D600D208ED /* GameKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E415DC7252F99D600D208ED /* GameKit.framework */; };
 		5E415DD8252FB45600D208ED /* LevelSelectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E415DD7252FB45600D208ED /* LevelSelectViewController.swift */; };
 		5E50127D25412902008496DA /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 5E50127C25412902008496DA /* README.md */; };
+		5EBBC4B2254A2F680050EB86 /* NotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EBBC4B1254A2F680050EB86 /* NotificationManager.swift */; };
 		5EE93D9D2536B05000843A43 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EE93D9C2536B05000843A43 /* GameViewController.swift */; };
 		5EE93DA22536B07700843A43 /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EE93DA12536B07700843A43 /* GameScene.swift */; };
 		5EE93DB02536B08800843A43 /* Sky.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EE93DA72536B08800843A43 /* Sky.swift */; };
@@ -95,6 +96,7 @@
 		5E415DC7252F99D600D208ED /* GameKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GameKit.framework; path = System/Library/Frameworks/GameKit.framework; sourceTree = SDKROOT; };
 		5E415DD7252FB45600D208ED /* LevelSelectViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelSelectViewController.swift; sourceTree = "<group>"; };
 		5E50127C25412902008496DA /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		5EBBC4B1254A2F680050EB86 /* NotificationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationManager.swift; sourceTree = "<group>"; };
 		5EE93D9C2536B05000843A43 /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
 		5EE93DA12536B07700843A43 /* GameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
 		5EE93DA62536B08700843A43 /* Level.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Level.swift; sourceTree = "<group>"; };
@@ -199,6 +201,7 @@
 		4A78A60925374D2A0047ACC9 /* MyUtils */ = {
 			isa = PBXGroup;
 			children = (
+				5EBBC4B1254A2F680050EB86 /* NotificationManager.swift */,
 				4ADAA86F254052C800A1472D /* LevelDataDecoder.swift */,
 				5EE93DC72536B13000843A43 /* SKColor+Ext.swift */,
 				5EE93DC82536B13000843A43 /* SKTexture+Ext.swift */,
@@ -519,6 +522,7 @@
 				681D4E87253F809A00687CBF /* SplashScreenViewController.swift in Sources */,
 				5EE93DB12536B08800843A43 /* Logo.swift in Sources */,
 				5EE93DCA2536B13000843A43 /* SKTexture+Ext.swift in Sources */,
+				5EBBC4B2254A2F680050EB86 /* NotificationManager.swift in Sources */,
 				5E2451BA2525466500EE2601 /* SceneDelegate.swift in Sources */,
 				4ADAA870254052C800A1472D /* LevelDataDecoder.swift in Sources */,
 				5E2451F42525485200EE2601 /* SettingsViewController.swift in Sources */,
