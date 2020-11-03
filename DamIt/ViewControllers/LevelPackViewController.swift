@@ -7,12 +7,14 @@
 
 import UIKit
 import CoreData
+import FirebaseDatabase
 
 class LevelPackViewController: UIViewController {
 
     @IBOutlet weak var checkcollectionview: UICollectionView!
     var delegate: UIViewController!
     var levelData = [String]()
+    var dataBaseRef: DatabaseReference!
     
     @IBAction func backButton(_ sender: UIButton) {
         self.dismiss(animated: true, completion: nil)
@@ -21,6 +23,7 @@ class LevelPackViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 //        clearCoreData()
+        dataBaseRef = Database.database().reference()
         retrieveLevels()
         if(levelData.count == 0){
             storeLevels()
@@ -180,6 +183,19 @@ extension LevelPackViewController {
     }
     
     func retrieveLevels() {
+        
+        //pull from firebase levels
+        print("PULLING FROM FIREBASE!!!")
+        dataBaseRef.child("Levels").observeSingleEvent(of: .value) { (snapshot) in
+            let levelDataBase = snapshot.value as! NSMutableDictionary
+            for (key,value) in levelDataBase {
+                print(value)
+            }
+        }
+        
+        
+        
+        //pull from CoreData
         
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         let context = appDelegate.persistentContainer.viewContext
