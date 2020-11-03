@@ -185,48 +185,56 @@ extension LevelPackViewController {
     func retrieveLevels() {
         
         //pull from firebase levels
-        print("PULLING FROM FIREBASE!!!")
+        var fireBaseData = [String]()
         dataBaseRef.child("Levels").observeSingleEvent(of: .value) { (snapshot) in
             let levelDataBase = snapshot.value as! NSMutableDictionary
             for (key,value) in levelDataBase {
-                print(value)
+                let encoding = value as? String
+                if let realEncoding = encoding {
+                    fireBaseData.append(realEncoding)
+                }
             }
-        }
-        
-        
-        
-        //pull from CoreData
-        
-        let appDelegate = UIApplication.shared.delegate as! AppDelegate
-        let context = appDelegate.persistentContainer.viewContext
-        
-        let request = NSFetchRequest<NSFetchRequestResult>(entityName: "LevelData")
-        
-        var fetchedResults: [NSManagedObject]? = nil
-        
-        
-        do {
-            try fetchedResults = context.fetch(request) as? [NSManagedObject]
-            if fetchedResults!.count > 0{
-                //results exist
-                levelData = Array(repeating: "", count: 10)
-                for level in fetchedResults!{
-                    if let completed = level.value(forKey: "completed") as? Bool{
-                        if let id = level.value(forKey: "id") as? Int{
-                            if let encoding = level.value(forKey: "encoding") as? String {
-                                let levelNum = Int(encoding.substring(with: 2..<4))
-                                let index = levelNum! - 1
-                                levelData[index] = encoding
+            
+            //pull from CoreData
+            
+            let appDelegate = UIApplication.shared.delegate as! AppDelegate
+            let context = appDelegate.persistentContainer.viewContext
+            
+            let request = NSFetchRequest<NSFetchRequestResult>(entityName: "LevelData")
+            
+            var fetchedResults: [NSManagedObject]? = nil
+            
+            
+            do {
+                try fetchedResults = context.fetch(request) as? [NSManagedObject]
+                if fetchedResults!.count > 0{
+                    // compare with data from firebase
+                    if(fetchedResults!.count != fireBaseData.count){
+                        //re write to core data
+                        print("different outputs")
+                    }
+                    //results exist
+                    self.levelData = Array(repeating: "", count: fetchedResults!.count + 2)
+                    for level in fetchedResults!{
+                        if let completed = level.value(forKey: "completed") as? Bool{
+                            if let id = level.value(forKey: "id") as? Int{
+                                if let encoding = level.value(forKey: "encoding") as? String {
+                                    let levelNum = Int(encoding.substring(with: 2..<4))
+                                    let index = levelNum! - 1
+                                    self.levelData[index] = encoding
+                                }
                             }
                         }
                     }
                 }
+            } catch {
+                // if an error occurs
+                let nserror = error as NSError
+                NSLog("Unresolved error \(nserror), \(nserror.userInfo)")
+                abort()
             }
-        } catch {
-            // if an error occurs
-            let nserror = error as NSError
-            NSLog("Unresolved error \(nserror), \(nserror.userInfo)")
-            abort()
         }
+
     }
+    
 }
