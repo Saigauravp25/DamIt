@@ -44,12 +44,12 @@ class SettingsViewController: UIViewController {
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        //disclosureAlert()
+        disclosureAlert()
         //notifications now implemented
     }
     
     func disclosureAlert() {
-        let controller = UIAlertController(title: "Disclosure", message: "These features are not yet implemented. Planned for Beta Release.", preferredStyle: .alert)
+        let controller = UIAlertController(title: "Disclosure", message: "Sound and Background music settings not implemented yet.", preferredStyle: .alert)
         let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
         controller.addAction(okAction)
         present(controller, animated: true, completion: nil)
