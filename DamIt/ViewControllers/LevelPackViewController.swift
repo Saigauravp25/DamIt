@@ -24,10 +24,14 @@ class LevelPackViewController: UIViewController {
         super.viewDidLoad()
 //        clearCoreData()
         dataBaseRef = Database.database().reference()
-        retrieveLevels()
-        if(levelData.count == 0){
-            storeLevels()
-            retrieveLevels()
+        getLevelsFromFirebase {
+//            print("success in firebase storage \()")
+            //preform after levels brought in from firebase
+//            retrieveLevels()
+//            if(levelData.count == 0){
+//                storeLevels()
+//                retrieveLevels()
+//            }
         }
     }
     
@@ -182,8 +186,8 @@ extension LevelPackViewController {
         
     }
     
-    func retrieveLevels() {
-        
+    func getLevelsFromFirebase(completionHandler: () -> Void){
+        var flag = false
         //pull from firebase levels
         var fireBaseData = [String]()
         dataBaseRef.child("Levels").observeSingleEvent(of: .value) { (snapshot) in
@@ -192,47 +196,48 @@ extension LevelPackViewController {
                 let encoding = value as? String
                 if let realEncoding = encoding {
                     fireBaseData.append(realEncoding)
+                    print(value)
                 }
             }
-            
-            //pull from CoreData
-            
-            let appDelegate = UIApplication.shared.delegate as! AppDelegate
-            let context = appDelegate.persistentContainer.viewContext
-            
-            let request = NSFetchRequest<NSFetchRequestResult>(entityName: "LevelData")
-            
-            var fetchedResults: [NSManagedObject]? = nil
-            
-            
-            do {
-                try fetchedResults = context.fetch(request) as? [NSManagedObject]
-                if fetchedResults!.count > 0{
-                    // compare with data from firebase
-                    if(fetchedResults!.count != fireBaseData.count){
-                        //re write to core data
-                        print("different outputs")
-                    }
-                    //results exist
-                    self.levelData = Array(repeating: "", count: fetchedResults!.count + 2)
-                    for level in fetchedResults!{
-                        if let completed = level.value(forKey: "completed") as? Bool{
-                            if let id = level.value(forKey: "id") as? Int{
-                                if let encoding = level.value(forKey: "encoding") as? String {
-                                    let levelNum = Int(encoding.substring(with: 2..<4))
-                                    let index = levelNum! - 1
-                                    self.levelData[index] = encoding
-                                }
+            flag = true
+            self.levelData = fireBaseData
+        }
+        completionHandler()
+    }
+    
+    func retrieveLevels() {
+        //pull from CoreData
+        
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        let context = appDelegate.persistentContainer.viewContext
+        
+        let request = NSFetchRequest<NSFetchRequestResult>(entityName: "LevelData")
+        
+        var fetchedResults: [NSManagedObject]? = nil
+        
+        
+        do {
+            try fetchedResults = context.fetch(request) as? [NSManagedObject]
+            if fetchedResults!.count > 0{
+                //results exist
+                self.levelData = Array(repeating: "", count: fetchedResults!.count + 2)
+                for level in fetchedResults!{
+                    if let completed = level.value(forKey: "completed") as? Bool{
+                        if let id = level.value(forKey: "id") as? Int{
+                            if let encoding = level.value(forKey: "encoding") as? String {
+                                let levelNum = Int(encoding.substring(with: 2..<4))
+                                let index = levelNum! - 1
+                                self.levelData[index] = encoding
                             }
                         }
                     }
                 }
-            } catch {
-                // if an error occurs
-                let nserror = error as NSError
-                NSLog("Unresolved error \(nserror), \(nserror.userInfo)")
-                abort()
             }
+        } catch {
+            // if an error occurs
+            let nserror = error as NSError
+            NSLog("Unresolved error \(nserror), \(nserror.userInfo)")
+            abort()
         }
 
     }
