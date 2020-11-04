@@ -14,6 +14,7 @@ class LevelPackViewController: UIViewController {
     @IBOutlet weak var checkcollectionview: UICollectionView!
     var delegate: UIViewController!
     var levelData = [String]()
+    var firebaseData = [String]()
     var dataBaseRef: DatabaseReference!
     
     @IBAction func backButton(_ sender: UIButton) {
@@ -22,16 +23,24 @@ class LevelPackViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-//        clearCoreData()
+        //clearCoreData()
         dataBaseRef = Database.database().reference()
-        getLevelsFromFirebase {
-//            print("success in firebase storage \()")
-            //preform after levels brought in from firebase
-//            retrieveLevels()
-//            if(levelData.count == 0){
-//                storeLevels()
-//                retrieveLevels()
-//            }
+        //what if no network connection?
+        getLevelsFromFirebase { (success) in
+            if(success){
+                //compare elements
+                self.retrieveLevels{
+                    self.compareFireBaseData()
+                }
+            } else {
+                //use data from coredata only
+                self.retrieveLevels()
+                if(self.levelData.count == 0){
+                    self.storeLevels()
+                    self.retrieveLevels()
+                }
+            }
+
         }
     }
     
@@ -58,6 +67,9 @@ extension LevelPackViewController: UICollectionViewDelegate, UICollectionViewDat
     
     
 }
+
+
+//MARK: - CORE DATA METHODS
 extension LevelPackViewController {
     func storeLevels() {
         
@@ -186,26 +198,30 @@ extension LevelPackViewController {
         
     }
     
-    func getLevelsFromFirebase(completionHandler: () -> Void){
-        var flag = false
+    func getLevelsFromFirebase(completionHandler: @escaping (_ success:Bool) -> Void){
         //pull from firebase levels
-        var fireBaseData = [String]()
-        dataBaseRef.child("Levels").observeSingleEvent(of: .value) { (snapshot) in
+        dataBaseRef.child("Levels").observeSingleEvent(of: .value, with: { (snapshot) in
             let levelDataBase = snapshot.value as! NSMutableDictionary
+            self.firebaseData = Array(repeating: "", count: levelDataBase.count)
             for (key,value) in levelDataBase {
                 let encoding = value as? String
                 if let realEncoding = encoding {
-                    fireBaseData.append(realEncoding)
+                    let levelPack = Int(realEncoding.substring(to: 2))
+                    let levelNum = Int(realEncoding.substring(with: 2..<4))
+                    let index = levelNum! - 1
+                    self.firebaseData[((levelPack!-1)*10) + index] = realEncoding
                     print(value)
                 }
             }
-            flag = true
-            self.levelData = fireBaseData
+            //network connection completed
+            completionHandler(true)
+        }) { (error) in
+            //firebase request unsuccessful
+            completionHandler(false)
         }
-        completionHandler()
     }
     
-    func retrieveLevels() {
+    func retrieveLevels(completionHandler: (() -> Void)? = nil){
         //pull from CoreData
         
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
@@ -220,13 +236,15 @@ extension LevelPackViewController {
             try fetchedResults = context.fetch(request) as? [NSManagedObject]
             if fetchedResults!.count > 0{
                 //results exist
-                self.levelData = Array(repeating: "", count: fetchedResults!.count + 2)
+                self.levelData = Array(repeating: "", count: fetchedResults!.count)
                 for level in fetchedResults!{
                     if let completed = level.value(forKey: "completed") as? Bool{
                         if let id = level.value(forKey: "id") as? Int{
                             if let encoding = level.value(forKey: "encoding") as? String {
+                                let levelPack = Int(encoding.substring(to: 2))
                                 let levelNum = Int(encoding.substring(with: 2..<4))
-                                let index = levelNum! - 1
+                                let levelPackIndex = levelPack! - 1
+                                let index = levelPackIndex * 10 + levelNum! - 1
                                 self.levelData[index] = encoding
                             }
                         }
@@ -239,7 +257,40 @@ extension LevelPackViewController {
             NSLog("Unresolved error \(nserror), \(nserror.userInfo)")
             abort()
         }
-
+        if (completionHandler != nil){
+            completionHandler!()
+        }
+    }
+    
+    func compareFireBaseData(){
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        let context = appDelegate.persistentContainer.viewContext
+        
+        for level in firebaseData {
+            if(!levelData.contains(level)){
+                //write level to coreData
+                let CDLevel = NSEntityDescription.insertNewObject(
+                    forEntityName: "LevelData", into:context)
+                
+                CDLevel.setValue(false, forKey: "completed")
+                let id = Int(level.prefix(4))
+                CDLevel.setValue(id, forKey: "id")
+                let levelEncoding = level
+                CDLevel.setValue(levelEncoding, forKey: "encoding")
+            }
+        }
+        
+        // Commit the changes
+        do {
+            print("saving data")
+            try context.save()
+            levelData = firebaseData
+        } catch {
+            // if an error occurs
+            let nserror = error as NSError
+            NSLog("Unresolved error \(nserror), \(nserror.userInfo)")
+            abort()
+        }
     }
     
 }
