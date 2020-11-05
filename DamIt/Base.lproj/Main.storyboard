@@ -955,6 +955,7 @@
         <image name="pause.circle.fill" catalog="system" width="128" height="121"/>
         <image name="wave" width="1200" height="445"/>
         <image name="woodenPlank" width="300" height="120"/>
+        <image name="woodenWall" width="1000" height="1000"/>
         <systemColor name="opaqueSeparatorColor">
             <color red="0.77647058823529413" green="0.77647058823529413" blue="0.78431372549019607" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
