@@ -393,6 +393,8 @@
                                 </state>
                                 <connections>
                                     <action selector="levelButtonPressed:" destination="asj-rn-UgR" eventType="touchUpInside" id="CBf-OK-kWm"/>
+                                    <action selector="levelButtonsOutlet:" destination="yYN-n8-V9L" eventType="touchUpInside" id="tPY-zR-TJ6"/>
+                                    <action selector="sad:" destination="yYN-n8-V9L" eventType="touchUpInside" id="gO5-6e-YSl"/>
                                     <segue destination="tJF-TI-Z4f" kind="presentation" identifier="gameSegue" modalPresentationStyle="fullScreen" id="vV1-v0-No3"/>
                                 </connections>
                             </button>
@@ -436,6 +438,7 @@
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
+                                    <action selector="button:" destination="yYN-n8-V9L" eventType="touchUpInside" id="rhZ-YD-B5c"/>
                                     <action selector="levelButtonPressed:" destination="asj-rn-UgR" eventType="touchUpInside" id="fov-Wm-58C"/>
                                 </connections>
                             </button>
@@ -563,6 +566,7 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aar-ep-Cv2" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="yYN-n8-V9L" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="1077" y="445"/>
         </scene>
@@ -841,6 +845,7 @@
                                     <segment title="Login"/>
                                     <segment title="Sign Up"/>
                                 </segments>
+                                <color key="tintColor" systemColor="opaqueSeparatorColor"/>
                                 <connections>
                                     <action selector="onSegChange:" destination="UXz-Be-Kny" eventType="valueChanged" id="e5A-21-v5m"/>
                                     <action selector="segBar:" destination="1LC-QD-m5V" eventType="valueChanged" id="4AI-RZ-vAR"/>
@@ -868,13 +873,23 @@
                                 <rect key="frame" x="379" y="111" width="307" height="34"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+<<<<<<< HEAD
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+=======
+>>>>>>> ef5b276eb5db2228c4cc35ba91e67e596b9b59aa
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="L3w-fx-lcq">
+                            <textField contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="L3w-fx-lcq">
                                 <rect key="frame" x="379" y="169" width="307" height="34"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+<<<<<<< HEAD
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+=======
+>>>>>>> ef5b276eb5db2228c4cc35ba91e67e596b9b59aa
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
@@ -889,6 +904,11 @@
                                 <rect key="frame" x="379" y="229" width="307" height="34"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+<<<<<<< HEAD
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+=======
+>>>>>>> ef5b276eb5db2228c4cc35ba91e67e596b9b59aa
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
@@ -944,7 +964,13 @@
         <image name="pause.circle.fill" catalog="system" width="128" height="121"/>
         <image name="wave" width="1200" height="445"/>
         <image name="woodenPlank" width="300" height="120"/>
+<<<<<<< HEAD
+        <systemColor name="opaqueSeparatorColor">
+            <color red="0.77647058823529413" green="0.77647058823529413" blue="0.78431372549019607" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+=======
         <image name="woodenWall" width="1000" height="1000"/>
+>>>>>>> ef5b276eb5db2228c4cc35ba91e67e596b9b59aa
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

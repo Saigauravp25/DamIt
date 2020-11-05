@@ -8,12 +8,18 @@
 import UIKit
 import CoreData
 
-class LevelSelectViewController: UIViewController {
+protocol LevelUpdate{
+    func updateLevel(levelNumber: Int)
+}
+
+class LevelSelectViewController: UIViewController, LevelUpdate {
+   
 
     
     var levelsCompleted : [Bool]!
     var levelData: [String]!
     var currentLevel: Int!
+    var userLevels = 0 
     
     var selectedLevelEncoding = ""
     var levelPack: Int!
@@ -29,11 +35,15 @@ class LevelSelectViewController: UIViewController {
         super.viewDidLoad()
 //        navigationItem.title = "Level Select"
         // hardcoded for now 
-        if levelPack != 1 {
+//        if levelPack != 1 {
             for button in buttons {
-                button.isEnabled = false
+                let buttonNumber = Int((button.titleLabel?.text)!)!
+                if buttonNumber > self.userLevels{
+                   button.isEnabled = false
+                    
+                }
             }
-        }
+//        }
     }
     
 //    func buttonSetup(){
@@ -57,6 +67,11 @@ class LevelSelectViewController: UIViewController {
             vc.levelEncoding = self.selectedLevelEncoding
             vc.levelData = self.levelData
             vc.currentLevel = self.currentLevel
+            vc.delegate = self
         }
     }
+    func updateLevel(levelNumber: Int) {
+        buttons[levelNumber].isEnabled = true
+    }
+    
 }
