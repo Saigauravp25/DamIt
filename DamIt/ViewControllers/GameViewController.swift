@@ -15,17 +15,23 @@ class GameViewController: UIViewController {
     var levelData: [String]!
     var currentLevel: Int!
     var skView: SKView!
+    var isTutorial = false
     
     @IBOutlet weak var pauseButtonOutlet: UIButton!
     
     @IBOutlet weak var nextLevelButtonOutlet: UIButton!
     
     @IBAction func nextLevelButton(_ sender: UIButton) {
-        currentLevel = (currentLevel + 1) % 10 //loop in this level pack until future level packs are made
-        levelEncoding = levelData[currentLevel]
-        (skView.scene as! GameScene).levelEncoding = levelEncoding
-        nextLevelButtonOutlet.isHidden = true
-        skView.presentScene(skView.scene)
+        if(isTutorial){
+            self.dismiss(animated: true, completion: nil)
+        }
+        else{
+            currentLevel = (currentLevel + 1) % 10 //loop in this level pack until future level packs are made
+            levelEncoding = levelData[currentLevel]
+            (skView.scene as! GameScene).levelEncoding = levelEncoding
+            nextLevelButtonOutlet.isHidden = true
+            skView.presentScene(skView.scene)
+        }
     }
     
     @IBAction func pauseButton(_ sender: UIButton) {
@@ -74,6 +80,9 @@ class GameViewController: UIViewController {
             DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) { // Change `2.0` to the desired number of seconds.
                 gameScene.logo.hide()
                 gameScene.setupNodes()
+                if(self.isTutorial){
+                    gameScene.setupTutorial()
+                }
                 gameScene.oceanNode.unflood()
     //            gameScene.restartNode.show()
                 gameScene.level = Level(levelData: gameScene.getLevelData(levelData: gameScene.levelEncoding), for: gameScene)

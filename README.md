@@ -35,8 +35,10 @@
   #### Nirav Lalsinghani - NVL225 (5%)
   * Designed and Created App Icon Image
   * Added levels 7 and 8 Level Pack 1
-  * Created TutorialViewController 
+  * Created TutorialViewController
   * Added how to play information for users
+  * Created tutorial feature that instruct players how to play the game
+  * Designed beaver skins for the user to choose from
 
 
 ### Differences 

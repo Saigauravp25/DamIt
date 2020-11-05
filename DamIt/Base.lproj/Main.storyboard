@@ -118,14 +118,15 @@
                                                     <action selector="playerModeButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="0Ud-J6-o9c"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1RJ-On-0WF">
+                                            <button opaque="NO" tag="11" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1RJ-On-0WF">
                                                 <rect key="frame" x="296.33333333333337" y="0.0" width="286.33333333333337" height="98.666666666666671"/>
                                                 <fontDescription key="fontDescription" name="MarkerFelt-Wide" family="Marker Felt" pointSize="30"/>
                                                 <state key="normal" title="Tutorial" backgroundImage="woodenPlank">
                                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </state>
                                                 <connections>
-                                                    <segue destination="qd6-rk-0UN" kind="presentation" identifier="tutorialSegue" modalPresentationStyle="fullScreen" id="KyN-Vh-gZ1"/>
+                                                    <action selector="tutorialButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="hxL-f3-Mc0"/>
+                                                    <segue destination="tJF-TI-Z4f" kind="show" identifier="tutorialSegue" id="zK5-vr-C47"/>
                                                 </connections>
                                             </button>
                                         </subviews>
@@ -164,71 +165,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="363.61607142857139" y="444.92753623188412"/>
-        </scene>
-        <!--Tutorial View Controller-->
-        <scene sceneID="g8m-rq-M77">
-            <objects>
-                <viewController id="qd6-rk-0UN" customClass="TutorialViewController" customModule="DamIt" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="Wgg-Vg-mqH">
-                        <rect key="frame" x="0.0" y="0.0" width="896" height="414"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.59999999999999998" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="woodenWall" translatesAutoresizingMaskIntoConstraints="NO" id="Fhc-Gz-lqY">
-                                <rect key="frame" x="0.0" y="0.0" width="896" height="414"/>
-                            </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="10" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HtO-Lw-ShP">
-                                <rect key="frame" x="44.666666666666686" y="50.666666666666657" width="806.66666666666652" height="331"/>
-                                <string key="text">      Dam It is a puzzle game where the player is tasked with building an effective dam. An effective dam is one that is completely flush with no blocks left over. The player moves the beaver around the stage and uses him to pick up and place down logs to solve the puzzle. The player can move the beaver left and right by swiping in the corresponding direction and can pick up and place down logs by swiping down. Beavers can only pick up logs that they are facing and standing right in front of. Beavers can only climb up a height of one block at a time, but can jump down from any number of blocks. Be careful not to get your beaver stuck, otherwise you risk having to restart and flood your dam.</string>
-                                <fontDescription key="fontDescription" name="MarkerFelt-Wide" family="Marker Felt" pointSize="19"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" alpha="0.75" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hSI-gU-ni2" userLabel="Back">
-                                <rect key="frame" x="64" y="21" width="71.666666666666686" height="70.333333333333343"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" secondItem="hSI-gU-ni2" secondAttribute="height" multiplier="1:1" id="FLx-Ad-NOr"/>
-                                </constraints>
-                                <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <state key="normal" backgroundImage="arrowshape.turn.up.left.circle.fill" catalog="system"/>
-                                <connections>
-                                    <action selector="backButton:" destination="qd6-rk-0UN" eventType="touchUpInside" id="FOu-hS-QSn"/>
-                                    <action selector="backButton:" destination="GA1-dz-i3L" eventType="touchUpInside" id="rcc-6G-DYB"/>
-                                </connections>
-                            </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="How to Play" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AsH-Fp-gak">
-                                <rect key="frame" x="224" y="21" width="448" height="70"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="70" id="OgA-5l-ezK"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="MarkerFelt-Wide" family="Marker Felt" pointSize="29"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                        </subviews>
-                        <viewLayoutGuide key="safeArea" id="d5n-Bt-HvT"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                        <constraints>
-                            <constraint firstItem="AsH-Fp-gak" firstAttribute="centerY" secondItem="hSI-gU-ni2" secondAttribute="centerY" id="1hN-ji-UUC"/>
-                            <constraint firstItem="HtO-Lw-ShP" firstAttribute="centerX" secondItem="d5n-Bt-HvT" secondAttribute="centerX" id="7nW-H2-5Kh"/>
-                            <constraint firstItem="hSI-gU-ni2" firstAttribute="width" secondItem="Wgg-Vg-mqH" secondAttribute="width" multiplier="0.0799851" id="8Rl-ay-3fi"/>
-                            <constraint firstItem="HtO-Lw-ShP" firstAttribute="height" secondItem="Wgg-Vg-mqH" secondAttribute="height" multiplier="0.8" id="95C-7Q-lq6"/>
-                            <constraint firstAttribute="bottom" secondItem="Fhc-Gz-lqY" secondAttribute="bottom" id="AXf-Sb-TE6"/>
-                            <constraint firstItem="hSI-gU-ni2" firstAttribute="leading" secondItem="d5n-Bt-HvT" secondAttribute="leading" constant="20" id="ArY-ya-aIX"/>
-                            <constraint firstItem="HtO-Lw-ShP" firstAttribute="centerY" secondItem="d5n-Bt-HvT" secondAttribute="centerY" multiplier="1.1" id="Hdx-LP-QWy"/>
-                            <constraint firstItem="AsH-Fp-gak" firstAttribute="width" secondItem="Wgg-Vg-mqH" secondAttribute="width" multiplier="0.5" id="WJE-nO-3ld"/>
-                            <constraint firstItem="Fhc-Gz-lqY" firstAttribute="leading" secondItem="Wgg-Vg-mqH" secondAttribute="leading" id="Woz-iM-I2X"/>
-                            <constraint firstAttribute="trailing" secondItem="Fhc-Gz-lqY" secondAttribute="trailing" id="Xly-HK-Aud"/>
-                            <constraint firstItem="AsH-Fp-gak" firstAttribute="centerX" secondItem="d5n-Bt-HvT" secondAttribute="centerX" id="ZtA-Yg-O6W"/>
-                            <constraint firstItem="Fhc-Gz-lqY" firstAttribute="top" secondItem="d5n-Bt-HvT" secondAttribute="top" id="iXo-Zx-iy9"/>
-                            <constraint firstItem="HtO-Lw-ShP" firstAttribute="width" secondItem="Wgg-Vg-mqH" secondAttribute="width" multiplier="0.9" id="skR-9T-0eq"/>
-                            <constraint firstItem="hSI-gU-ni2" firstAttribute="top" secondItem="d5n-Bt-HvT" secondAttribute="top" constant="20" id="xvv-5l-9ya"/>
-                        </constraints>
-                    </view>
-                    <navigationItem key="navigationItem" id="Lqc-hX-7VT"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="pnb-kS-9Lz" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-359" y="445"/>
         </scene>
         <!--Settings View Controller-->
         <scene sceneID="s8W-fc-Lpy">
@@ -869,14 +805,14 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="L3w-fx-lcq">
                                 <rect key="frame" x="379" y="169" width="307" height="34"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                             </textField>
                             <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Confirm Password" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Nf7-bZ-3eK">
                                 <rect key="frame" x="206" y="236" width="139" height="21"/>
@@ -890,7 +826,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Status" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ssg-48-vDs">
                                 <rect key="frame" x="206" y="352" width="480" height="22"/>
@@ -934,6 +870,9 @@
             <point key="canvasLocation" x="363.61607142857139" y="-471.01449275362324"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="zK5-vr-C47"/>
+    </inferredMetricsTieBreakers>
     <resources>
         <image name="arrow.counterclockwise.circle.fill" catalog="system" width="128" height="121"/>
         <image name="arrow.right.square.fill" catalog="system" width="128" height="114"/>

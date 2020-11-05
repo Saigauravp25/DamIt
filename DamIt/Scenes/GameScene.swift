@@ -24,16 +24,42 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     var logo = Logo()
     var victoryText = Victory()
     var nextLevelButton: UIButton!
+    var helpText: SKLabelNode!
+    var isTutorial: Bool!
 //    var restartNode = Restart()
     var level: Level?
+    var movementCheckpoint = false
+    var logCheckpoint = false
+    var pickupCheckpoint = false
+    var holdingLogCheckpoint = false
+    var buildDamCheckpoint = false
+    var warningCheckpoint = false
     let putDownSound = SKAction.playSoundFileNamed("putDown.wav", waitForCompletion: false)
     let floodSound = SKAction.playSoundFileNamed("flood.wav", waitForCompletion: false)
     
     override func didMove(to view: SKView) {
         self.physicsWorld.contactDelegate = self
         self.view?.showsPhysics = false
-        self.backgroundColor = UIColor(hex: 0x006994) //0xB3E5FC
+        self.backgroundColor = UIColor(hex: 0x006994)//0xB3E5FC
         self.setupNodes()
+        if(levelEncoding.substring(to: 4) == "0000"){
+            isTutorial = true
+        }
+        else{
+            isTutorial = false
+        }
+        if(isTutorial){
+            helpText = SKLabelNode(fontNamed: "Chalkduster")
+            helpText.zPosition = 6.0
+            helpText.numberOfLines = 3
+            helpText.preferredMaxLayoutWidth = frame.maxX
+            helpText.horizontalAlignmentMode = .center
+            helpText.verticalAlignmentMode = .center
+            setText(text: "Welcome to Dam It! The goal of the game is to create a flush dam using the availabe log blocks. Swipe Left and Right in order to move the Beaver. Use this to head over to the logs")
+            //helpText.text = "Welcome to Dam It! The goal of the game is to create a flush dam using the availabe log blocks. Swipe Left and Right in order to move the Beaver. Use this to head over to the logs"
+            helpText.position = CGPoint(x: frame.midX, y: frame.midY / 2)
+            addChild(helpText)
+        }
         level = Level(levelData: self.getLevelData(levelData: levelEncoding), for: self)
         addSwipe()
     }
@@ -71,16 +97,54 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             default:
                 print("Unrecognized Gesture Direction")
         }
+        if(isTutorial){
+            if(self.level?.player.y == 10 && (self.level?.player.x)! >= 5){
+                setText(text: "Click the restart button to start over")
+            }
+            if(self.level?.player.y == 2 && logCheckpoint == false){
+                logCheckpoint = true
+                setText(text: "You can scale 1 block high heights. Swipe left in order to jump up on top of the log")
+            }
+            if(self.level?.player.y == 1 && pickupCheckpoint == false){
+                pickupCheckpoint = true
+                setText(text: "Swipe down in order to pick up log blocks directly in front of you")
+            }
+            if((self.level?.player.hasLog)! && pickupCheckpoint && holdingLogCheckpoint == false){
+                holdingLogCheckpoint = true
+                setText(text: "Head back over to the hole in order to start building the dam")
+            }
+            if((self.level?.player.hasLog)! && self.level?.player.y == 9 && buildDamCheckpoint == false){
+                buildDamCheckpoint = true
+                setText(text: "Swipe down to place down logs in the direction you are facing. You can throw down logs from any height")
+            }
+            if(self.level?.player.hasLog == false && buildDamCheckpoint && warningCheckpoint == false){
+                warningCheckpoint = true
+                setText(text: "Beavers can jump down from any height so be careful not to get yourself stuck. You'll have to restart the level if that happens. Now keep moving logs in order to finish building the dam")
+            }
+        }
         let levelComplete = self.level?.checkLevelComplete()
         //core data update to set value to true
         if levelComplete! {
             //Placeholder for now. Do action when level is complete.
+            if(isTutorial){
+                setText(text: "Congrats, you are ready to play Dam It!")
+            }
             self.isComplete = true
             self.victoryText.drop()
             DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
                 self.nextLevelButton.isHidden = false
             }
         }
+    }
+    
+    func setText(text: String){
+        let attrString = NSMutableAttributedString(string: text)
+        let paragraphStyle = NSMutableParagraphStyle()
+        paragraphStyle.alignment = .center
+        let range = NSRange(location: 0, length: text.count)
+        attrString.addAttribute(NSAttributedString.Key.paragraphStyle, value: paragraphStyle, range: range)
+        attrString.addAttributes([NSAttributedString.Key.foregroundColor : UIColor.white, NSAttributedString.Key.font : UIFont.systemFont(ofSize: 40)], range: range)
+        helpText.attributedText = attrString
     }
     
 //    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -120,6 +184,24 @@ extension GameScene {
 //        self.restartNode.setupRetryButton(self)
         self.logo.setupLogo(self)
         self.victoryText.setupText(self)
+    }
+    
+    func setupTutorial(){
+        helpText = SKLabelNode(fontNamed: "Chalkduster")
+        helpText.zPosition = 6.0
+        helpText.numberOfLines = 3
+        helpText.preferredMaxLayoutWidth = frame.maxX
+        helpText.horizontalAlignmentMode = .center
+        helpText.verticalAlignmentMode = .center
+        setText(text: "Welcome to Dam It! The goal of the game is to create a flush dam using the availabe log blocks. Swipe Left and Right in order to move the Beaver. Use this to head over to the logs")
+        helpText.position = CGPoint(x: frame.midX, y: frame.midY / 2)
+        addChild(helpText)
+        self.movementCheckpoint = false
+        self.logCheckpoint = false
+        self.pickupCheckpoint = false
+        self.holdingLogCheckpoint = false
+        self.buildDamCheckpoint = false
+        self.warningCheckpoint = false
     }
     
     func getLevelData(levelData: String) -> LevelDataFormat {
