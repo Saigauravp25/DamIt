@@ -8,6 +8,7 @@
 import SpriteKit
 import GameplayKit
 import CoreData
+import Firebase
 
 let blockBitMask = UInt32(1)
 let beaverBitMask = UInt32(2)
@@ -36,6 +37,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     var warningCheckpoint = false
     let putDownSound = SKAction.playSoundFileNamed("putDown.wav", waitForCompletion: false)
     let floodSound = SKAction.playSoundFileNamed("flood.wav", waitForCompletion: false)
+    var ref: DatabaseReference!
     
     override func didMove(to view: SKView) {
         self.physicsWorld.contactDelegate = self
@@ -133,6 +135,32 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             self.victoryText.drop()
             DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
                 self.nextLevelButton.isHidden = false
+            }
+            ref = Database.database().reference()
+            var userID = Auth.auth().currentUser?.email
+            // reformatting the email again to query the database
+            userID = userID!.replacingOccurrences(of: "@", with: ",")
+            userID = userID!.replacingOccurrences(of: ".", with: ",")
+            ref.child("users").child(userID!).observeSingleEvent(of: .value, with: { (snapshot) in
+              // Get user value
+              let value = snapshot.value as? NSDictionary
+                let userLevelData = value?["levelPack"] as? String ?? ""
+                if let index = userLevelData.firstIndex(of: ":") {
+                    // Need to break up the levelpack string so that we can update with new level, since one has just been beaten
+                    let distance = userLevelData.distance(from: userLevelData.startIndex, to: index)
+                    let level = Int(userLevelData.substring(with: distance+1..<userLevelData.count - 1))!
+                    let chars = Array(userLevelData)
+                    var newUserLevel = userLevelData.substring(to: distance + 1)
+                    let updatedLevel = String(level + 1)
+                    // Recreating new string to update in database
+                    newUserLevel = newUserLevel + updatedLevel + "]"
+                    // Writing in database
+                    self.ref.child("users").child(userID!).setValue(["levelPack": newUserLevel])
+                }
+
+              // ...
+              }) { (error) in
+                print(error.localizedDescription)
             }
         }
     }

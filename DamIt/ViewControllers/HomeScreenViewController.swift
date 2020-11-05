@@ -8,16 +8,41 @@
 import UIKit
 import GameKit
 import CoreData
+import Firebase
 
 class HomeScreenViewController: UIViewController, SettingsViewControllerDelegate {
     
     let settingsSegueID = "settingsSegue"
     let levelPackSegueID = "LevelPackSelectSegue"
+    var user = ""
+    var userData: [NSManagedObject]!
+    var ref: DatabaseReference!
+    var userLevelData = ""
+    
+    
+    var notificationManager = NotificationManager()
     
    
     override func viewDidLoad() {
 //        navigationController?.setNavigationBarHidden(true, animated: true)
+        ref = Database.database().reference()
+        var userID = Auth.auth().currentUser?.email
+        // reformatting the email again to query the database
+        userID = userID!.replacingOccurrences(of: "@", with: ",")
+        userID = userID!.replacingOccurrences(of: ".", with: ",")
+        let exm = Database.database().reference().child("users")
+        ref.child("users").child(userID!).observeSingleEvent(of: .value, with: { (snapshot) in
+          // Get user value
+          let value = snapshot.value as? NSDictionary
+            self.userLevelData = value?["levelPack"] as? String ?? ""
+
+          // ...
+          }) { (error) in
+            print(error.localizedDescription)
+        }
         super.viewDidLoad()
+        retrieveUser()
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -63,10 +88,13 @@ class HomeScreenViewController: UIViewController, SettingsViewControllerDelegate
             let vc = segue.destination as! SettingsViewController
             vc.delegate = self
             vc.settingsArray = settingsArray()
+            vc.notificationManager = notificationManager
         }
         if(segue.identifier == "LevelPackSelectSegue" ){
             let vc = segue.destination as! LevelPackViewController
             vc.delegate = self
+            vc.userData = userData
+            vc.userLevelData = userLevelData
         }
         if (segue.identifier == "tutorialSegue") {
             let vc = segue.destination as! GameViewController
@@ -115,6 +143,22 @@ class HomeScreenViewController: UIViewController, SettingsViewControllerDelegate
         let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
         controller.addAction(okAction)
         present(controller, animated: true, completion: nil)
+    }
+    func retrieveUser() {
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        let context = appDelegate.persistentContainer.viewContext
+        let request = NSFetchRequest<NSFetchRequestResult>(entityName: "User")
+        request.predicate = NSPredicate(format: "id = %@", user)
+        
+        
+        do {
+            try userData = context.fetch(request) as? [NSManagedObject]
+        } catch {
+            // if an error occurs
+            let nserror = error as NSError
+            NSLog("Unresolved error \(nserror), \(nserror.userInfo)")
+            abort()
+        }
     }
     
 }
