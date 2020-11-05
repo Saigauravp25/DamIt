@@ -2,6 +2,7 @@
 
 ## Comments
   * Please run this app/game on a real device to get the best performace. Any iOS device or model is supported.
+  * Test account set up with progress of levels - username: test@gmail.com, password: test123
 
 ### Contributions
 #### Kishan Solanki - KS46487 (25%):
@@ -11,6 +12,12 @@
   * NSUserDefaults for User Settings + Custom Skin Preferences
   * GameCenter Functionality that was later scraped
   * Designed multiple Levels
+  
+  Beta
+  * Backround images for view controllers
+  * implemented FirebaseDataBase level data for additional level support
+  * implmented local notifications tied to notification toggle 
+  * Piped game control to include new level pack data
   
 #### Saigaurav Purushothaman - SP43976 (50%):
   * Coded fully functional Console Application of the Game (Block, Player, and Level Classes)
