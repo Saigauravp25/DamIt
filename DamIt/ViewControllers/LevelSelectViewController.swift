@@ -9,7 +9,7 @@ import UIKit
 import CoreData
 
 protocol LevelUpdate{
-    func updateLevel(levelNumber: Int)
+    func updateLevel(levelpack: Int, levelNumber: Int)
 }
 
 class LevelSelectViewController: UIViewController, LevelUpdate {
@@ -19,7 +19,8 @@ class LevelSelectViewController: UIViewController, LevelUpdate {
     var levelsCompleted : [Bool]!
     var levelData: [String]!
     var currentLevel: Int!
-    var userLevels = 0 
+    var userLevels:Int!
+    var userPacks:Int!
     
     var selectedLevelEncoding = ""
     var levelPack: Int!
@@ -33,31 +34,21 @@ class LevelSelectViewController: UIViewController, LevelUpdate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-//        navigationItem.title = "Level Select"
-        // hardcoded for now 
-//        if levelPack != 1 {
-            for button in buttons {
-                let buttonNumber = Int((button.titleLabel?.text)!)!
+        for button in buttons {
+            let buttonNumber = Int((button.titleLabel?.text)!)!
+            if(levelPack >= userPacks){
                 if buttonNumber > self.userLevels{
                    button.isEnabled = false
-                    
                 }
             }
-//        }
+        }
     }
-    
-//    func buttonSetup(){
-//        var index = 0
-//        for boolean in levelsCompleted {
-//            buttons[index].isEnabled = boolean
-//            index += 1
-//        }
-//    }
     
     @IBAction func levelButtonPressed(_ sender: Any) {
         let button = sender as! UIButton
         self.currentLevel = button.tag
-        selectedLevelEncoding = levelData[self.currentLevel]
+        let index = (levelPack - 1) * 10 + self.currentLevel
+        selectedLevelEncoding = levelData[index]
         performSegue(withIdentifier: segue, sender: self)
     }
     
@@ -67,11 +58,15 @@ class LevelSelectViewController: UIViewController, LevelUpdate {
             vc.levelEncoding = self.selectedLevelEncoding
             vc.levelData = self.levelData
             vc.currentLevel = self.currentLevel
+            vc.currentPack = levelPack
             vc.delegate = self
         }
     }
-    func updateLevel(levelNumber: Int) {
-        buttons[levelNumber].isEnabled = true
+    
+    func updateLevel(levelpack:Int, levelNumber: Int) {
+        var index = (levelpack - 1) * 10
+        index += levelNumber
+        buttons[index - 1].isEnabled = true
     }
     
 }
