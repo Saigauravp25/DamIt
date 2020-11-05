@@ -66,7 +66,7 @@ class LevelSelectViewController: UIViewController, LevelUpdate {
     func updateLevel(levelpack:Int, levelNumber: Int) {
         var index = (levelpack - 1) * 10
         index += levelNumber
-        buttons[index].isEnabled = true
+        buttons[index - 1].isEnabled = true
     }
     
 }

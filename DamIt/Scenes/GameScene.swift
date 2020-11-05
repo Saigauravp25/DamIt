@@ -94,14 +94,16 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                 if let index = userLevelData.firstIndex(of: ":") {
                     // Need to break up the levelpack string so that we can update with new level, since one has just been beaten
                     let distance = userLevelData.distance(from: userLevelData.startIndex, to: index)
+                    var levelPack = Int(userLevelData.substring(with: 1 ..< distance))!
                     let level = Int(userLevelData.substring(with: distance+1..<userLevelData.count - 1))!
                     let chars = Array(userLevelData)
-                    var newUserLevel = userLevelData.substring(to: distance + 1)
-                    let updatedLevel = String(level + 1)
-                    // Recreating new string to update in database
-                    newUserLevel = newUserLevel + updatedLevel + "]"
+                    if(level + 1 > 10){
+                        levelPack += 1
+                    }
+                    let updatedLevel = String((level + 1)%10)
+                    let updatedUserLevelInfo = "[" + String(levelPack) + ":" + updatedLevel + "]"
                     // Writing in database
-                    self.ref.child("users").child(userID!).setValue(["levelPack": newUserLevel])
+                    self.ref.child("users").child(userID!).setValue(["levelPack": updatedUserLevelInfo])
                 }
 
               // ...
