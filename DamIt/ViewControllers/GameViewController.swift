@@ -24,16 +24,22 @@ class GameViewController: UIViewController {
     @IBOutlet weak var nextLevelButtonOutlet: UIButton!
     
     @IBAction func nextLevelButton(_ sender: UIButton) {
-        currentLevel = (currentLevel + 1) % 10 //loop in this level pack until future level packs are made
-        let otherVC = delegate as! LevelSelectViewController
-        otherVC.updateLevel(levelNumber: currentLevel)
-        levelEncoding = levelData[currentLevel]
-        (skView.scene as! GameScene).levelEncoding = levelEncoding
-        nextLevelButtonOutlet.isHidden = true
-        skView.presentScene(skView.scene)
+        
+        if(isTutorial){
+            self.dismiss(animated: true, completion: nil)
+        }
+        else{
+            currentLevel = (currentLevel + 1) % 10 //loop in this level pack until future level packs are made
+            let otherVC = delegate as! LevelSelectViewController
+            otherVC.updateLevel(levelNumber: currentLevel)
+            levelEncoding = levelData[currentLevel]
+            (skView.scene as! GameScene).levelEncoding = levelEncoding
+            nextLevelButtonOutlet.isHidden = true
             skView.presentScene(skView.scene)
+                skView.presentScene(skView.scene)
         }
     }
+    
     
     @IBAction func pauseButton(_ sender: UIButton) {
         self.skView.isPaused = !self.skView.isPaused
