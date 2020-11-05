@@ -96,6 +96,11 @@ class HomeScreenViewController: UIViewController, SettingsViewControllerDelegate
             vc.userData = userData
             vc.userLevelData = userLevelData
         }
+        if (segue.identifier == "tutorialSegue") {
+            let vc = segue.destination as! GameViewController
+            vc.levelEncoding = "00001205RRRLLRRRLARRRAARRRAARRRAARRRAARRRAARRRAARRRBARRRAAAAAAARRRAA"
+            vc.isTutorial = true
+        }
     }
     
     
@@ -127,6 +132,10 @@ class HomeScreenViewController: UIViewController, SettingsViewControllerDelegate
             disclosureAlert()
         }
         performSegue(withIdentifier: levelPackSegueID , sender: self)
+    }
+    
+    @IBAction func tutorialButtonPressed(_ sender: Any) {
+        performSegue(withIdentifier: "tutorialSegue", sender: self)
     }
     
     func disclosureAlert() {

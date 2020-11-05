@@ -17,23 +17,33 @@ class GameViewController: UIViewController {
     var currentLevel: Int!
     var currentPack: Int!
     var skView: SKView!
+    var isTutorial = false
+    
     var delegate: UIViewController!
     @IBOutlet weak var pauseButtonOutlet: UIButton!
     
     @IBOutlet weak var nextLevelButtonOutlet: UIButton!
     
     @IBAction func nextLevelButton(_ sender: UIButton) {
-        if(currentLevel == 9){
-            currentPack += 1
+        
+        if(isTutorial){
+            self.dismiss(animated: true, completion: nil)
         }
-        currentLevel = (currentLevel + 1) % 10 //loop in this level pack until future level packs are made
-        let otherVC = delegate as! LevelSelectViewController
-        otherVC.updateLevel(levelpack: currentPack, levelNumber: currentLevel)
-        levelEncoding = levelData[(currentPack - 1) * 10 + currentLevel]
-        (skView.scene as! GameScene).levelEncoding = levelEncoding
-        nextLevelButtonOutlet.isHidden = true
-        skView.presentScene(skView.scene)
+        else{
+            if(currentLevel == 9){
+                currentPack += 1
+            }
+            currentLevel = (currentLevel + 1) % 10 //loop in this level pack until future level packs are made
+            let otherVC = delegate as! LevelSelectViewController
+            otherVC.updateLevel(levelNumber: currentLevel)
+            levelEncoding = levelData[currentLevel]
+            (skView.scene as! GameScene).levelEncoding = levelEncoding
+            nextLevelButtonOutlet.isHidden = true
+            skView.presentScene(skView.scene)
+                skView.presentScene(skView.scene)
+        }
     }
+    
     
     @IBAction func pauseButton(_ sender: UIButton) {
         self.skView.isPaused = !self.skView.isPaused
@@ -81,6 +91,9 @@ class GameViewController: UIViewController {
             DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) { // Change `2.0` to the desired number of seconds.
                 gameScene.logo.hide()
                 gameScene.setupNodes()
+                if(self.isTutorial){
+                    gameScene.setupTutorial()
+                }
                 gameScene.oceanNode.unflood()
     //            gameScene.restartNode.show()
                 gameScene.level = Level(levelData: gameScene.getLevelData(levelData: gameScene.levelEncoding), for: gameScene)
