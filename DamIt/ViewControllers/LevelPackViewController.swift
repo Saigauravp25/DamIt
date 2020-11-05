@@ -14,17 +14,15 @@ class LevelPackViewController: UIViewController {
     @IBOutlet weak var checkcollectionview: UICollectionView!
     var delegate: UIViewController!
     var levelData = [String]()
-<<<<<<< HEAD
     var userData: [NSManagedObject]!
     var userLevelData = ""
     var test = 0
     var distance = 0
     var levelPack = 0
     var level = 0
-=======
     var firebaseData = [String]()
     var dataBaseRef: DatabaseReference!
->>>>>>> ef5b276eb5db2228c4cc35ba91e67e596b9b59aa
+
     
     @IBAction func backButton(_ sender: UIButton) {
         self.dismiss(animated: true, completion: nil)
