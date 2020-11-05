@@ -7,8 +7,10 @@
 
 import UIKit
 import Firebase
+import CoreData
 
 class LoginViewController: UIViewController {
+    var ref: DatabaseReference!
 
     @IBOutlet weak var segCtrl: UISegmentedControl!
     @IBOutlet weak var userName: UITextField!
@@ -60,6 +62,24 @@ class LoginViewController: UIViewController {
             Auth.auth().createUser(withEmail: email!, password: newPassword!){
                 user, error in
                 if error == nil {
+                    var firebaseEmail = email!.replacingOccurrences(of: "@", with: ",")
+                    firebaseEmail = firebaseEmail.replacingOccurrences(of: ".", with: ",")
+                    self.ref = Database.database().reference()
+                    self.ref.child("users").child(firebaseEmail).setValue(["levelPack": "[1:1]"])
+                    let appDelegate = UIApplication.shared.delegate as! AppDelegate
+                    let context = appDelegate.persistentContainer.viewContext
+                    // adding pizza to coredata
+                    let coreDataUser = NSEntityDescription.insertNewObject(
+                        forEntityName: "User", into:context)
+                    coreDataUser.setValue(email, forKey: "id")
+                    do {
+                        try context.save()
+                    } catch {
+                        // if an error occurs
+                        let nserror = error as NSError
+                        NSLog("Unresolved error \(nserror), \(nserror.userInfo)")
+                        abort()
+                    }
                     Auth.auth().signIn(withEmail: email!, password: newPassword!)
                     // once user has created account, log them in
                     self.performSegue(withIdentifier: "toGame", sender: self)
@@ -71,6 +91,13 @@ class LoginViewController: UIViewController {
             }
         }
     }
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if (segue.identifier == "toGame"){
+            let vc = segue.destination as! HomeScreenViewController
+            vc.user = userName.text!
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 

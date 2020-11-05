@@ -13,6 +13,12 @@ class LevelPackViewController: UIViewController {
     @IBOutlet weak var checkcollectionview: UICollectionView!
     var delegate: UIViewController!
     var levelData = [String]()
+    var userData: [NSManagedObject]!
+    var userLevelData = ""
+    var test = 0
+    var distance = 0
+    var levelPack = 0
+    var level = 0
     
     @IBAction func backButton(_ sender: UIButton) {
         self.dismiss(animated: true, completion: nil)
@@ -26,6 +32,12 @@ class LevelPackViewController: UIViewController {
             storeLevels()
             retrieveLevels()
         }
+        // converting the data to a level and level pack to use for user
+        if let index = userLevelData.firstIndex(of: ":") {
+            distance = userLevelData.distance(from: userLevelData.startIndex, to: index)
+            self.levelPack = Int(userLevelData.substring(with: 1..<distance))!
+            self.level = Int(userLevelData.substring(with: distance+1..<userLevelData.count - 1))!
+        }
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -34,6 +46,7 @@ class LevelPackViewController: UIViewController {
             let button = sender as? UIButton
             vc.levelPack = button?.tag
             vc.levelData = levelData
+            vc.userLevels = self.level
         }
     }
 }
@@ -46,6 +59,10 @@ extension LevelPackViewController: UICollectionViewDelegate, UICollectionViewDat
         let cell = checkcollectionview.dequeueReusableCell(withReuseIdentifier: "check", for: indexPath) as? checkCollectionViewCell
         cell?.buttontitle.setTitle("Level Pack \(String(indexPath.row + 1))", for: .normal)
         cell?.buttontitle.tag = indexPath.row + 1
+        if indexPath.row + 1 > self.levelPack{
+            cell?.buttontitle.isEnabled = false
+            
+        }
         return cell!
     }
     
@@ -53,7 +70,7 @@ extension LevelPackViewController: UICollectionViewDelegate, UICollectionViewDat
 }
 extension LevelPackViewController {
     func storeLevels() {
-        
+    
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         let context = appDelegate.persistentContainer.viewContext
         

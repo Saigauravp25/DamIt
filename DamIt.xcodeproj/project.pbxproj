@@ -45,9 +45,9 @@
 		5EE93DE62536B1DF00843A43 /* footstep.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5EE93DD22536B1AF00843A43 /* footstep.wav */; };
 		5EE93DE72536B1DF00843A43 /* pickUp.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5EE93DCE2536B1AF00843A43 /* pickUp.wav */; };
 		5EE93DE82536B1DF00843A43 /* step.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5EE93DD02536B1AF00843A43 /* step.wav */; };
+		6807AA0D254A49F600325B8C /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 6807AA0C254A49F600325B8C /* GoogleService-Info.plist */; };
 		681D4E87253F809A00687CBF /* SplashScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 681D4E86253F809A00687CBF /* SplashScreenViewController.swift */; };
 		681D70702548A82C0008D23B /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 681D706F2548A82C0008D23B /* LoginViewController.swift */; };
-		681D70882548AAC70008D23B /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 681D70872548AAC70008D23B /* GoogleService-Info.plist */; };
 		68F5BCC5253D0349008B9DD4 /* LevelPackViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68F5BCC4253D0349008B9DD4 /* LevelPackViewController.swift */; };
 		68F5BCCA253D045D008B9DD4 /* checkCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68F5BCC9253D045D008B9DD4 /* checkCollectionViewCell.swift */; };
 		A75EF3391294EFFB2D3D2D59 /* Pods_DamIt.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2728146C9D98E63461083CED /* Pods_DamIt.framework */; };
@@ -116,10 +116,10 @@
 		5EE93DD02536B1AF00843A43 /* step.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = step.wav; sourceTree = "<group>"; };
 		5EE93DD12536B1AF00843A43 /* putDown.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = putDown.wav; sourceTree = "<group>"; };
 		5EE93DD22536B1AF00843A43 /* footstep.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = footstep.wav; sourceTree = "<group>"; };
+		6807AA0C254A49F600325B8C /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		681D4E86253F809A00687CBF /* SplashScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashScreenViewController.swift; sourceTree = "<group>"; };
 		681D706B2548A5130008D23B /* DamIt.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = DamIt.entitlements; sourceTree = "<group>"; };
 		681D706F2548A82C0008D23B /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
-		681D70872548AAC70008D23B /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		68F5BCC4253D0349008B9DD4 /* LevelPackViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelPackViewController.swift; sourceTree = "<group>"; };
 		68F5BCC9253D045D008B9DD4 /* checkCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = checkCollectionViewCell.swift; sourceTree = "<group>"; };
 		7278278A6A99F5415E9ACE1D /* Pods-DamIt.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DamIt.release.xcconfig"; path = "Target Support Files/Pods-DamIt/Pods-DamIt.release.xcconfig"; sourceTree = "<group>"; };
@@ -222,7 +222,7 @@
 		4A78A60B25374DC30047ACC9 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				681D70872548AAC70008D23B /* GoogleService-Info.plist */,
+				6807AA0C254A49F600325B8C /* GoogleService-Info.plist */,
 				681D4E86253F809A00687CBF /* SplashScreenViewController.swift */,
 				5E2451BB2525466500EE2601 /* HomeScreenViewController.swift */,
 				5E2451F32525485200EE2601 /* SettingsViewController.swift */,
@@ -428,7 +428,7 @@
 				5EE93DE82536B1DF00843A43 /* step.wav in Resources */,
 				5E2451BF2525466500EE2601 /* Main.storyboard in Resources */,
 				5E50127D25412902008496DA /* README.md in Resources */,
-				681D70882548AAC70008D23B /* GoogleService-Info.plist in Resources */,
+				6807AA0D254A49F600325B8C /* GoogleService-Info.plist in Resources */,
 				5EE93DE72536B1DF00843A43 /* pickUp.wav in Resources */,
 				5EE93DE52536B1DF00843A43 /* flood.wav in Resources */,
 			);

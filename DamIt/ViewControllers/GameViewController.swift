@@ -10,18 +10,21 @@ import SpriteKit
 import GameplayKit
 
 class GameViewController: UIViewController {
+   
     
     var levelEncoding: String!
     var levelData: [String]!
     var currentLevel: Int!
     var skView: SKView!
-    
+    var delegate: UIViewController!
     @IBOutlet weak var pauseButtonOutlet: UIButton!
     
     @IBOutlet weak var nextLevelButtonOutlet: UIButton!
     
     @IBAction func nextLevelButton(_ sender: UIButton) {
         currentLevel = (currentLevel + 1) % 10 //loop in this level pack until future level packs are made
+        let otherVC = delegate as! LevelSelectViewController
+        otherVC.updateLevel(levelNumber: currentLevel)
         levelEncoding = levelData[currentLevel]
         (skView.scene as! GameScene).levelEncoding = levelEncoding
         nextLevelButtonOutlet.isHidden = true
