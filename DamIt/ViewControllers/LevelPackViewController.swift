@@ -64,7 +64,10 @@ class LevelPackViewController: UIViewController {
             vc.levelPack = button?.tag
             vc.levelData = levelData
             vc.userLevels = self.level
+<<<<<<< HEAD
             vc.userPacks = self.levelPack
+=======
+>>>>>>> 8c0178f2b153973526de66708c416c36fafd6289
         }
     }
 }
