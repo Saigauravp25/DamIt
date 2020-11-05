@@ -20,6 +20,8 @@ class HomeScreenViewController: UIViewController, SettingsViewControllerDelegate
     var userLevelData = ""
     
     
+    var notificationManager = NotificationManager()
+    
    
     override func viewDidLoad() {
 //        navigationController?.setNavigationBarHidden(true, animated: true)
@@ -86,6 +88,7 @@ class HomeScreenViewController: UIViewController, SettingsViewControllerDelegate
             let vc = segue.destination as! SettingsViewController
             vc.delegate = self
             vc.settingsArray = settingsArray()
+            vc.notificationManager = notificationManager
         }
         if(segue.identifier == "LevelPackSelectSegue" ){
             let vc = segue.destination as! LevelPackViewController

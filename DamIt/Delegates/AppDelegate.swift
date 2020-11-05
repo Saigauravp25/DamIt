@@ -18,6 +18,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         FirebaseApp.configure()
         
+        //request notications
+        UNUserNotificationCenter.current().requestAuthorization(options: [.alert], completionHandler: {
+            (success, error) in
+            if(success){
+                print("Notification Permission Granted")
+                // set up random notifications
+                NotificationManager().scheduleNotifications()
+            } else {
+                print("Notification permission denied")
+            }
+        })
+        
         return true
     }
 
