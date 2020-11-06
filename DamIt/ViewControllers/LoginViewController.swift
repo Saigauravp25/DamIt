@@ -91,6 +91,7 @@ class LoginViewController: UIViewController {
             }
         }
     }
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if (segue.identifier == "toGame"){
             let vc = segue.destination as! HomeScreenViewController
@@ -102,6 +103,10 @@ class LoginViewController: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
     }
     
 
