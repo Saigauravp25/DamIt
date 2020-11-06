@@ -48,6 +48,9 @@
   *  Assisted with Core Data for Level storage
   
   Beta - (40%)
+  *  Integrated Firebase functionality with application
+  *  Created login page for application
+  *  Created Firebase database to store user level progress and load it when the game starts
   
   #### Nirav Lalsinghani - NVL225 (15%)
   Alpha - 5%
