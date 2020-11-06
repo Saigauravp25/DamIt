@@ -39,6 +39,10 @@
   * Added Constraints to all Views
   
   Beta - 15% 
+  * Implemented SoundFX Toggle
+  * Added Character Skin Customizability
+  * Set Constraints on all new Views
+  * UI Enhancements
   
   #### Nikhil Bodicharla - NB24499 (25%):
    Alpha - 20%
@@ -48,6 +52,9 @@
   *  Assisted with Core Data for Level storage
   
   Beta - (40%)
+  *  Integrated Firebase functionality with application
+  *  Created login page for application
+  *  Created Firebase database to store user level progress and load it when the game starts
   
   #### Nirav Lalsinghani - NVL225 (15%)
   Alpha - 5%

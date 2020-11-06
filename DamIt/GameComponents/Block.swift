@@ -29,7 +29,21 @@ class Block: SKSpriteNode {
         self.type = type
         self.levelDimensions = levelDim
         self.skScene = scene
-        let imageName = self.type == .log ? "log" : (self.type == .rock ? "rock" : (self.type == .beaver ? "beaverRight" : "air"))
+        
+        let skin = gameSettings.skin
+        var rightSkin = ""
+        switch skin {
+        case 1:
+            rightSkin = "beaverRight"
+        case 2:
+            rightSkin = "beaverRight100Fancy"
+        case 3:
+            rightSkin = "beaverRight100Skeleton"
+        default:
+            rightSkin = "beaverRight"
+        }
+        
+        let imageName = self.type == .log ? "log" : (self.type == .rock ? "rock" : (self.type == .beaver ? rightSkin : "air"))
         let texture = SKTexture(imageNamed: imageName)
         super.init(texture: texture, color: .clear, size: texture.size())
         self.name = self.type == .beaver ? "Beaver" : imageName.capitalized
@@ -70,6 +84,27 @@ class Block: SKSpriteNode {
             return direction == .right ? "▶️\(pos)" : "◀️\(pos)"
         }
     }
+    
+    func getSkinName() -> (left: String, right: String) {
+        let skin = gameSettings.skin
+        var leftSkin = ""
+        var rightSkin = ""
+        switch skin {
+        case 1:
+            leftSkin = "beaverLeft"
+            rightSkin = "beaverRight"
+        case 2:
+            leftSkin = "beaverLeft100Fancy"
+            rightSkin = "beaverRight100Fancy"
+        case 3:
+            leftSkin = "beaverLeft100Skeleton"
+            rightSkin = "beaverRight100Skeleton"
+        default:
+            leftSkin = "beaverLeft"
+            rightSkin = "beaverRight"
+        }
+        return (leftSkin, rightSkin)
+    }
 }
 
 extension Block {
@@ -98,7 +133,8 @@ extension Block {
         self.position = CGPoint(x: xPad + CGFloat(blockPos.x) * self.frame.width, y: yPad + CGFloat(blockPos.y) * self.frame.height)
         if self is Player {
             let beaver = self as! Player
-            let imageName = beaver.direction == .right ? "beaverRight" : "beaverLeft"
+            let skinName = getSkinName()
+            let imageName = beaver.direction == .right ? skinName.right : skinName.left
             beaver.texture = SKTexture(imageNamed: imageName)
         }
     }

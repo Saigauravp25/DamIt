@@ -88,6 +88,7 @@ class HomeScreenViewController: UIViewController, SettingsViewControllerDelegate
             let vc = segue.destination as! SettingsViewController
             vc.delegate = self
             vc.settingsArray = settingsArray()
+            gameSettings.settings = vc.settingsArray
             vc.notificationManager = notificationManager
         }
         if(segue.identifier == "LevelPackSelectSegue" ){
@@ -105,7 +106,7 @@ class HomeScreenViewController: UIViewController, SettingsViewControllerDelegate
     
     
     func settingsArray() -> [Bool] {
-        var arr = [true, true, true ,false]
+        var arr = [true, false, true ,false]
         let defaults = UserDefaults.standard
         let sfxSet = defaults.integer(forKey: "sfxSet")
         let bgmSet = defaults.integer(forKey: "bgmusicSet")
