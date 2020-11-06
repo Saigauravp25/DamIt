@@ -77,9 +77,15 @@ extension LevelPackViewController: UICollectionViewDelegate, UICollectionViewDat
         let cell = checkcollectionview.dequeueReusableCell(withReuseIdentifier: "check", for: indexPath) as? checkCollectionViewCell
         cell?.buttontitle.setTitle("Level Pack \(String(indexPath.row + 1))", for: .normal)
         cell?.buttontitle.tag = indexPath.row + 1
-        if indexPath.row + 1 > self.levelPack{
+//        for i in 0...indexPath.row{
+//            if(i < self.levelPack) {
+//                let indexp = IndexPath(index: i)
+//                let enabledCell = collectionView.cellForItem(at: indexp) as? checkCollectionViewCell
+//                enabledCell?.buttontitle.isEnabled = true
+//            }
+//        }
+        if indexPath.row + 1 > self.levelPack {
             cell?.buttontitle.isEnabled = false
-            
         }
         return cell!
     }
