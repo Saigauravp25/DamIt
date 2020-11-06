@@ -12,9 +12,9 @@ class Level {
     var width: Int
     var height: Int
     var topOfDam: Int
-    var footstepSound: SKAction
-    var pickUpSound: SKAction
-    var putDownSound: SKAction
+    var footstepSound: SKAction?
+    var pickUpSound: SKAction?
+    var putDownSound: SKAction?
     var grid: [[Block]]
     var player: Player
     var blockHeld: Block {
@@ -24,9 +24,14 @@ class Level {
     //Setup a level using the given level data
     init(levelData:LevelDataFormat, for scene:SKScene) {
         let pad = 2
-        self.footstepSound = SKAction.playSoundFileNamed("step.wav", waitForCompletion: false)
-        self.pickUpSound = SKAction.playSoundFileNamed("pickUp.wav", waitForCompletion: false)
-        self.putDownSound = SKAction.playSoundFileNamed("putDown.wav", waitForCompletion: false)
+        let gc = gameSettings
+        let settingsArray = gc.settings
+        let soundEffectsOn = settingsArray[0]
+//        let skin = gc.skin
+        let noSound = SKAction.playSoundFileNamed("noSound.mp3", waitForCompletion: false)
+        self.footstepSound = !soundEffectsOn ? noSound : SKAction.playSoundFileNamed("step.wav", waitForCompletion: false)
+        self.pickUpSound = !soundEffectsOn ? noSound : SKAction.playSoundFileNamed("pickUp.wav", waitForCompletion: false)
+        self.putDownSound = !soundEffectsOn ? noSound : SKAction.playSoundFileNamed("putDown.wav", waitForCompletion: false)
         let logs = levelData.logs
         let rocks = levelData.rocks
         let beaver = levelData.beaver
@@ -89,7 +94,7 @@ class Level {
             //If there is air above the block that is stopping the player, it can be jumped
             if cornerBlock.type == .air && blockAboveCornerBlock.type == .air {
                 //Sound effect
-                self.player.run(self.footstepSound)
+                self.player.run(self.footstepSound!)
                 self.swapBlocks(blockA: self.blockHeld, blockB: blockAboveCornerBlock)
                 self.swapBlocks(blockA: self.player, blockB: cornerBlock)
                 return true
@@ -107,7 +112,7 @@ class Level {
             }
         }
         //Sound effect
-        self.player.run(self.footstepSound)
+        self.player.run(self.footstepSound!)
         let replacedAirBlock1 = self.grid[lowestRow][self.player.y + dy]
         let replacedAirBlock2 = self.grid[lowestRow - 1][self.player.y + dy]
         //Swap player and held block with their respective destination air blocks
@@ -140,7 +145,7 @@ class Level {
             //Swap the held block and the air block in the destination position
             self.swapBlocks(blockA: sideBlock, blockB: self.blockHeld)
             //Sound effect
-            self.player.run(self.pickUpSound)
+            self.player.run(self.pickUpSound!)
             return true
         } else {
             return false
@@ -171,7 +176,7 @@ class Level {
             self.swapBlocks(blockA: lowestAirBlock, blockB: self.blockHeld)
             self.player.hasLog = false
             //Sound effect
-            self.player.run(self.putDownSound)
+            self.player.run(self.putDownSound!)
             return true
         } else {
             return false

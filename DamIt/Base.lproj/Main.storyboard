@@ -597,10 +597,10 @@
                                 <rect key="frame" x="0.0" y="0.0" width="896" height="414"/>
                             </imageView>
                             <button opaque="NO" tag="1" contentMode="scaleToFill" restorationIdentifier="1" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="q2B-C8-QPy">
-                                <rect key="frame" x="65.666666666666686" y="118" width="215" height="196"/>
-                                <color key="backgroundColor" red="0.090628929436206818" green="0.13630816340446472" blue="0.66188251972198486" alpha="0.999755859375" colorSpace="custom" customColorSpace="sRGB"/>
+                                <rect key="frame" x="226.66666666666666" y="166.33333333333334" width="107.66666666666666" height="99.333333333333343"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" name="MarkerFelt-Wide" family="Marker Felt" pointSize="30"/>
-                                <state key="normal" title="Skin 1">
+                                <state key="normal" backgroundImage="beaverRight">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
@@ -608,10 +608,10 @@
                                 </connections>
                             </button>
                             <button opaque="NO" tag="2" contentMode="scaleToFill" restorationIdentifier="2" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="w4E-p9-fV4">
-                                <rect key="frame" x="340.66666666666669" y="118" width="215.00000000000006" height="196"/>
-                                <color key="backgroundColor" red="0.085670508444309235" green="0.37673044204711914" blue="0.20074617862701416" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <rect key="frame" x="394.33333333333331" y="166.33333333333334" width="107.33333333333331" height="99.333333333333343"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" name="MarkerFelt-Wide" family="Marker Felt" pointSize="30"/>
-                                <state key="normal" title="Skin 2">
+                                <state key="normal" backgroundImage="beaverRight100Fancy">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
@@ -619,10 +619,10 @@
                                 </connections>
                             </button>
                             <button opaque="NO" tag="3" contentMode="scaleToFill" restorationIdentifier="3" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bOO-Ab-iL1">
-                                <rect key="frame" x="615.66666666666663" y="118" width="215" height="196"/>
-                                <color key="backgroundColor" red="0.58159011602401733" green="0.15501704812049866" blue="0.091957531869411469" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <rect key="frame" x="561.66666666666663" y="166.33333333333334" width="107.66666666666663" height="99.333333333333343"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" name="MarkerFelt-Wide" family="Marker Felt" pointSize="30"/>
-                                <state key="normal" title="Skin 3">
+                                <state key="normal" backgroundImage="beaverRight100Skeleton">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
@@ -640,6 +640,12 @@
                                     <action selector="backButton:" destination="9uD-OA-Fhh" eventType="touchUpInside" id="JnM-nP-gjm"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Choose a skin" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ULG-7c-yi1">
+                                <rect key="frame" x="301" y="26.333333333333329" width="294" height="65"/>
+                                <fontDescription key="fontDescription" name="MarkerFelt-Wide" family="Marker Felt" pointSize="50"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vzN-9g-FNM"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -652,16 +658,18 @@
                             <constraint firstItem="w4E-p9-fV4" firstAttribute="height" secondItem="q2B-C8-QPy" secondAttribute="height" id="FKe-kR-WvT"/>
                             <constraint firstItem="FGk-HZ-QqX" firstAttribute="top" secondItem="vzN-9g-FNM" secondAttribute="top" constant="20.000000000000455" id="IaY-72-FF7"/>
                             <constraint firstItem="FGk-HZ-QqX" firstAttribute="leading" secondItem="vzN-9g-FNM" secondAttribute="leading" constant="20" id="LZc-Oz-I0X"/>
-                            <constraint firstItem="q2B-C8-QPy" firstAttribute="height" secondItem="aiJ-Wu-Y7a" secondAttribute="height" multiplier="0.47343" id="W8P-62-QGy"/>
+                            <constraint firstItem="q2B-C8-QPy" firstAttribute="height" secondItem="aiJ-Wu-Y7a" secondAttribute="height" multiplier="0.24" id="W8P-62-QGy"/>
                             <constraint firstItem="w4E-p9-fV4" firstAttribute="centerX" secondItem="vzN-9g-FNM" secondAttribute="centerX" id="WEd-hu-B9u"/>
                             <constraint firstItem="bOO-Ab-iL1" firstAttribute="height" secondItem="w4E-p9-fV4" secondAttribute="height" id="XJt-WA-emD"/>
                             <constraint firstItem="q2B-C8-QPy" firstAttribute="centerY" secondItem="w4E-p9-fV4" secondAttribute="centerY" id="c7N-EG-Uz4"/>
                             <constraint firstAttribute="trailing" secondItem="TIN-2R-d0o" secondAttribute="trailing" id="cPp-RZ-fAN"/>
-                            <constraint firstItem="q2B-C8-QPy" firstAttribute="width" secondItem="aiJ-Wu-Y7a" secondAttribute="width" multiplier="0.239955" id="hws-17-qpI"/>
+                            <constraint firstItem="q2B-C8-QPy" firstAttribute="width" secondItem="aiJ-Wu-Y7a" secondAttribute="width" multiplier="0.12" id="hws-17-qpI"/>
                             <constraint firstItem="w4E-p9-fV4" firstAttribute="width" secondItem="q2B-C8-QPy" secondAttribute="width" id="jRo-e4-hxg"/>
                             <constraint firstItem="w4E-p9-fV4" firstAttribute="centerY" secondItem="vzN-9g-FNM" secondAttribute="centerY" multiplier="1.1" id="mE6-PH-xeU"/>
+                            <constraint firstItem="ULG-7c-yi1" firstAttribute="centerX" secondItem="vzN-9g-FNM" secondAttribute="centerX" id="nrq-nG-yPI"/>
                             <constraint firstItem="TIN-2R-d0o" firstAttribute="leading" secondItem="aiJ-Wu-Y7a" secondAttribute="leading" id="paS-AO-24r"/>
                             <constraint firstItem="w4E-p9-fV4" firstAttribute="leading" secondItem="q2B-C8-QPy" secondAttribute="trailing" constant="60" id="tlW-0v-hav"/>
+                            <constraint firstItem="ULG-7c-yi1" firstAttribute="centerY" secondItem="vzN-9g-FNM" secondAttribute="centerY" multiplier="0.3" id="wee-kH-MbD"/>
                             <constraint firstItem="bOO-Ab-iL1" firstAttribute="width" secondItem="w4E-p9-fV4" secondAttribute="width" id="xRd-Mm-IpB"/>
                         </constraints>
                     </view>
@@ -908,6 +916,9 @@
         <image name="arrow.counterclockwise.circle.fill" catalog="system" width="128" height="121"/>
         <image name="arrow.right.square.fill" catalog="system" width="128" height="114"/>
         <image name="arrowshape.turn.up.left.circle.fill" catalog="system" width="128" height="121"/>
+        <image name="beaverRight" width="100" height="100"/>
+        <image name="beaverRight100Fancy" width="100" height="100"/>
+        <image name="beaverRight100Skeleton" width="100" height="100"/>
         <image name="damItLogo" width="503" height="252"/>
         <image name="gearshape.fill" catalog="system" width="128" height="121"/>
         <image name="homeScreen" width="1920" height="1080"/>

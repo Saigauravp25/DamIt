@@ -5,6 +5,8 @@
 //  Created by kishanS on 9/30/20.
 //
 
+var gameSettings: (settings: [Bool], skin: Int) = ([true, false, false, false], 0)
+
 import UIKit
 protocol SettingsViewControllerDelegate {
     func changedSoundFX(isOn:Bool)
@@ -49,7 +51,7 @@ class SettingsViewController: UIViewController {
     }
     
     func disclosureAlert() {
-        let controller = UIAlertController(title: "Disclosure", message: "Sound and Background music settings not implemented yet.", preferredStyle: .alert)
+        let controller = UIAlertController(title: "Disclosure", message: "Only SoundFX, Notifications, and Character Customization currenly implemented.", preferredStyle: .alert)
         let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
         controller.addAction(okAction)
         present(controller, animated: true, completion: nil)
@@ -61,10 +63,12 @@ class SettingsViewController: UIViewController {
             case 0:
                 //sound fx
                 delegate.changedSoundFX(isOn: toggle.isOn)
+                settingsArray[0] = toggle.isOn
                 print(toggle.isOn)
             case 1:
                 //background music
                 delegate.changedBackgroundMusic(isOn: toggle.isOn)
+                settingsArray[1] = toggle.isOn
                 print(toggle.isOn)
             case 2:
                 //notificaitons
@@ -74,14 +78,17 @@ class SettingsViewController: UIViewController {
                 } else {
                     notificationManager.unscheduleNotifications()
                 }
+                settingsArray[2] = toggle.isOn
                 print(toggle.isOn)
             case 3 :
                 //dpad
                 delegate.changedDpad(isOn: toggle.isOn)
+                settingsArray[3] = toggle.isOn
                 print(toggle.isOn)
         default:
             print("toggle not handled")
         }
+        gameSettings.settings = settingsArray
     }
     
 

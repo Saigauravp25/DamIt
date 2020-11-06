@@ -35,8 +35,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     var holdingLogCheckpoint = false
     var buildDamCheckpoint = false
     var warningCheckpoint = false
-    let putDownSound = SKAction.playSoundFileNamed("putDown.wav", waitForCompletion: false)
-    let floodSound = SKAction.playSoundFileNamed("flood.wav", waitForCompletion: false)
+    let putDownSound = !gameSettings.settings[0] ? SKAction.playSoundFileNamed("noSound.mp3", waitForCompletion: false) : SKAction.playSoundFileNamed("putDown.wav", waitForCompletion: false)
+    let floodSound = !gameSettings.settings[0] ? SKAction.playSoundFileNamed("noSound.mp3", waitForCompletion: false) : SKAction.playSoundFileNamed("flood.wav", waitForCompletion: false)
     var ref: DatabaseReference!
     
     override func didMove(to view: SKView) {

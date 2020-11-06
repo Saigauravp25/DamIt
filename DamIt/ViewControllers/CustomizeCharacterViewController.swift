@@ -19,7 +19,7 @@ class CustomizeCharacterViewController: UIViewController {
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        disclosureAlert()
+//        disclosureAlert()
     }
     
     func disclosureAlert() {
@@ -37,6 +37,7 @@ class CustomizeCharacterViewController: UIViewController {
         let button = sender as! UIButton
         let style = button.tag
         let defaults = UserDefaults.standard
+        gameSettings.skin = style
         defaults.setValue(style, forKey: "customStyle")
     }
     

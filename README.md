@@ -39,6 +39,10 @@
   * Added Constraints to all Views
   
   Beta - 15% 
+  * Implemented SoundFX Toggle
+  * Added Character Skin Customizability
+  * Set Constraints on all new Views
+  * UI Enhancements
   
   #### Nikhil Bodicharla - NB24499 (25%):
    Alpha - 20%
