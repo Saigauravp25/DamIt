@@ -137,6 +137,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                 self.nextLevelButton.isHidden = false
             }
             ref = Database.database().reference()
+            
+            let levelPackNum = Int(levelEncoding.substring(to: 2))
+            let levelNum = Int(levelEncoding.substring(with: 2..<4))
             var userID = Auth.auth().currentUser?.email
             // reformatting the email again to query the database
             userID = userID!.replacingOccurrences(of: "@", with: ",")
@@ -151,13 +154,16 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                     var levelPack = Int(userLevelData.substring(with: 1 ..< distance))!
                     let level = Int(userLevelData.substring(with: distance+1..<userLevelData.count - 1))!
                     let chars = Array(userLevelData)
-                    if(level + 1 > 10){
-                        levelPack += 1
+                    if(levelPack == levelPackNum && level == levelNum){
+                        if(level + 1 > 10){
+                            levelPack += 1
+                        }
+                        let updatedLevel = String((level + 1)%10)
+                        let updatedUserLevelInfo = "[" + String(levelPack) + ":" + updatedLevel + "]"
+                        // Writing in database
+                        //if level && level pack value match
+                        self.ref.child("users").child(userID!).setValue(["levelPack": updatedUserLevelInfo])
                     }
-                    let updatedLevel = String((level + 1)%10)
-                    let updatedUserLevelInfo = "[" + String(levelPack) + ":" + updatedLevel + "]"
-                    // Writing in database
-                    self.ref.child("users").child(userID!).setValue(["levelPack": updatedUserLevelInfo])
                 }
 
               // ...
