@@ -50,7 +50,7 @@ class SettingsViewController: UIViewController {
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        disclosureAlert()
+//        disclosureAlert()
         //notifications now implemented
     }
     
