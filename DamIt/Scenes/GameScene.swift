@@ -144,7 +144,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             // reformatting the email again to query the database
             userID = userID!.replacingOccurrences(of: "@", with: ",")
             userID = userID!.replacingOccurrences(of: ".", with: ",")
-            ref.child("users").child(userID!).observeSingleEvent(of: .value, with: { (snapshot) in
+            ref.child("users").child(userID!).child("level").observeSingleEvent(of: .value, with: { (snapshot) in
               // Get user value
               let value = snapshot.value as? NSDictionary
                 let userLevelData = value?["levelPack"] as? String ?? ""
@@ -162,7 +162,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                         let updatedUserLevelInfo = "[" + String(levelPack) + ":" + updatedLevel + "]"
                         // Writing in database
                         //if level && level pack value match
-                        self.ref.child("users").child(userID!).setValue(["levelPack": updatedUserLevelInfo])
+                        self.ref.child("users").child(userID!).child("level").setValue(["levelPack": updatedUserLevelInfo])
                     }
                 }
 
