@@ -8,6 +8,8 @@
 var gameSettings: (settings: [Bool], skin: Int) = ([true, false, false, false], 0)
 
 import UIKit
+import AVKit
+
 protocol SettingsViewControllerDelegate {
     func changedSoundFX(isOn:Bool)
     func changedBackgroundMusic(isOn:Bool)
@@ -22,6 +24,8 @@ class SettingsViewController: UIViewController {
     let customizeSegueID = "customizeCharacterSegue"
     var delegate: SettingsViewControllerDelegate!
     var settingsArray: [Bool]!
+    
+    var audioPlayer: AVAudioPlayer!
     
     var style: Int?
     
@@ -69,6 +73,11 @@ class SettingsViewController: UIViewController {
                 //background music
                 delegate.changedBackgroundMusic(isOn: toggle.isOn)
                 settingsArray[1] = toggle.isOn
+                if settingsArray[1] {
+                    audioPlayer.play()
+                } else {
+                    audioPlayer.pause()
+                }
                 print(toggle.isOn)
             case 2:
                 //notificaitons

@@ -9,6 +9,7 @@ import UIKit
 import GameKit
 import CoreData
 import Firebase
+import AVKit
 
 class HomeScreenViewController: UIViewController, SettingsViewControllerDelegate {
     
@@ -18,6 +19,7 @@ class HomeScreenViewController: UIViewController, SettingsViewControllerDelegate
     var userData: [NSManagedObject]!
     var ref: DatabaseReference!
     var userLevelData = ""
+    var audioPlayer: AVAudioPlayer!
     
     
     var notificationManager = NotificationManager()
@@ -42,7 +44,7 @@ class HomeScreenViewController: UIViewController, SettingsViewControllerDelegate
         }
         super.viewDidLoad()
         retrieveUser()
-        
+        playBackgroundMusic(backgroundMusic: "retroBackgroundMusic")
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -52,6 +54,17 @@ class HomeScreenViewController: UIViewController, SettingsViewControllerDelegate
         // make nav bar  come back for next pages
         super.viewWillDisappear(animated)
 //        navigationController?.setNavigationBarHidden(false, animated: true)
+    }
+    
+    func playBackgroundMusic(backgroundMusic: String) {
+        print("Music on:", gameSettings.settings[1])
+        let url = Bundle.main.url(forResource: backgroundMusic, withExtension: "mp3")
+        audioPlayer = try! AVAudioPlayer(contentsOf: url!)
+        audioPlayer.numberOfLoops = -1
+        let defaults = UserDefaults.standard
+        if defaults.bool(forKey: "backroundMusicSwitch") {
+            audioPlayer.play()
+        }
     }
     
     func changedSoundFX(isOn: Bool) {
@@ -88,6 +101,7 @@ class HomeScreenViewController: UIViewController, SettingsViewControllerDelegate
             let vc = segue.destination as! SettingsViewController
             vc.delegate = self
             vc.settingsArray = settingsArray()
+            vc.audioPlayer = self.audioPlayer
             gameSettings.settings = vc.settingsArray
             vc.notificationManager = notificationManager
         }
