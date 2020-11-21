@@ -24,6 +24,35 @@ class GameViewController: UIViewController {
     
     @IBOutlet weak var nextLevelButtonOutlet: UIButton!
     
+    @IBOutlet weak var moveLeftButton: UIButton!
+    @IBOutlet weak var moveRightButton: UIButton!
+    @IBOutlet weak var toggleCarryButton: UIButton!
+    
+    @IBAction func moveLeft(_ sender: UIButton) {
+        let gameScene = self.skView.scene as! GameScene
+        let level = gameScene.level
+        _ = level?.movePlayer(direction: .left)
+        gameScene.doTutorial()
+        gameScene.isLevelComplete()
+    }
+    
+    @IBAction func moveRight(_ sender: UIButton) {
+        let gameScene = self.skView.scene as! GameScene
+        let level = gameScene.level
+        _ = level?.movePlayer(direction: .right)
+        gameScene.doTutorial()
+        gameScene.isLevelComplete()
+    }
+    
+    @IBAction func toggleCarry(_ sender: UIButton) {
+        let gameScene = self.skView.scene as! GameScene
+        let level = gameScene.level
+        _ = level?.playerToggleCarryLog()
+        gameScene.doTutorial()
+        gameScene.isLevelComplete()
+    }
+    
+    
     @IBAction func nextLevelButton(_ sender: UIButton) {
         
         if(isTutorial){
@@ -48,6 +77,11 @@ class GameViewController: UIViewController {
     @IBAction func pauseButton(_ sender: UIButton) {
         self.skView.isPaused = !self.skView.isPaused
         let image = self.skView.isPaused ? UIImage(systemName: "play.circle.fill") : UIImage(systemName: "pause.circle.fill")
+        if self.skView.isPaused {
+            backgroundMusicPlayer.pause()
+        } else {
+            backgroundMusicPlayer.play()
+        }
         pauseButtonOutlet.setBackgroundImage(image, for: .normal)
     }
     
@@ -110,6 +144,11 @@ class GameViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         nextLevelButtonOutlet.isHidden = true
+        if !gameSettings.settings[3] {
+            moveLeftButton.isHidden = true
+            moveRightButton.isHidden = true
+            toggleCarryButton.isHidden = true
+        }
         //print("LEVEL ENCODING FOR GAME SCENE: \(levelEncoding)")
         let scene = GameScene(size: CGSize(width: 2048.0, height: 1536.0))
         scene.levelEncoding = levelEncoding

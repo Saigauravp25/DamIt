@@ -11,6 +11,8 @@ import CoreData
 import Firebase
 import AVKit
 
+var backgroundMusicPlayer: AVAudioPlayer!
+
 class HomeScreenViewController: UIViewController, SettingsViewControllerDelegate {
     
     let settingsSegueID = "settingsSegue"
@@ -65,6 +67,7 @@ class HomeScreenViewController: UIViewController, SettingsViewControllerDelegate
         if defaults.bool(forKey: "backroundMusicSwitch") {
             audioPlayer.play()
         }
+        backgroundMusicPlayer = audioPlayer
     }
     
     func changedSoundFX(isOn: Bool) {
