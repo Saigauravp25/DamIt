@@ -9,6 +9,7 @@ var gameSettings: (settings: [Bool], skin: Int) = ([true, false, false, false], 
 
 import UIKit
 import AVKit
+import Firebase
 
 protocol SettingsViewControllerDelegate {
     func changedSoundFX(isOn:Bool)
@@ -24,7 +25,7 @@ class SettingsViewController: UIViewController {
     let customizeSegueID = "customizeCharacterSegue"
     var delegate: SettingsViewControllerDelegate!
     var settingsArray: [Bool]!
-    
+    var ref: DatabaseReference!
     var audioPlayer: AVAudioPlayer!
     
     var style: Int?
@@ -62,17 +63,25 @@ class SettingsViewController: UIViewController {
     }
     
     @IBAction func settingsToggleChanged(_ sender: Any) {
+        
+        ref = Database.database().reference()
+        var userID = Auth.auth().currentUser?.email
+        userID = userID!.replacingOccurrences(of: "@", with: ",")
+        userID = userID!.replacingOccurrences(of: ".", with: ",")
+        super.viewDidLoad()
         let toggle = sender as! UISwitch
         switch toggle.tag {
             case 0:
                 //sound fx
                 delegate.changedSoundFX(isOn: toggle.isOn)
                 settingsArray[0] = toggle.isOn
+                ref.child("users").child(userID!).child("settings").child("soundFX").setValue(toggle.isOn)
                 print(toggle.isOn)
             case 1:
                 //background music
                 delegate.changedBackgroundMusic(isOn: toggle.isOn)
                 settingsArray[1] = toggle.isOn
+                ref.child("users").child(userID!).child("settings").child("backgroundMusic").setValue(toggle.isOn)
                 if settingsArray[1] {
                     audioPlayer.play()
                 } else {
@@ -88,11 +97,13 @@ class SettingsViewController: UIViewController {
                     notificationManager.unscheduleNotifications()
                 }
                 settingsArray[2] = toggle.isOn
+                ref.child("users").child(userID!).child("settings").child("notifications").setValue(toggle.isOn)
                 print(toggle.isOn)
             case 3 :
                 //dpad
                 delegate.changedDpad(isOn: toggle.isOn)
                 settingsArray[3] = toggle.isOn
+                ref.child("users").child(userID!).child("settings").child("dpad").setValue(toggle.isOn)
                 print(toggle.isOn)
         default:
             print("toggle not handled")
