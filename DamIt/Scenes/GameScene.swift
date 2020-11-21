@@ -99,31 +99,11 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             default:
                 print("Unrecognized Gesture Direction")
         }
-        if(isTutorial){
-            if(self.level?.player.y == 10 && (self.level?.player.x)! >= 5){
-                setText(text: "Click the restart button to start over")
-            }
-            if(self.level?.player.y == 2 && logCheckpoint == false){
-                logCheckpoint = true
-                setText(text: "You can scale 1 block high heights. Swipe left in order to jump up on top of the log")
-            }
-            if(self.level?.player.y == 1 && pickupCheckpoint == false){
-                pickupCheckpoint = true
-                setText(text: "Swipe down in order to pick up log blocks directly in front of you")
-            }
-            if((self.level?.player.hasLog)! && pickupCheckpoint && holdingLogCheckpoint == false){
-                holdingLogCheckpoint = true
-                setText(text: "Head back over to the hole in order to start building the dam")
-            }
-            if((self.level?.player.hasLog)! && self.level?.player.y == 9 && buildDamCheckpoint == false){
-                buildDamCheckpoint = true
-                setText(text: "Swipe down to place down logs in the direction you are facing. You can throw down logs from any height")
-            }
-            if(self.level?.player.hasLog == false && buildDamCheckpoint && warningCheckpoint == false){
-                warningCheckpoint = true
-                setText(text: "Beavers can jump down from any height so be careful not to get yourself stuck. You'll have to restart the level if that happens. Now keep moving logs in order to finish building the dam")
-            }
-        }
+        doTutorial()
+        isLevelComplete()
+    }
+    
+    func isLevelComplete() {
         let levelComplete = self.level?.checkLevelComplete()
         //core data update to set value to true
         if levelComplete! {
@@ -181,6 +161,34 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         attrString.addAttribute(NSAttributedString.Key.paragraphStyle, value: paragraphStyle, range: range)
         attrString.addAttributes([NSAttributedString.Key.foregroundColor : UIColor.white, NSAttributedString.Key.font : UIFont.systemFont(ofSize: 40)], range: range)
         helpText.attributedText = attrString
+    }
+    
+    func doTutorial() {
+        if(isTutorial){
+            if(self.level?.player.y == 10 && (self.level?.player.x)! >= 5){
+                setText(text: "Click the restart button to start over")
+            }
+            if(self.level?.player.y == 2 && logCheckpoint == false){
+                logCheckpoint = true
+                setText(text: "You can scale 1 block high heights. Swipe left in order to jump up on top of the log")
+            }
+            if(self.level?.player.y == 1 && pickupCheckpoint == false){
+                pickupCheckpoint = true
+                setText(text: "Swipe down in order to pick up log blocks directly in front of you")
+            }
+            if((self.level?.player.hasLog)! && pickupCheckpoint && holdingLogCheckpoint == false){
+                holdingLogCheckpoint = true
+                setText(text: "Head back over to the hole in order to start building the dam")
+            }
+            if((self.level?.player.hasLog)! && self.level?.player.y == 9 && buildDamCheckpoint == false){
+                buildDamCheckpoint = true
+                setText(text: "Swipe down to place down logs in the direction you are facing. You can throw down logs from any height")
+            }
+            if(self.level?.player.hasLog == false && buildDamCheckpoint && warningCheckpoint == false){
+                warningCheckpoint = true
+                setText(text: "Beavers can jump down from any height so be careful not to get yourself stuck. You'll have to restart the level if that happens. Now keep moving logs in order to finish building the dam")
+            }
+        }
     }
     
 //    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
