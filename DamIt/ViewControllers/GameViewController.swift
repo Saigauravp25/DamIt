@@ -31,7 +31,8 @@ class GameViewController: UIViewController {
     @IBAction func moveLeft(_ sender: UIButton) {
         let gameScene = self.skView.scene as! GameScene
         let level = gameScene.level
-        _ = level?.movePlayer(direction: .left)
+        let playerNumber = gameScene.activePlayer
+        _ = level?.movePlayer(number: playerNumber, to: .left)
         gameScene.doTutorial()
         gameScene.isLevelComplete()
     }
@@ -39,7 +40,8 @@ class GameViewController: UIViewController {
     @IBAction func moveRight(_ sender: UIButton) {
         let gameScene = self.skView.scene as! GameScene
         let level = gameScene.level
-        _ = level?.movePlayer(direction: .right)
+        let playerNumber = gameScene.activePlayer
+        _ = level?.movePlayer(number: playerNumber, to: .right)
         gameScene.doTutorial()
         gameScene.isLevelComplete()
     }
@@ -47,7 +49,8 @@ class GameViewController: UIViewController {
     @IBAction func toggleCarry(_ sender: UIButton) {
         let gameScene = self.skView.scene as! GameScene
         let level = gameScene.level
-        _ = level?.playerToggleCarryLog()
+        let playerNumber = gameScene.activePlayer
+        _ = level?.playerToggleCarryLog(number: playerNumber)
         gameScene.doTutorial()
         gameScene.isLevelComplete()
     }
