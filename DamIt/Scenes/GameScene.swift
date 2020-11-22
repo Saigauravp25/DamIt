@@ -39,6 +39,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     let floodSound = !gameSettings.settings[0] ? SKAction.playSoundFileNamed("noSound.mp3", waitForCompletion: false) : SKAction.playSoundFileNamed("flood.wav", waitForCompletion: false)
     var ref: DatabaseReference!
     var activePlayer: Int = 0
+    var isCoopMode: Bool!
     
     override func didMove(to view: SKView) {
         self.physicsWorld.contactDelegate = self
@@ -94,7 +95,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                 _ = self.level?.movePlayer(number: playerNumber, to: .left)
                 print("Gesture direction: Left")
             case .up:
-                self.activePlayer = (self.activePlayer == 0 ? 1 : 0)
+                self.activePlayer = !isCoopMode ? 0 : (self.activePlayer == 0 ? 1 : 0)
                 print("Gesture direction: Up")
             case .down:
                 _ = self.level?.playerToggleCarryLog(number: playerNumber)

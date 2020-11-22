@@ -18,6 +18,7 @@ class GameViewController: UIViewController {
     var currentPack: Int!
     var skView: SKView!
     var isTutorial = false
+    var isCoop: Bool!
     
     var delegate: UIViewController!
     @IBOutlet weak var pauseButtonOutlet: UIButton!
@@ -155,6 +156,7 @@ class GameViewController: UIViewController {
         //print("LEVEL ENCODING FOR GAME SCENE: \(levelEncoding)")
         let scene = GameScene(size: CGSize(width: 2048.0, height: 1536.0))
         scene.levelEncoding = levelEncoding
+        scene.isCoopMode = self.isCoop
         scene.nextLevelButton = self.nextLevelButtonOutlet
         scene.scaleMode = .aspectFill
         

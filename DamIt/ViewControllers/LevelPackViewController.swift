@@ -76,6 +76,7 @@ class LevelPackViewController: UIViewController {
             vc.levelData = levelData
             vc.userLevels = self.level
             vc.userPacks = self.levelPack
+            vc.isCoop = self.CoOpMode
         }
     }
 }
