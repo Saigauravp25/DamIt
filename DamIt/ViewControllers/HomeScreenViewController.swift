@@ -22,6 +22,7 @@ class HomeScreenViewController: UIViewController, SettingsViewControllerDelegate
     var ref: DatabaseReference!
     var userLevelData = ""
     var audioPlayer: AVAudioPlayer!
+    var coopClicked: Bool = false
     
     var settingArray: [Bool]!
     var notificationManager = NotificationManager()
@@ -48,7 +49,9 @@ class HomeScreenViewController: UIViewController, SettingsViewControllerDelegate
         settingsArray()
         playBackgroundMusic(backgroundMusic: "retroBackgroundMusic")
     }
-    
+    override func viewDidAppear(_ animated: Bool) {
+        coopClicked = false
+    }
     override func viewWillAppear(_ animated: Bool) {
 //        self.navigationController?.isNavigationBarHidden = true
     }
@@ -117,6 +120,7 @@ class HomeScreenViewController: UIViewController, SettingsViewControllerDelegate
             vc.delegate = self
             vc.userData = userData
             vc.userLevelData = userLevelData
+            vc.CoOpMode = coopClicked
         }
         if (segue.identifier == "tutorialSegue") {
             let vc = segue.destination as! GameViewController
@@ -170,7 +174,11 @@ class HomeScreenViewController: UIViewController, SettingsViewControllerDelegate
     
     @IBAction func playerModeButtonPressed(_ sender: UIButton) {
         let tag = sender.tag
-        if tag == 1 || tag == 2 {
+        //Co - op mode
+        if (tag == 1) {
+          coopClicked = true
+        } else if (tag == 2) {
+            // multi player mode
             disclosureAlert()
         }
         performSegue(withIdentifier: levelPackSegueID , sender: self)
