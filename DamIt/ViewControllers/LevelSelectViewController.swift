@@ -22,6 +22,8 @@ class LevelSelectViewController: UIViewController, LevelUpdate {
     var userLevels:Int!
     var userPacks:Int!
     
+    var isCoopMode: Bool!
+    
     var selectedLevelEncoding = ""
     var levelPack: Int!
     let segue: String = "gameSegue"
@@ -60,6 +62,7 @@ class LevelSelectViewController: UIViewController, LevelUpdate {
             vc.currentLevel = self.currentLevel
             vc.currentPack = levelPack
             vc.delegate = self
+            vc.isCoopMode = isCoopMode
         }
     }
     
