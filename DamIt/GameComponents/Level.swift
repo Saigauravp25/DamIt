@@ -16,10 +16,10 @@ class Level {
     var pickUpSound: SKAction?
     var putDownSound: SKAction?
     var grid: [[Block]]
-    var player: Player
-    var blockHeld: Block {
-        return self.grid[self.player.x - 1][self.player.y]
-    }
+    var players: [Player] = []
+//    var blockHeld: Block {
+//        return self.grid[self.players[0].x - 1][self.players[0].y]
+//    }
     
     //Setup a level using the given level data
     init(levelData:LevelDataFormat, for scene:SKScene) {
@@ -34,7 +34,7 @@ class Level {
         self.putDownSound = !soundEffectsOn ? noSound : SKAction.playSoundFileNamed("putDown.wav", waitForCompletion: false)
         let logs = levelData.logs
         let rocks = levelData.rocks
-        let beaver = levelData.beaver
+        let beavers = levelData.beavers
         self.width = levelData.width
         //Pad with an extra layer of air above the dam, shift logs and rocks down by 1 as well
         self.height = levelData.height + pad
@@ -61,42 +61,54 @@ class Level {
             self.grid[rock.x][rock.y] = rock
             numBlocksInFinishedDam += 1
         }
+        for beaver in beavers {
+            let player = Player(x: beaver.x + pad, y: beaver.y, direction: .right, hasLog: false, scene: scene, levelDim: (self.width, self.height))
+            self.players.append(player)
+            self.grid[player.x][player.y] = player
+        }
         //Calculate where the top row of the dam should be when finished
         self.topOfDam = self.height - numBlocksInFinishedDam / self.width
         //Keep a reference to the player and add it to the grid
-        self.player = Player(x: beaver.x + pad, y: beaver.y, direction: .right, hasLog: false, scene: scene, levelDim: (self.width, self.height))
-        self.grid[player.x][player.y] = self.player
+//        self.players.append(Player(x: beavers[0].x + pad, y: beavers[0].y, direction: .right, hasLog: false, scene: scene, levelDim: (self.width, self.height)))
+//        self.players.append(Player(x: beavers[1].x + pad, y: beavers[1].y, direction: .right, hasLog: false, scene: scene, levelDim: (self.width, self.height)))
+        
+//        self.grid[players[0].x][players[0].y] = self.players[0]
+//        self.grid[players[1].x][players[1].y] = self.players[1]
         self.id = levelData.id
     }
     
+    func blockHeld(by playerNumber: Int) -> Block {
+        return self.grid[self.players[playerNumber].x - 1][self.players[playerNumber].y]
+    }
+    
     //Tries to move player in the specified direction
-    func movePlayer(direction:Direction) -> Bool {
+    func movePlayer(number n: Int, to direction: Direction) -> Bool {
         //Change in horizontal direction
         let dy = (direction == .right) ? 1 : -1
-        let directionChanged = (self.player.direction != direction)
+        let directionChanged = (self.players[n].direction != direction)
         //Even if a player is blocked from moving a space, his facing direction must update
-        self.player.direction = direction
-        if (direction == .right && self.player.y + 1 >= self.width) || (direction == .left && self.player.y - 1 < 0) {
+        self.players[n].direction = direction
+        if (direction == .right && self.players[n].y + 1 >= self.width) || (direction == .left && self.players[n].y - 1 < 0) {
             return false
         }
-        let blockInFront = self.grid[self.player.x][self.player.y + dy]
+        let blockInFront = self.grid[self.players[n].x][self.players[n].y + dy]
         //Check if player if blocked, might be possible to jump over
         if blockInFront.type != .air {
             //If player was facing opposite direction before getting blocked, direction is updated without moving player. Prevents player from turning and jumping in one move
             if directionChanged {
                 return false
             }
-            if self.blockHeld.x - 1 < 0 {
+            if self.blockHeld(by: n).x - 1 < 0 {
                 return false
             }
-            let cornerBlock = self.grid[self.player.x - 1][self.player.y + dy]
-            let blockAboveCornerBlock = self.grid[self.player.x - 2][self.player.y + dy]
+            let cornerBlock = self.grid[self.players[n].x - 1][self.players[n].y + dy]
+            let blockAboveCornerBlock = self.grid[self.players[n].x - 2][self.players[n].y + dy]
             //If there is air above the block that is stopping the player, it can be jumped
             if cornerBlock.type == .air && blockAboveCornerBlock.type == .air {
                 //Sound effect
-                self.player.run(self.footstepSound!)
-                self.swapBlocks(blockA: self.blockHeld, blockB: blockAboveCornerBlock)
-                self.swapBlocks(blockA: self.player, blockB: cornerBlock)
+                self.players[n].run(self.footstepSound!)
+                self.swapBlocks(blockA: self.blockHeld(by: n), blockB: blockAboveCornerBlock)
+                self.swapBlocks(blockA: self.players[n], blockB: cornerBlock)
                 return true
             }
             return false
@@ -104,7 +116,7 @@ class Level {
         //Player not blocked in the specified direction, determine the row he lands on after moving
         var lowestRow = 0
         for row in grid {
-            let block = row[self.player.y + dy]
+            let block = row[self.players[n].y + dy]
             if block.type == .air {
                 lowestRow = block.x
             } else {
@@ -112,40 +124,40 @@ class Level {
             }
         }
         //Sound effect
-        self.player.run(self.footstepSound!)
-        let replacedAirBlock1 = self.grid[lowestRow][self.player.y + dy]
-        let replacedAirBlock2 = self.grid[lowestRow - 1][self.player.y + dy]
+        self.players[n].run(self.footstepSound!)
+        let replacedAirBlock1 = self.grid[lowestRow][self.players[n].y + dy]
+        let replacedAirBlock2 = self.grid[lowestRow - 1][self.players[n].y + dy]
         //Swap player and held block with their respective destination air blocks
-        self.swapBlocks(blockA: self.blockHeld, blockB: replacedAirBlock2)
-        self.swapBlocks(blockA: self.player, blockB: replacedAirBlock1)
+        self.swapBlocks(blockA: self.blockHeld(by: n), blockB: replacedAirBlock2)
+        self.swapBlocks(blockA: self.players[n], blockB: replacedAirBlock1)
         return true
     }
     
     //Determines and controls whether a log should be picked up or thrown down
-    func playerToggleCarryLog() -> Bool {
-        if !self.player.hasLog {
-            return self.playerPickUpLog()
+    func playerToggleCarryLog(number n: Int) -> Bool {
+        if self.blockHeld(by: n).type != .log && self.blockHeld(by: n).type != .beaver {
+            return self.playerPickUpLog(number: n)
         } else {
-            return self.playerThrowDownLog()
+            return self.playerThrowDownLog(number: n)
         }
     }
     
     //Tries to pick up a log if possible
-    private func playerPickUpLog() -> Bool {
-        if self.player.x - 1 < 0 || self.player.y + 1 >= self.width || self.player.y - 1 < 0 {
+    private func playerPickUpLog(number n: Int) -> Bool {
+        if self.players[n].x - 1 < 0 || self.players[n].y + 1 >= self.width || self.players[n].y - 1 < 0 {
             return false
         }
         //Change in horizontal direction
-        let dy = (self.player.direction == .right) ? 1 : -1
-        let sideBlock = self.grid[self.player.x][self.player.y + dy]
-        let cornerBlock = self.grid[self.player.x - 1][self.player.y + dy]
+        let dy = (self.players[n].direction == .right) ? 1 : -1
+        let sideBlock = self.grid[self.players[n].x][self.players[n].y + dy]
+        let cornerBlock = self.grid[self.players[n].x - 1][self.players[n].y + dy]
         //If the block in front is a log or beaver, and there is air above it, it can be picked up
         if (sideBlock.type == .log || sideBlock.type == .beaver) && cornerBlock.type == .air {
-            self.player.hasLog = true
+            self.players[n].hasLog = true
             //Swap the held block and the air block in the destination position
-            self.swapBlocks(blockA: sideBlock, blockB: self.blockHeld)
+            self.swapBlocks(blockA: sideBlock, blockB: self.blockHeld(by: n))
             //Sound effect
-            self.player.run(self.pickUpSound!)
+            self.players[n].run(self.pickUpSound!)
             return true
         } else {
             return false
@@ -153,19 +165,19 @@ class Level {
     }
     
     //Tries to throw down a log if possible
-    private func playerThrowDownLog() -> Bool {
-        if self.player.x - 1 < 0 || self.player.y + 1 >= self.width || self.player.y - 1 < 0 {
+    private func playerThrowDownLog(number n: Int) -> Bool {
+        if self.players[n].x - 1 < 0 || self.players[n].y + 1 >= self.width || self.players[n].y - 1 < 0 {
             return false
         }
         //Change in horizontal direction
-        let dy = (self.player.direction == .right) ? 1 : -1
-        let cornerBlock = self.grid[self.player.x - 1][self.player.y + dy]
+        let dy = (self.players[n].direction == .right) ? 1 : -1
+        let cornerBlock = self.grid[self.players[n].x - 1][self.players[n].y + dy]
         //If the corner block in the facing direction is air, the held block is throwable
         if cornerBlock.type == .air {
             //Iterate through the column that the block is thrown in to find the row it lands on
             var lowestAirBlock = cornerBlock
             for row in grid {
-                let block = row[self.player.y + dy]
+                let block = row[self.players[n].y + dy]
                 if block.type == .air {
                     lowestAirBlock = block
                 } else {
@@ -173,10 +185,10 @@ class Level {
                 }
             }
             //Swap the held block and the air block in the destination position
-            self.swapBlocks(blockA: lowestAirBlock, blockB: self.blockHeld)
-            self.player.hasLog = false
+            self.swapBlocks(blockA: lowestAirBlock, blockB: self.blockHeld(by: n))
+            self.players[n].hasLog = false
             //Sound effect
-            self.player.run(self.putDownSound!)
+            self.players[n].run(self.putDownSound!)
             return true
         } else {
             return false
@@ -185,12 +197,16 @@ class Level {
     
     //Swap any two blocks in the game grid and update their interal positions as well as on the grid
     private func swapBlocks(blockA:Block, blockB:Block) {
+//        let blockAOldType = blockA.type
+//        let blockBOldType = blockB.type
         let blockAOldPos = (x:blockA.x, y:blockA.y)
         let blockBOldPos = (x:blockB.x, y:blockB.y)
         blockA.x = blockBOldPos.x
         blockA.y = blockBOldPos.y
+//        blockA.type = blockBOldType
         blockB.x = blockAOldPos.x
         blockB.y = blockAOldPos.y
+//        blockB.type = blockAOldType
         self.grid[blockAOldPos.x][blockAOldPos.y] = blockB
         self.grid[blockBOldPos.x][blockBOldPos.y] = blockA
     }
@@ -209,12 +225,12 @@ class Level {
     }
     
     //Prints the current game grid - for debugging
-    func toString(showDescription:Bool, showBlockPositions:Bool) -> String {
+    func toString(showDescription:Bool, showBlockPositions:Bool, playerNumber:Int) -> String {
         var levelDesign = ""
         if showDescription {
             levelDesign.append("\(self.id)\n")
             levelDesign.append("Height: \(self.height), Width: \(self.width)\n")
-            levelDesign.append("Player: \(self.player.toString())\n")
+            levelDesign.append("Player: \(self.players[playerNumber].toString())\n")
         }
         for r in 0 ..< self.height {
             for c in 0 ..< self.width {
@@ -225,6 +241,7 @@ class Level {
         }
         return levelDesign
     }
+}
     
     
     // MARK: - Player Trapped Checking (Not Finished)
@@ -237,8 +254,8 @@ class Level {
     // --------------------------------------------------------------------------------------
 
     
-    func checkPlayerStuck() -> Bool {
-        return false
+//    func checkPlayerStuck() -> Bool {
+//        return false
         
         
         
@@ -280,91 +297,91 @@ class Level {
 //            }
 //        }
 //        return true
-    }
+//    }
     
-    private func canPlayerMove(_ direction:Direction, curDir:Direction, at position:(x:Int, y:Int)) -> (x:Int, y:Int)? {
-        if (direction == .right && position.y + 1 >= self.width) || (direction == .left && position.y - 1 < 0) {
-            return nil
-        }
-        let dy = (direction == .right) ? 1 : -1
-        let sideBlock = self.grid[position.x][position.y + dy]
-        let cornerBlock = self.grid[position.x - 1][position.y + dy]
-        if sideBlock.type != .air {
-            if cornerBlock.type == .air {
-                return (position.x - 1, position.y + dy)
-            } else if curDir != direction {
-                return (position.x, position.y)
-            }
-            return nil
-        }
-        var lowestRow = 0
-        for row in grid {
-            let block = row[position.y + dy]
-            if block.type == .air {
-                lowestRow = block.x
-            } else {
-                break
-            }
-        }
-        return (lowestRow, position.y + dy)
-    }
-    
-    private func canPlayerPickUpBlock(_ direction:Direction, at position:(x:Int, y:Int)) -> Bool {
-        if position.x - 1 < 0 || position.y + 1 >= self.width || position.y - 1 < 0 {
-            return false
-        }
-        let dy = (direction == .right) ? 1 : -1
-        let sideBlock = self.grid[position.x][position.y + dy]
-        let cornerBlock = self.grid[position.x - 1][position.y + dy]
-        return sideBlock.type == .log && cornerBlock.type == .air
-    }
-    
-    private func canPlayerThrowDownBlock(_ direction:Direction, at position:(x:Int, y:Int)) -> Bool {
-        if position.x - 1 < 0 || position.y + 1 >= self.width || position.y - 1 < 0 {
-            return false
-        }
-        let dy = (direction == .right) ? 1 : -1
-        let cornerBlock = self.grid[position.x - 1][position.y + dy]
-        return cornerBlock.type == .air
-    }
-    
-    private func isStuck(visited:inout [[Int]], at position:(x:Int, y:Int), direction:Direction) -> Bool {
-        if visited[position.x][position.y] == 0 {
-            print("here")
-            return true
-        }
-        print(position)
-        if !self.player.hasLog {
-            if self.canPlayerPickUpBlock(direction, at: position) {
-                print("pick")
-                return false
-            }
-        } else {
-            if self.canPlayerThrowDownBlock(direction, at: position) {
-                print("throw")
-                return false
-            }
-        }
-        
-        let right = self.canPlayerMove(.right, curDir: direction, at: (position.x, position.y))
-        if right != nil {
-            visited[position.x][position.y] -= 1
-            let ret = isStuck(visited: &visited, at: (right!.x, right!.y), direction: .right)
-            visited[position.x][position.y] += 1
-            if !ret {
-                return false
-            }
-        }
-        let left = self.canPlayerMove(.left, curDir: direction, at: (position.x, position.y))
-        if left  != nil {
-            visited[position.x][position.y] -= 1
-            let ret = isStuck(visited: &visited, at: (left!.x, left!.y), direction: .left)
-            visited[position.x][position.y] += 1
-            if !ret {
-                return false
-            }
-        }
-//        print("here2")
-        return true
-    }
-}
+//    private func canPlayerMove(_ direction:Direction, curDir:Direction, at position:(x:Int, y:Int)) -> (x:Int, y:Int)? {
+//        if (direction == .right && position.y + 1 >= self.width) || (direction == .left && position.y - 1 < 0) {
+//            return nil
+//        }
+//        let dy = (direction == .right) ? 1 : -1
+//        let sideBlock = self.grid[position.x][position.y + dy]
+//        let cornerBlock = self.grid[position.x - 1][position.y + dy]
+//        if sideBlock.type != .air {
+//            if cornerBlock.type == .air {
+//                return (position.x - 1, position.y + dy)
+//            } else if curDir != direction {
+//                return (position.x, position.y)
+//            }
+//            return nil
+//        }
+//        var lowestRow = 0
+//        for row in grid {
+//            let block = row[position.y + dy]
+//            if block.type == .air {
+//                lowestRow = block.x
+//            } else {
+//                break
+//            }
+//        }
+//        return (lowestRow, position.y + dy)
+//    }
+//
+//    private func canPlayerPickUpBlock(_ direction:Direction, at position:(x:Int, y:Int)) -> Bool {
+//        if position.x - 1 < 0 || position.y + 1 >= self.width || position.y - 1 < 0 {
+//            return false
+//        }
+//        let dy = (direction == .right) ? 1 : -1
+//        let sideBlock = self.grid[position.x][position.y + dy]
+//        let cornerBlock = self.grid[position.x - 1][position.y + dy]
+//        return sideBlock.type == .log && cornerBlock.type == .air
+//    }
+//
+//    private func canPlayerThrowDownBlock(_ direction:Direction, at position:(x:Int, y:Int)) -> Bool {
+//        if position.x - 1 < 0 || position.y + 1 >= self.width || position.y - 1 < 0 {
+//            return false
+//        }
+//        let dy = (direction == .right) ? 1 : -1
+//        let cornerBlock = self.grid[position.x - 1][position.y + dy]
+//        return cornerBlock.type == .air
+//    }
+//
+//    private func isStuck(visited:inout [[Int]], at position:(x:Int, y:Int), direction:Direction) -> Bool {
+//        if visited[position.x][position.y] == 0 {
+//            print("here")
+//            return true
+//        }
+//        print(position)
+//        if !self.player.hasLog {
+//            if self.canPlayerPickUpBlock(direction, at: position) {
+//                print("pick")
+//                return false
+//            }
+//        } else {
+//            if self.canPlayerThrowDownBlock(direction, at: position) {
+//                print("throw")
+//                return false
+//            }
+//        }
+//
+//        let right = self.canPlayerMove(.right, curDir: direction, at: (position.x, position.y))
+//        if right != nil {
+//            visited[position.x][position.y] -= 1
+//            let ret = isStuck(visited: &visited, at: (right!.x, right!.y), direction: .right)
+//            visited[position.x][position.y] += 1
+//            if !ret {
+//                return false
+//            }
+//        }
+//        let left = self.canPlayerMove(.left, curDir: direction, at: (position.x, position.y))
+//        if left  != nil {
+//            visited[position.x][position.y] -= 1
+//            let ret = isStuck(visited: &visited, at: (left!.x, left!.y), direction: .left)
+//            visited[position.x][position.y] += 1
+//            if !ret {
+//                return false
+//            }
+//        }
+////        print("here2")
+//        return true
+//    }
+//}

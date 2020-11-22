@@ -12,6 +12,7 @@ import FirebaseDatabase
 class LevelPackViewController: UIViewController {
 
     @IBOutlet weak var checkcollectionview: UICollectionView!
+    var CoOpMode: Bool!
     var delegate: UIViewController!
     var levelData = [String]()
     var userData: [NSManagedObject]!
@@ -31,30 +32,40 @@ class LevelPackViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         //clearCoreData()
-        dataBaseRef = Database.database().reference()
-        //what if no network connection?
-        getLevelsFromFirebase { (success) in
-            if(success){
-                //compare elements
-                self.retrieveLevels{
-                    self.compareFireBaseData()
-                }
-            } else {
-                //use data from coredata only
-                self.retrieveLevels()
-                if(self.levelData.count == 0){
-                    self.storeLevels()
+        if(CoOpMode == false){
+            dataBaseRef = Database.database().reference()
+            //what if no network connection?
+            getLevelsFromFirebase { (success) in
+                if(success){
+                    //compare elements
+                    self.retrieveLevels{
+                        self.compareFireBaseData()
+                    }
+                } else {
+                    //use data from coredata only
                     self.retrieveLevels()
+                    if(self.levelData.count == 0){
+                        self.storeLevels()
+                        self.retrieveLevels()
+                    }
                 }
-            }
 
+            }
+            // converting the data to a level and level pack to use for user
+            if let index = userLevelData.firstIndex(of: ":") {
+                distance = userLevelData.distance(from: userLevelData.startIndex, to: index)
+                self.levelPack = Int(userLevelData.substring(with: 1..<distance))!
+                self.level = Int(userLevelData.substring(with: distance+1..<userLevelData.count - 1))!
+            }
+        } else {
+            //co op mode
+            self.levelPack = 1
+            self.level = 1
+            self.levelData = ["01011003RLARLLRLBLAARLARRALAARLARLBRRL"]
+            
+            
         }
-        // converting the data to a level and level pack to use for user
-        if let index = userLevelData.firstIndex(of: ":") {
-            distance = userLevelData.distance(from: userLevelData.startIndex, to: index)
-            self.levelPack = Int(userLevelData.substring(with: 1..<distance))!
-            self.level = Int(userLevelData.substring(with: distance+1..<userLevelData.count - 1))!
-        }
+       
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

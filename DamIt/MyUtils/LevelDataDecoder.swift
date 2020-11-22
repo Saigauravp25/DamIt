@@ -7,7 +7,7 @@
 
 import Foundation
 
-typealias LevelDataFormat = (id: String, width: Int, height: Int, logs: [(x: Int,y: Int)], rocks: [(x: Int,y: Int)], beaver: (x: Int,y: Int))
+typealias LevelDataFormat = (id: String, width: Int, height: Int, logs: [(x: Int,y: Int)], rocks: [(x: Int,y: Int)], beavers: [(x: Int,y: Int)])
 
 class LevelDataDecoder {
     
@@ -27,7 +27,8 @@ class LevelDataDecoder {
     private func fixLevelData( levelData: inout LevelDataFormat) {
         levelData.logs = levelData.logs.map { fixPoint(point: $0, height: levelData.height) }
         levelData.rocks = levelData.rocks.map { fixPoint(point: $0, height: levelData.height) }
-        levelData.beaver = fixPoint(point: levelData.beaver, height: levelData.height)
+        levelData.beavers = levelData.beavers.map { fixPoint(point: $0, height: levelData.height) }
+//        levelData.beaver = fixPoint(point: levelData.beaver, height: levelData.height)
     }
 
     func getLevelDataFromEncoding() -> LevelDataFormat {
@@ -40,7 +41,7 @@ class LevelDataDecoder {
         let height = Int(encoding.substring(with: 6..<8))!
         var logList: [(x: Int,y: Int)] = []
         var rockList: [(x: Int,y: Int)] = []
-        var beaverPos: (x: Int,y: Int)!
+        var beaverList: [(x: Int,y: Int)] = []
         var row = 0
         var col = 0
         for i in 0 ..< levelFormat.count {
@@ -51,7 +52,7 @@ class LevelDataDecoder {
             case "R":
                 rockList.append((col, row))
             case "B":
-                beaverPos = (col, row)
+                beaverList.append((col, row))
             default:
                 print("Unknown Character In Level Encoding")
             }
@@ -60,7 +61,7 @@ class LevelDataDecoder {
                 col += 1
             }
         }
-        var levelData: LevelDataFormat = (id, width, height, logList, rockList, beaverPos)
+        var levelData: LevelDataFormat = (id, width, height, logList, rockList, beaverList)
         fixLevelData(levelData: &levelData)
         return levelData
     }

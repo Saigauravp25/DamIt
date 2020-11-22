@@ -38,6 +38,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     let putDownSound = !gameSettings.settings[0] ? SKAction.playSoundFileNamed("noSound.mp3", waitForCompletion: false) : SKAction.playSoundFileNamed("putDown.wav", waitForCompletion: false)
     let floodSound = !gameSettings.settings[0] ? SKAction.playSoundFileNamed("noSound.mp3", waitForCompletion: false) : SKAction.playSoundFileNamed("flood.wav", waitForCompletion: false)
     var ref: DatabaseReference!
+    var activePlayer: Int = 0
     
     override func didMove(to view: SKView) {
         self.physicsWorld.contactDelegate = self
@@ -84,21 +85,25 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             return
         }
         let direction = sender.direction
+        let playerNumber = self.activePlayer
         switch direction {
             case .right:
-                _ = self.level?.movePlayer(direction: .right)
+                _ = self.level?.movePlayer(number: playerNumber, to: .right)
                 print("Gesture direction: Right")
             case .left:
-                _ = self.level?.movePlayer(direction: .left)
+                _ = self.level?.movePlayer(number: playerNumber, to: .left)
                 print("Gesture direction: Left")
             case .up:
+                self.activePlayer = (self.activePlayer == 0 ? 1 : 0)
                 print("Gesture direction: Up")
             case .down:
-                _ = self.level?.playerToggleCarryLog()
+                _ = self.level?.playerToggleCarryLog(number: playerNumber)
                 print("Gesture direction: Down")
             default:
                 print("Unrecognized Gesture Direction")
         }
+        let levelState = self.level?.toString(showDescription: true, showBlockPositions: true, playerNumber: activePlayer)
+        print(levelState!)
         doTutorial()
         isLevelComplete()
     }
@@ -165,26 +170,26 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     func doTutorial() {
         if(isTutorial){
-            if(self.level?.player.y == 10 && (self.level?.player.x)! >= 5){
+            if(self.level?.players[0].y == 10 && (self.level?.players[0].x)! >= 5){
                 setText(text: "Click the restart button to start over")
             }
-            if(self.level?.player.y == 2 && logCheckpoint == false){
+            if(self.level?.players[0].y == 2 && logCheckpoint == false){
                 logCheckpoint = true
                 setText(text: "You can scale 1 block high heights. Swipe left in order to jump up on top of the log")
             }
-            if(self.level?.player.y == 1 && pickupCheckpoint == false){
+            if(self.level?.players[0].y == 1 && pickupCheckpoint == false){
                 pickupCheckpoint = true
                 setText(text: "Swipe down in order to pick up log blocks directly in front of you")
             }
-            if((self.level?.player.hasLog)! && pickupCheckpoint && holdingLogCheckpoint == false){
+            if((self.level?.players[0].hasLog)! && pickupCheckpoint && holdingLogCheckpoint == false){
                 holdingLogCheckpoint = true
                 setText(text: "Head back over to the hole in order to start building the dam")
             }
-            if((self.level?.player.hasLog)! && self.level?.player.y == 9 && buildDamCheckpoint == false){
+            if((self.level?.players[0].hasLog)! && self.level?.players[0].y == 9 && buildDamCheckpoint == false){
                 buildDamCheckpoint = true
                 setText(text: "Swipe down to place down logs in the direction you are facing. You can throw down logs from any height")
             }
-            if(self.level?.player.hasLog == false && buildDamCheckpoint && warningCheckpoint == false){
+            if(self.level?.players[0].hasLog == false && buildDamCheckpoint && warningCheckpoint == false){
                 warningCheckpoint = true
                 setText(text: "Beavers can jump down from any height so be careful not to get yourself stuck. You'll have to restart the level if that happens. Now keep moving logs in order to finish building the dam")
             }
