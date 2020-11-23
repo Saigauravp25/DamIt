@@ -87,8 +87,11 @@ class Level {
         let dy = (direction == .right) ? 1 : -1
         let directionChanged = (self.players[n].direction != direction)
         //Even if a player is blocked from moving a space, his facing direction must update
-        self.players[0].direction = direction
-        self.players[1].direction = direction
+//        self.players[0].direction = direction
+//        self.players[1].direction = direction
+        for player in self.players {
+            player.direction = direction
+        }
         if (direction == .right && self.players[n].y + 1 >= self.width) || (direction == .left && self.players[n].y - 1 < 0) {
             return false
         }
