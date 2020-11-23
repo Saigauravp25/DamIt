@@ -120,85 +120,86 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             //Placeholder for now. Do action when level is complete.
             if(isTutorial){
                 setText(text: "Congrats, you are ready to play Dam It!")
-            }
-            self.isComplete = true
-            self.victoryText.drop()
-            DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
-                self.nextLevelButton.isHidden = false
-            }
-            ref = Database.database().reference()
-            if(currentLevel == 9){
-                currentPack += 1
-            }
-            currentLevel = (currentLevel + 1) % 10 //loop in this level pack until future level packs are made
-            let otherVC = gameDelegate as! GameViewController
-            let NextVC = otherVC.delegate as! LevelSelectViewController
-            NextVC.updateLevel(levelpack: currentPack, levelNumber: currentLevel)
-            if (isCoopMode == false ){
-                            let levelPackNum = Int(levelEncoding.substring(to: 2))
-                            let levelNum = Int(levelEncoding.substring(with: 2..<4))
-                            var userID = Auth.auth().currentUser?.email
-                            // reformatting the email again to query the database
-                            userID = userID!.replacingOccurrences(of: "@", with: ",")
-                            userID = userID!.replacingOccurrences(of: ".", with: ",")
-                            ref.child("users").child(userID!).child("level").observeSingleEvent(of: .value, with: { (snapshot) in
-                              // Get user value
-                              let value = snapshot.value as? NSDictionary
-                                let userLevelData = value?["levelPack"] as? String ?? ""
-                                if let index = userLevelData.firstIndex(of: ":") {
-                                    // Need to break up the levelpack string so that we can update with new level, since one has just been beaten
-                                    let distance = userLevelData.distance(from: userLevelData.startIndex, to: index)
-                                    var levelPack = Int(userLevelData.substring(with: 1 ..< distance))!
-                                    let level = Int(userLevelData.substring(with: distance+1..<userLevelData.count - 1))!
-                                    if(levelPack == levelPackNum && level == levelNum){
-                                        if(level + 1 > 10){
-                                            levelPack += 1
+            } else {
+                self.isComplete = true
+                self.victoryText.drop()
+                DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
+                    self.nextLevelButton.isHidden = false
+                }
+                ref = Database.database().reference()
+                if(currentLevel == 9){
+                    currentPack += 1
+                }
+                currentLevel = (currentLevel + 1) % 10 //loop in this level pack until future level packs are made
+                let otherVC = gameDelegate as! GameViewController
+                let NextVC = otherVC.delegate as! LevelSelectViewController
+                NextVC.updateLevel(levelpack: currentPack, levelNumber: currentLevel)
+                if (isCoopMode == false ){
+                                let levelPackNum = Int(levelEncoding.substring(to: 2))
+                                let levelNum = Int(levelEncoding.substring(with: 2..<4))
+                                var userID = Auth.auth().currentUser?.email
+                                // reformatting the email again to query the database
+                                userID = userID!.replacingOccurrences(of: "@", with: ",")
+                                userID = userID!.replacingOccurrences(of: ".", with: ",")
+                                ref.child("users").child(userID!).child("level").observeSingleEvent(of: .value, with: { (snapshot) in
+                                  // Get user value
+                                  let value = snapshot.value as? NSDictionary
+                                    let userLevelData = value?["levelPack"] as? String ?? ""
+                                    if let index = userLevelData.firstIndex(of: ":") {
+                                        // Need to break up the levelpack string so that we can update with new level, since one has just been beaten
+                                        let distance = userLevelData.distance(from: userLevelData.startIndex, to: index)
+                                        var levelPack = Int(userLevelData.substring(with: 1 ..< distance))!
+                                        let level = Int(userLevelData.substring(with: distance+1..<userLevelData.count - 1))!
+                                        if(levelPack == levelPackNum && level == levelNum){
+                                            if(level + 1 > 10){
+                                                levelPack += 1
+                                            }
+                                            let updatedLevel = String((level + 1)%10)
+                                            let updatedUserLevelInfo = "[" + String(levelPack) + ":" + updatedLevel + "]"
+                                            // Writing in database
+                                            //if level && level pack value match
+                                            self.ref.child("users").child(userID!).child("level").setValue(["levelPack": updatedUserLevelInfo])
                                         }
-                                        let updatedLevel = String((level + 1)%10)
-                                        let updatedUserLevelInfo = "[" + String(levelPack) + ":" + updatedLevel + "]"
-                                        // Writing in database
-                                        //if level && level pack value match
-                                        self.ref.child("users").child(userID!).child("level").setValue(["levelPack": updatedUserLevelInfo])
                                     }
-                                }
 
-                              // ...
-                              }) { (error) in
-                                print(error.localizedDescription)
-                            }
-                        } else {
-                            let levelPackNum = Int(levelEncoding.substring(to: 2))
-                            let levelNum = Int(levelEncoding.substring(with: 2..<4))
-                            var userID = Auth.auth().currentUser?.email
-                            // reformatting the email again to query the database
-                            userID = userID!.replacingOccurrences(of: "@", with: ",")
-                            userID = userID!.replacingOccurrences(of: ".", with: ",")
-                            ref.child("users").child(userID!).child("cooplevel").observeSingleEvent(of: .value, with: { (snapshot) in
-                              // Get user value
-                              let value = snapshot.value as? NSDictionary
-                                let userLevelData = value?["levelPack"] as? String ?? ""
-                                if let index = userLevelData.firstIndex(of: ":") {
-                                    // Need to break up the levelpack string so that we can update with new level, since one has just been beaten
-                                    let distance = userLevelData.distance(from: userLevelData.startIndex, to: index)
-                                    var levelPack = Int(userLevelData.substring(with: 1 ..< distance))!
-                                    let level = Int(userLevelData.substring(with: distance+1..<userLevelData.count - 1))!
-                                    if(levelPack == levelPackNum && level == levelNum){
-                                        if(level + 1 > 10){
-                                            levelPack += 1
+                                  // ...
+                                  }) { (error) in
+                                    print(error.localizedDescription)
+                                }
+                            } else {
+                                let levelPackNum = Int(levelEncoding.substring(to: 2))
+                                let levelNum = Int(levelEncoding.substring(with: 2..<4))
+                                var userID = Auth.auth().currentUser?.email
+                                // reformatting the email again to query the database
+                                userID = userID!.replacingOccurrences(of: "@", with: ",")
+                                userID = userID!.replacingOccurrences(of: ".", with: ",")
+                                ref.child("users").child(userID!).child("cooplevel").observeSingleEvent(of: .value, with: { (snapshot) in
+                                  // Get user value
+                                  let value = snapshot.value as? NSDictionary
+                                    let userLevelData = value?["levelPack"] as? String ?? ""
+                                    if let index = userLevelData.firstIndex(of: ":") {
+                                        // Need to break up the levelpack string so that we can update with new level, since one has just been beaten
+                                        let distance = userLevelData.distance(from: userLevelData.startIndex, to: index)
+                                        var levelPack = Int(userLevelData.substring(with: 1 ..< distance))!
+                                        let level = Int(userLevelData.substring(with: distance+1..<userLevelData.count - 1))!
+                                        if(levelPack == levelPackNum && level == levelNum){
+                                            if(level + 1 > 10){
+                                                levelPack += 1
+                                            }
+                                            let updatedLevel = String((level + 1)%10)
+                                            let updatedUserLevelInfo = "[" + String(levelPack) + ":" + updatedLevel + "]"
+                                            // Writing in database
+                                            //if level && level pack value match
+                                            self.ref.child("users").child(userID!).child("cooplevel").setValue(["levelPack": updatedUserLevelInfo])
                                         }
-                                        let updatedLevel = String((level + 1)%10)
-                                        let updatedUserLevelInfo = "[" + String(levelPack) + ":" + updatedLevel + "]"
-                                        // Writing in database
-                                        //if level && level pack value match
-                                        self.ref.child("users").child(userID!).child("cooplevel").setValue(["levelPack": updatedUserLevelInfo])
                                     }
-                                }
 
-                              // ...
-                              }) { (error) in
-                                print(error.localizedDescription)
+                                  // ...
+                                  }) { (error) in
+                                    print(error.localizedDescription)
+                                }
                             }
-                        }
+            }
         }
     }
     
