@@ -202,6 +202,14 @@ class HomeScreenViewController: UIViewController, SettingsViewControllerDelegate
         performSegue(withIdentifier: "tutorialSegue", sender: self)
     }
     
+    @IBAction func logoutButtonPressed(_ sender: Any) {
+        do {
+            try Auth.auth().signOut()
+        } catch let signOutError as NSError {
+          print ("Error signing out: %@", signOutError)
+        }
+    }
+    
     func disclosureAlert() {
         let controller = UIAlertController(title: "Disclosure", message: "This mode is not yet implemented. Planned as a strech goal or future release.", preferredStyle: .alert)
         let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)

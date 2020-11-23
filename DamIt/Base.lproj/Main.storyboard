@@ -140,6 +140,18 @@
                                     <constraint firstItem="kXL-v8-yCu" firstAttribute="width" secondItem="jio-ZY-KiN" secondAttribute="width" id="PQ6-JJ-fM3"/>
                                 </constraints>
                             </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="N83-Pm-VPk">
+                                <rect key="frame" x="393" y="366" width="110" height="27"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="MarkerFelt-Wide" family="Marker Felt" pointSize="17"/>
+                                <state key="normal" title="LOGOUT" backgroundImage="woodenPlank">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="logoutButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="6Be-0B-wAU"/>
+                                    <segue destination="UXz-Be-Kny" kind="show" id="mv0-M2-pox"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -949,6 +961,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
+        <segue reference="mv0-M2-pox"/>
         <segue reference="zK5-vr-C47"/>
     </inferredMetricsTieBreakers>
     <resources>
