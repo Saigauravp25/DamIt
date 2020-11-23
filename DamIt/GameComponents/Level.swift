@@ -23,7 +23,7 @@ class Level {
     
     //Setup a level using the given level data
     init(levelData:LevelDataFormat, for scene:SKScene) {
-        let pad = 2
+        let pad = 3
         let gc = gameSettings
         let settingsArray = gc.settings
         let soundEffectsOn = settingsArray[0]
@@ -87,7 +87,8 @@ class Level {
         let dy = (direction == .right) ? 1 : -1
         let directionChanged = (self.players[n].direction != direction)
         //Even if a player is blocked from moving a space, his facing direction must update
-        self.players[n].direction = direction
+        self.players[0].direction = direction
+        self.players[1].direction = direction
         if (direction == .right && self.players[n].y + 1 >= self.width) || (direction == .left && self.players[n].y - 1 < 0) {
             return false
         }
@@ -103,10 +104,12 @@ class Level {
             }
             let cornerBlock = self.grid[self.players[n].x - 1][self.players[n].y + dy]
             let blockAboveCornerBlock = self.grid[self.players[n].x - 2][self.players[n].y + dy]
+            let anotherBlockAboveCornerBlock = self.grid[self.players[n].x - 3][self.players[n].y + dy]
             //If there is air above the block that is stopping the player, it can be jumped
             if cornerBlock.type == .air && blockAboveCornerBlock.type == .air {
                 //Sound effect
                 self.players[n].run(self.footstepSound!)
+                self.swapBlocks(blockA: self.grid[blockHeld(by: n).x - 1][blockHeld(by: n).y], blockB: anotherBlockAboveCornerBlock)
                 self.swapBlocks(blockA: self.blockHeld(by: n), blockB: blockAboveCornerBlock)
                 self.swapBlocks(blockA: self.players[n], blockB: cornerBlock)
                 return true
@@ -127,7 +130,9 @@ class Level {
         self.players[n].run(self.footstepSound!)
         let replacedAirBlock1 = self.grid[lowestRow][self.players[n].y + dy]
         let replacedAirBlock2 = self.grid[lowestRow - 1][self.players[n].y + dy]
+        let replacedAirBlock3 = self.grid[lowestRow - 2][self.players[n].y + dy]
         //Swap player and held block with their respective destination air blocks
+        self.swapBlocks(blockA: self.grid[blockHeld(by: n).x - 1][blockHeld(by: n).y], blockB: replacedAirBlock3)
         self.swapBlocks(blockA: self.blockHeld(by: n), blockB: replacedAirBlock2)
         self.swapBlocks(blockA: self.players[n], blockB: replacedAirBlock1)
         return true
@@ -185,7 +190,9 @@ class Level {
                 }
             }
             //Swap the held block and the air block in the destination position
+            self.swapBlocks(blockA: self.grid[lowestAirBlock.x - 1][lowestAirBlock.y], blockB: self.grid[blockHeld(by: n).x - 1][blockHeld(by: n).y])
             self.swapBlocks(blockA: lowestAirBlock, blockB: self.blockHeld(by: n))
+            
             self.players[n].hasLog = false
             //Sound effect
             self.players[n].run(self.putDownSound!)

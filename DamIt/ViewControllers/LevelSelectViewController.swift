@@ -26,6 +26,7 @@ class LevelSelectViewController: UIViewController, LevelUpdate {
     
     var selectedLevelEncoding = ""
     var levelPack: Int!
+    var isCoop: Bool!
     let segue: String = "gameSegue"
     
     @IBOutlet var buttons: [UIButton]!
@@ -61,8 +62,8 @@ class LevelSelectViewController: UIViewController, LevelUpdate {
             vc.levelData = self.levelData
             vc.currentLevel = self.currentLevel
             vc.currentPack = levelPack
+            vc.isCoop = self.isCoop
             vc.delegate = self
-            vc.isCoopMode = isCoopMode
         }
     }
     
