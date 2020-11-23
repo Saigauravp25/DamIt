@@ -159,6 +159,7 @@ class GameViewController: UIViewController {
         //print("LEVEL ENCODING FOR GAME SCENE: \(levelEncoding)")
         let scene = GameScene(size: CGSize(width: 2048.0, height: 1536.0))
         scene.levelEncoding = levelEncoding
+        scene.gameDelegate = self
         scene.currentLevel = self.currentLevel 
         scene.currentPack = self.currentPack
         scene.isCoopMode = self.isCoop

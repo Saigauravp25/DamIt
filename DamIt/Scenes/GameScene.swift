@@ -28,7 +28,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     var currentPack: Int!
     var nextLevelButton: UIButton!
     var helpText: SKLabelNode!
-    var gameDelegate: LevelSelectViewController?
+    var gameDelegate: UIViewController!
     var isTutorial: Bool!
 //    var restartNode = Restart()
     var level: Level?
@@ -131,7 +131,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                 currentPack += 1
             }
             currentLevel = (currentLevel + 1) % 10 //loop in this level pack until future level packs are made
-            self.gameDelegate?.updateLevel(levelpack: currentPack, levelNumber: currentLevel)
+            let otherVC = gameDelegate as! GameViewController
+            let NextVC = otherVC.delegate as! LevelSelectViewController
+            NextVC.updateLevel(levelpack: currentPack, levelNumber: currentLevel)
             if (isCoopMode == false ){
                             let levelPackNum = Int(levelEncoding.substring(to: 2))
                             let levelNum = Int(levelEncoding.substring(with: 2..<4))

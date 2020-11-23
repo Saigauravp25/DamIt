@@ -60,8 +60,9 @@ class LevelSelectViewController: UIViewController, LevelUpdate {
             vc.levelData = self.levelData
             vc.currentLevel = self.currentLevel
             vc.currentPack = levelPack
-            vc.isCoop = self.isCoop
             vc.delegate = self
+            vc.isCoop = self.isCoop
+            
         }
     }
     
