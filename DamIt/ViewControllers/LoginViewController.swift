@@ -49,6 +49,7 @@ class LoginViewController: UIViewController {
                 self.loginStatus.text = error.localizedDescription
                 self.loginStatus.numberOfLines = 0
             }
+           
             else{
                 // if good login, go to next page
                 self.performSegue(withIdentifier: "toGame", sender: self)
@@ -61,7 +62,7 @@ class LoginViewController: UIViewController {
             // create user for sign up
             Auth.auth().createUser(withEmail: email!, password: newPassword!){
                 user, error in
-                if error == nil {
+                if error == nil && self.password.text == self.confirmPassword.text {
                     var firebaseEmail = email!.replacingOccurrences(of: "@", with: ",")
                     firebaseEmail = firebaseEmail.replacingOccurrences(of: ".", with: ",")
                     self.ref = Database.database().reference()
@@ -87,7 +88,12 @@ class LoginViewController: UIViewController {
                     self.performSegue(withIdentifier: "toGame", sender: self)
                 }
                 else{
-                    self.loginStatus.text = error?.localizedDescription
+                    if error != nil{
+                        self.loginStatus.text = error?.localizedDescription
+                    }
+                    else{
+                        self.loginStatus.text = "Two password do not match"
+                    }
                     self.loginStatus.numberOfLines = 0
                 }
             }

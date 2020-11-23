@@ -24,8 +24,11 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     var oceanNode = Ocean()
     var logo = Logo()
     var victoryText = Victory()
+    var currentLevel: Int!
+    var currentPack: Int!
     var nextLevelButton: UIButton!
     var helpText: SKLabelNode!
+    var gameDelegate: LevelSelectViewController?
     var isTutorial: Bool!
 //    var restartNode = Restart()
     var level: Level?
@@ -110,6 +113,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     }
     
     func isLevelComplete() {
+      
         let levelComplete = self.level?.checkLevelComplete()
         //core data update to set value to true
         if levelComplete! {
@@ -123,7 +127,11 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                 self.nextLevelButton.isHidden = false
             }
             ref = Database.database().reference()
-            
+            if(currentLevel == 9){
+                currentPack += 1
+            }
+            currentLevel = (currentLevel + 1) % 10 //loop in this level pack until future level packs are made
+            self.gameDelegate?.updateLevel(levelpack: currentPack, levelNumber: currentLevel)
             if (isCoopMode == false ){
                             let levelPackNum = Int(levelEncoding.substring(to: 2))
                             let levelNum = Int(levelEncoding.substring(with: 2..<4))
