@@ -22,6 +22,8 @@ class LevelSelectViewController: UIViewController, LevelUpdate {
     var userLevels:Int!
     var userPacks:Int!
     
+    var isCoopMode: Bool!
+    
     var selectedLevelEncoding = ""
     var levelPack: Int!
     var isCoop: Bool!

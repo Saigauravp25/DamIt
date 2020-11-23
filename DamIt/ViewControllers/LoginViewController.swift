@@ -67,6 +67,7 @@ class LoginViewController: UIViewController {
                     self.ref = Database.database().reference()
                     self.ref.child("users").child(firebaseEmail).child("settings").setValue(["soundFX": true, "backgroundMusic": true,"notifications": true,"dpad":false])
                     self.ref.child("users").child(firebaseEmail).child("level").setValue(["levelPack": "[1:1]"])
+                    self.ref.child("users").child(firebaseEmail).child("cooplevel").setValue(["levelPack": "[1:1]"])
                     let appDelegate = UIApplication.shared.delegate as! AppDelegate
                     let context = appDelegate.persistentContainer.viewContext
                     // adding pizza to coredata
