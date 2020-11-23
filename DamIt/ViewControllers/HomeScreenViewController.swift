@@ -23,6 +23,7 @@ class HomeScreenViewController: UIViewController, SettingsViewControllerDelegate
     var userLevelData = ""
     var audioPlayer: AVAudioPlayer!
     var coopClicked: Bool = false
+    var coopuserLevelData = ""
     
     var settingArray: [Bool]!
     var notificationManager = NotificationManager()
@@ -39,6 +40,15 @@ class HomeScreenViewController: UIViewController, SettingsViewControllerDelegate
           // Get user value
           let value = snapshot.value as? NSDictionary
             self.userLevelData = value?["levelPack"] as? String ?? ""
+
+          // ...
+          }) { (error) in
+            print(error.localizedDescription)
+        }
+        ref.child("users").child(userID!).child("cooplevel").observeSingleEvent(of: .value, with: { (snapshot) in
+          // Get user value
+          let value = snapshot.value as? NSDictionary
+            self.coopuserLevelData = value?["levelPack"] as? String ?? ""
 
           // ...
           }) { (error) in
@@ -119,7 +129,11 @@ class HomeScreenViewController: UIViewController, SettingsViewControllerDelegate
             let vc = segue.destination as! LevelPackViewController
             vc.delegate = self
             vc.userData = userData
-            vc.userLevelData = userLevelData
+            if(coopClicked){
+                vc.userLevelData = coopuserLevelData
+            } else {
+                vc.userLevelData = userLevelData
+            }
             vc.CoOpMode = coopClicked
         }
         if (segue.identifier == "tutorialSegue") {

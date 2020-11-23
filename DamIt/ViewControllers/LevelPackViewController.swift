@@ -61,8 +61,21 @@ class LevelPackViewController: UIViewController {
             //co op mode
             self.levelPack = 1
             self.level = 1
-            self.levelData = ["01011003RLARLLRLBLAARLARRALAARLARLBRRL"]
-            
+            dataBaseRef = Database.database().reference()
+
+            getCoopLevelsFromFirebase() { (success) in
+                if(!success){
+                    //present error as not connected to internet
+                    self.disclosureAlert()
+                } else {
+                    self.levelData = self.firebaseData
+                    if let index = self.userLevelData.firstIndex(of: ":") {
+                        self.distance = self.userLevelData.distance(from: self.userLevelData.startIndex, to: index)
+                        self.levelPack = Int(self.userLevelData.substring(with: 1..<self.distance))!
+                        self.level = Int(self.userLevelData.substring(with: self.distance+1..<self.userLevelData.count - 1))!
+                    }
+                }
+            }
             
         }
        
@@ -78,6 +91,16 @@ class LevelPackViewController: UIViewController {
             vc.userPacks = self.levelPack
             vc.isCoop = self.CoOpMode
         }
+    }
+    
+    
+    func disclosureAlert() {
+          let alertcontroller = UIAlertController(title: "Error", message: "Must be online for Coop mode to work, please try single player mode", preferredStyle: .alert)
+          let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+          alertcontroller.addAction(okAction)
+          self.present(alertcontroller, animated: true){
+              self.dismiss(animated: true)
+          }
     }
 }
 extension LevelPackViewController: UICollectionViewDelegate, UICollectionViewDataSource{
@@ -234,6 +257,28 @@ extension LevelPackViewController {
         
         
     }
+    
+    func getCoopLevelsFromFirebase(completionHandler: @escaping(_ success :Bool)-> Void){
+            dataBaseRef.child("cooplevels").observeSingleEvent(of: .value, with: { (snapshot) in
+                let levelDataBase = snapshot.value as! NSMutableDictionary
+                self.firebaseData = Array(repeating: "", count: levelDataBase.count)
+                for (key,value) in levelDataBase {
+                    let encoding = value as? String
+                    if let realEncoding = encoding {
+                        let levelPack = Int(realEncoding.substring(to: 2))
+                        let levelNum = Int(realEncoding.substring(with: 2..<4))
+                        let index = levelNum! - 1
+                        self.firebaseData[((levelPack!-1)*10) + index] = realEncoding
+                        print(value)
+                    }
+                }
+                //network connection completed
+                completionHandler(true)
+            }) { (error) in
+                //firebase request unsuccessful
+                completionHandler(false)
+            }
+        }
     
     func getLevelsFromFirebase(completionHandler: @escaping (_ success:Bool) -> Void){
         //pull from firebase levels
