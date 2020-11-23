@@ -63,9 +63,6 @@ class GameViewController: UIViewController {
             self.dismiss(animated: true, completion: nil)
         }
         else{
-            guard ((currentPack-1) * 10 + currentLevel + 1 < levelData.count) else {
-                return
-            }
             if(currentLevel == 9){
                 currentPack += 1
             }
