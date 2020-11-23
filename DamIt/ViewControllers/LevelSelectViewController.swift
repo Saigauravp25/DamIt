@@ -70,8 +70,15 @@ class LevelSelectViewController: UIViewController, LevelUpdate {
         var index = (levelpack - 1) * 10
         index += levelNumber
         if(index < buttons.count){
-            buttons[index].isEnabled = true
+            for button in buttons{
+                let buttonNumber = Int((button.titleLabel?.text)!)!
+                //button numbers start at 1 and go to 10
+                // to use in comparison to index subtract 1
+                if buttonNumber - 1 <= index{
+                   button.isEnabled = true
+                }
+            }
         }
+           
     }
-    
 }
