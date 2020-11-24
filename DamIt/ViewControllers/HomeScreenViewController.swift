@@ -31,6 +31,12 @@ class HomeScreenViewController: UIViewController, SettingsViewControllerDelegate
    
     override func viewDidLoad() {
 //        navigationController?.setNavigationBarHidden(true, animated: true)
+        playBackgroundMusic(backgroundMusic: "retroBackgroundMusic")
+    }
+    override func viewDidAppear(_ animated: Bool) {
+        coopClicked = false
+    }
+    override func viewWillAppear(_ animated: Bool) {
         ref = Database.database().reference()
         var userID = Auth.auth().currentUser?.email
         // reformatting the email again to query the database
@@ -57,12 +63,6 @@ class HomeScreenViewController: UIViewController, SettingsViewControllerDelegate
         super.viewDidLoad()
         retrieveUser()
         settingsArray()
-        playBackgroundMusic(backgroundMusic: "retroBackgroundMusic")
-    }
-    override func viewDidAppear(_ animated: Bool) {
-        coopClicked = false
-    }
-    override func viewWillAppear(_ animated: Bool) {
 //        self.navigationController?.isNavigationBarHidden = true
     }
     override func viewWillDisappear(_ animated: Bool) {

@@ -154,7 +154,13 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                                             if(level + 1 > 10){
                                                 levelPack += 1
                                             }
-                                            let updatedLevel = String((level + 1)%10)
+                                            var updatedLevel = ""
+                                            if(level + 1 == 10){
+                                                updatedLevel = String((level + 1))
+                                            } else {
+                                                updatedLevel = String((level + 1)%10)
+                                            }
+                                            
                                             let updatedUserLevelInfo = "[" + String(levelPack) + ":" + updatedLevel + "]"
                                             // Writing in database
                                             //if level && level pack value match
