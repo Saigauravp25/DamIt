@@ -121,6 +121,8 @@ extension LevelPackViewController: UICollectionViewDelegate, UICollectionViewDat
 //        }
         if indexPath.row + 1 > self.levelPack {
             cell?.buttontitle.isEnabled = false
+        } else {
+            cell?.buttontitle.isEnabled = true
         }
         return cell!
     }
