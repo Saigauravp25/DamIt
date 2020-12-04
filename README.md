@@ -37,7 +37,7 @@ Beaver Skins | Have different skins for user to pick from | Final | Final | N/A 
 
 
 ### Contributions
-#### Kishan Solanki - KS46487 (25%):
+#### Kishan Solanki - KS46487 (35%):
   Alpha - (25%)
   * Core Data for Level Storage 
   * Building out Application UIViews w/ Delegates
@@ -52,7 +52,7 @@ Beaver Skins | Have different skins for user to pick from | Final | Final | N/A 
   * implmented local notifications tied to notification toggle 
   * Piped game control to include new level pack data
   
- Final - (50%)
+ Final - (40%)
   * Fixed UICollection View Bug
   * Added Firebase saftey so user can not progress past levels stored in firebase
   * Enable new levelpack buttons as user data progresses
