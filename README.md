@@ -8,6 +8,34 @@
   * Known Bugs: When choosing a level pack, scrolling all the way to the right and then back to the left will cause levelpack buttons to become disabled
   * No levels past level pack 2, level 1 currently 
 
+
+
+### Dependencies
+ * Swift Version: 5.0
+ * Xcode Version: 12.0
+ * Firebase DataBase
+ * Firebase Analytics
+ * Firebase Auth
+
+### Features 
+|Feature | Description | Release Planned | Release Actual | Deviations | Contributions|
+|---------|---------------|---------------------|-------------------|--------------|-|
+Splash Screen | animated splash screen while app loads | Alpha | Alpha | N/A | Nikhil (100%)
+Sound fx | sounds when preforming actions | alpha | alpha |  N/A | Saigaurav (100%)
+Game Logic | have beaver move around | alpha | alpha |  N/A | Saigaurav (100%)
+UI | Have basic UI Built | Alpha | Alpha | Kishan (30%) Nikhil(20%) Nirav (10%) Saigaurav (40%)
+10 levels built out | have atleast one level pack to play | Alpha | Alpha | N/A | Sai (25%) Nikhil (25%) Kishan (25%) Nirav (25%)
+Flooding Dam Animation | Reset level with cool animation | Beta | Beta | N/A | Sai(100%)
+FireBase Integration | Have all user data saved via firebase | Beta | Beta | N/A | Kishan (70%) Nikhil (30%)
+Ranking System | allow each level to be ranked based on users moves| Beta | N/A | Ranking was closely tied to Game Center and was scrapped when Game center integration would not be possible | N/A
+Undo Functionality | allow user to undo a step | Beta | N/A | was decided it would make game too easy and later scrapped | N/A
+Have 2 full level packs | Have multiple level packs for singleplayer | Final | Final | N/A | Nirav ( 70%) Saigaurav (10%) Kishan (10%) Nikhil (10%)
+Coop Mode | Allow user to play with two characters at once | Final | Final | N/A | Saigaurav (80%) (Kishan 15%) Nikhil (5%)
+Beaver Skins | Have different skins for user to pick from | Final | Final | N/A | Nirav (75%) (25%)
+
+
+
+
 ### Contributions
 #### Kishan Solanki - KS46487 (25%):
   Alpha - (25%)
@@ -23,6 +51,13 @@
   * implemented FirebaseDataBase level data for additional level support
   * implmented local notifications tied to notification toggle 
   * Piped game control to include new level pack data
+  
+ Final - (50%)
+  * Fixed UICollection View Bug
+  * Added Firebase saftey so user can not progress past levels stored in firebase
+  * Enable new levelpack buttons as user data progresses
+  * Add Co-op level data to Firebase
+  * Add settings data integration to firebase
   
 #### Saigaurav Purushothaman - SP43976 (35%):
   Alpha - 50%
