@@ -68,16 +68,18 @@ class GameViewController: UIViewController {
              }
             if(currentLevel == 9){
                 currentPack += 1
+                let otherVC = delegate as! LevelSelectViewController
+                otherVC.updateLevelPack(levelpack: currentPack)
             }
             currentLevel = (currentLevel + 1) % 10 //loop in this level pack until future level packs are made
             let otherVC = delegate as! LevelSelectViewController
             otherVC.updateLevel(levelpack: currentPack, levelNumber: currentLevel)
-            var levelIndex = ((currentPack-1) * 10 + currentLevel)
+            let levelIndex = ((currentPack-1) * 10 + currentLevel)
             levelEncoding = levelData[levelIndex]
             (skView.scene as! GameScene).levelEncoding = levelEncoding
             nextLevelButtonOutlet.isHidden = true
             skView.presentScene(skView.scene)
-                skView.presentScene(skView.scene)
+            skView.presentScene(skView.scene)
         }
     }
     

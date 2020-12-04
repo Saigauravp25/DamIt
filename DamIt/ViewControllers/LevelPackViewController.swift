@@ -9,8 +9,12 @@ import UIKit
 import CoreData
 import FirebaseDatabase
 
-class LevelPackViewController: UIViewController {
+protocol packUpdate{
+    func updatePack(levelPack: Int)
+}
 
+class LevelPackViewController: UIViewController, packUpdate {
+    
     @IBOutlet weak var checkcollectionview: UICollectionView!
     var CoOpMode: Bool!
     var delegate: UIViewController!
@@ -85,6 +89,7 @@ class LevelPackViewController: UIViewController {
         if (segue.identifier == "levelSegue"){
             let vc = segue.destination as! LevelSelectViewController
             let button = sender as? UIButton
+            vc.delegate = self
             vc.levelPack = button?.tag
             vc.levelData = levelData
             vc.userLevels = self.level
@@ -127,6 +132,14 @@ extension LevelPackViewController: UICollectionViewDelegate, UICollectionViewDat
         return cell!
     }
     
+    
+    func updatePack(levelPack: Int) {
+        if(levelPack < (levelData.count/10)){
+            self.levelPack = levelPack
+            self.level = 1
+            checkcollectionview.reloadData()
+        }
+    }
     
 }
 
