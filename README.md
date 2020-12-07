@@ -1,7 +1,11 @@
 # DamIt README (Group 13)
 
+
+View this README document on our GitHub for proper formatting: https://github.com/kishansol/DamIt
+
+
 ## Members
-  * Saigaurav Purushothaman
+  * Saigaurav (Sai) Purushothaman
   * Kishan Solanki
   * Nikhil Bodicharla
   * Nirav Lalsinghani
@@ -10,9 +14,9 @@
   * Please run this app/game on a real device to get the best performace. Any iOS device or model is supported.
   * Test account set up with progress of levels - username: test@gmail.com, password: test123
   * Test account with all levels(so far) unlocked - username: he@gmail.com, password: test123
-  * Try out the different Beaver Skins in the Character Customization within the Settings
-  * No levels past level pack 2, level 1 currently 
-
+  * No single player levels past level pack 2 currently 
+  * No co-op levels past level pack 2 currently 
+  * Multiplayer mode not implemented - stretch goal
 
 
 ### Dependencies
@@ -25,27 +29,28 @@
  ### Frameworks
   * UIKit
   * SpriteKit
-  * Firebase 
   * CoreData
   * AVKit
+  * Firebase 
 
 ### Features 
 |Feature | Description | Release Planned | Release Actual | Deviations | Contributions|
 |---------|---------------|---------------------|-------------------|--------------|-|
-Splash Screen | animated splash screen while app loads | Alpha | Alpha | N/A | Nikhil (100%)
-Sound Effects | sounds when preforming actions | Alpha | Alpha |  N/A | Saigaurav (100%)
-Background Music | optional music playing in the background | Beta | Final | N/A | Saigaurav (100%)
-Game Logic | have beaver move around | alpha | alpha |  N/A | Saigaurav (100%)
-UI | Have basic UI Built | Alpha | Alpha | N/A | Kishan (30%) Nikhil(20%) Nirav (10%) Saigaurav (40%)
-10 levels built out | have atleast one level pack to play | Alpha | Alpha | N/A | Saigaurav (25%) Nikhil (25%) Kishan (25%) Nirav (25%)
-SpriteKit Physics and Animation | Reset level with cool animation | Beta | Beta | N/A | Saigaurav (100%)
+Splash Screen | Animated splash screen while app loads | Alpha | Alpha | N/A | Nikhil (100%)
+Sound Effects | Sounds when preforming actions | Alpha | Alpha |  N/A | Sai (100%)
+Background Music | Optional music playing in the background | Beta | Final | N/A | Sai (100%)
+Game Logic | Have beaver move around | alpha | alpha |  N/A | Sai (100%)
+UI | Have App UI Built | Alpha | Alpha | N/A | Kishan (30%) Nikhil(20%) Nirav (10%) Sai (40%)
+10 levels built out | Have atleast one level pack to play | Alpha | Alpha | N/A | Sai (25%) Nikhil (25%) Kishan (25%) Nirav (25%)
+SpriteKit Physics and Animations | Inlude physics and animations for resetting a dam/level, character movement, and a layered starfield animation for the sky  | Beta | Beta | N/A | Sai (100%)
 FireBase Integration | Have all user data saved via firebase | Beta | Beta | N/A | Kishan (70%) Nikhil (30%)
-Ranking System | allow each level to be ranked based on users moves| Beta | N/A | Ranking was closely tied to Game Center and was scrapped when Game center integration would not be possible | N/A
-Undo Functionality | allow user to undo a step | Beta | N/A | was decided it would make game too easy and later scrapped | N/A
-Have 2 full level packs | Have multiple level packs for singleplayer | Final | Final | N/A | Nirav ( 70%) Saigaurav (10%) Kishan (10%) Nikhil (10%)
-Co-Op Mode | Allow user to play with two characters at once | Final | Final | N/A | Saigaurav (80%) (Kishan 15%) Nikhil (5%)
+Ranking System | Allow each level to be ranked based on users moves| Beta | N/A | Ranking was closely tied to Game Center and was scrapped when Game center integration would not be possible | N/A
+Undo Functionality | Allow user to undo a step | Beta | N/A | was decided it would make game too easy and later scrapped | N/A
+Have 2 full level packs | Have multiple level packs for singleplayer | Final | Final | N/A | Nirav ( 70%) Sai (10%) Kishan (10%) Nikhil (10%)
+Co-Op Mode | Allow user to play with two characters at once | Final | Final | N/A | Sai (80%) (Kishan 15%) Nikhil (5%)
 Beaver Skins | Have different skins for user to pick from | Final | Final | N/A | Nirav (75%) (25%)
-Assets | Music,  beaver images, and other essential graphics for games | Beta | Beta | N/A | Nirav (40%) Saigaurav (40%) Kishan (20%)
+Assets | Music,  beaver images, and other essential graphics for games | Beta | Beta | N/A | Nirav (40%) Sai (40%) Kishan (20%)
+Game Settings | App settings toggles for the user | Beta | Alpha | N/A | Kishan (85%) Sai (15%)
 
 
 
