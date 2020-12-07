@@ -26,7 +26,8 @@
 |Feature | Description | Release Planned | Release Actual | Deviations | Contributions|
 |---------|---------------|---------------------|-------------------|--------------|-|
 Splash Screen | animated splash screen while app loads | Alpha | Alpha | N/A | Nikhil (100%)
-Sound Effects and Background Music | sounds when preforming actions | alpha | alpha |  N/A | Saigaurav (100%)
+Sound Effects | sounds when preforming actions | Alpha | Alpha |  N/A | Saigaurav (100%)
+Background Music | optional music playing in the background | Beta | Final | N/A | Saigaurav (100%)
 Game Logic | have beaver move around | alpha | alpha |  N/A | Saigaurav (100%)
 UI | Have basic UI Built | Alpha | Alpha | N/A | Kishan (30%) Nikhil(20%) Nirav (10%) Saigaurav (40%)
 10 levels built out | have atleast one level pack to play | Alpha | Alpha | N/A | Saigaurav (25%) Nikhil (25%) Kishan (25%) Nirav (25%)
