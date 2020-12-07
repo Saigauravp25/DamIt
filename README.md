@@ -1,5 +1,11 @@
 # DamIt README (Group 13)
 
+## Members
+  * Saigaurav Purushothaman
+  * Kishan Solanki
+  * Nikhil Bodicharla
+  * Nirav Lalsinghani
+
 ## Comments
   * Please run this app/game on a real device to get the best performace. Any iOS device or model is supported.
   * Test account set up with progress of levels - username: test@gmail.com, password: test123
@@ -79,6 +85,11 @@ Assets | Music,  beaver images, and other essential graphics for games | Beta | 
   * Added Character Skin Customizability
   * Set Constraints on all new Views
   * UI Enhancements
+  
+  Final - 25% 
+  * Co-op Mode Game Logic and Functionality
+  * Background Music Implementation
+  * Bug fixes
   
   #### Nikhil Bodicharla - NB24499 (25%):
    Alpha - 20%
