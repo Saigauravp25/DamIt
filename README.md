@@ -1,7 +1,7 @@
 # DamIt README (Group 13)
 
 
-View this README document on our GitHub for proper formatting: github.com/kishansol/DamIt/blob/master/README.md
+View this README document on our GitHub for proper formatting: https://github.com/kishansol/DamIt/blob/master/README.md
 
 
 ## Members
@@ -44,11 +44,11 @@ SpriteKit Physics and Animations | Inlude physics and animations for resetting a
 Firebase Integration | Have all user data saved via firebase | Beta | Beta | N/A | Kishan (70%) Nikhil (30%)
 Assets | Music,  beaver images, and other essential graphics for games | Beta | Beta | N/A | Nirav (40%) Sai (40%) Kishan (20%)
 Firebase Authentication | Login and user authentication | Beta | Beta | N/A | Nikhil (100%)
+Tutorial Mode | Interactive tutorial for gameplay | Stretch | Beta | N/A | Nirav (100%)
+Game Settings | App settings toggles for the user | Beta | Beta | N/A | Kishan (85%) Sai (15%)
 Level Creation | Two level packs designed and created for single player, and one level pack for Co-Op | Final | Final | N/A | Nirav ( 70%) Sai (10%) Kishan (10%) Nikhil (10%)
 Co-Op Mode | Allow user to play with two characters at once | Final | Final | N/A | Sai (80%) (Kishan 15%) Nikhil (5%)
-Tutorial Mode | Interactive tutorial for gameplay | Stretch | Beta | N/A | Nirav (100%)
 Beaver Skins | Have different skins for user to pick from | Final | Final | N/A | Nirav (80%) Sai (20%)
-Game Settings | App settings toggles for the user | Beta | Alpha | N/A | Kishan (85%) Sai (15%)
 Background Music | Optional music playing in the background | Beta | Final | N/A | Sai (100%)
 Ranking System | Allow each level to be ranked based on users moves| Beta | N/A | Ranking was closely tied to Game Center and was scrapped when Game center integration would not be possible | N/A
 Undo Functionality | Allow user to undo a step | Beta | N/A | was decided it would make game too easy and later scrapped | N/A
