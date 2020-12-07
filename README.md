@@ -1,7 +1,7 @@
 # DamIt README (Group 13)
 
 
-View this README document on our GitHub for proper formatting: https://github.com/kishansol/DamIt
+View this README document on our GitHub for proper formatting: github.com/kishansol/DamIt/blob/master/README.md
 
 
 ## Members
@@ -15,7 +15,7 @@ View this README document on our GitHub for proper formatting: https://github.co
   * Test account set up with progress of levels - username: test@gmail.com, password: test123
   * Test account with all levels(so far) unlocked - username: he@gmail.com, password: test123
   * No single player levels past level pack 2 currently 
-  * No co-op levels past level pack 2 currently 
+  * No co-op levels past level pack 1 currently 
   * Multiplayer mode not implemented - stretch goal
 
 
@@ -38,25 +38,24 @@ View this README document on our GitHub for proper formatting: https://github.co
 |---------|---------------|---------------------|-------------------|--------------|-|
 Splash Screen | Animated splash screen while app loads | Alpha | Alpha | N/A | Nikhil (100%)
 Sound Effects | Sounds when preforming actions | Alpha | Alpha |  N/A | Sai (100%)
-Background Music | Optional music playing in the background | Beta | Final | N/A | Sai (100%)
-Game Logic | Have beaver move around | alpha | alpha |  N/A | Sai (100%)
+Game Logic | Game mechanics, move character and toggle log. Level encoding and decoding. | Alpha | Alpha |  N/A | Sai (100%)
 UI | Have App UI Built | Alpha | Alpha | N/A | Kishan (30%) Nikhil(20%) Nirav (10%) Sai (40%)
-10 levels built out | Have atleast one level pack to play | Alpha | Alpha | N/A | Sai (25%) Nikhil (25%) Kishan (25%) Nirav (25%)
 SpriteKit Physics and Animations | Inlude physics and animations for resetting a dam/level, character movement, and a layered starfield animation for the sky  | Beta | Beta | N/A | Sai (100%)
-FireBase Integration | Have all user data saved via firebase | Beta | Beta | N/A | Kishan (70%) Nikhil (30%)
+Firebase Integration | Have all user data saved via firebase | Beta | Beta | N/A | Kishan (70%) Nikhil (30%)
+Assets | Music,  beaver images, and other essential graphics for games | Beta | Beta | N/A | Nirav (40%) Sai (40%) Kishan (20%)
+Firebase Authentication | Login and user authentication | Beta | Beta | N/A | Nikhil (100%)
+Level Creation | Two level packs designed and created for single player, and one level pack for Co-Op | Final | Final | N/A | Nirav ( 70%) Sai (10%) Kishan (10%) Nikhil (10%)
+Co-Op Mode | Allow user to play with two characters at once | Final | Final | N/A | Sai (80%) (Kishan 15%) Nikhil (5%)
+Tutorial Mode | Interactive tutorial for gameplay | Stretch | Beta | N/A | Nirav (100%)
+Beaver Skins | Have different skins for user to pick from | Final | Final | N/A | Nirav (80%) Sai (20%)
+Game Settings | App settings toggles for the user | Beta | Alpha | N/A | Kishan (85%) Sai (15%)
+Background Music | Optional music playing in the background | Beta | Final | N/A | Sai (100%)
 Ranking System | Allow each level to be ranked based on users moves| Beta | N/A | Ranking was closely tied to Game Center and was scrapped when Game center integration would not be possible | N/A
 Undo Functionality | Allow user to undo a step | Beta | N/A | was decided it would make game too easy and later scrapped | N/A
-Have 2 full level packs | Have multiple level packs for singleplayer | Final | Final | N/A | Nirav ( 70%) Sai (10%) Kishan (10%) Nikhil (10%)
-Co-Op Mode | Allow user to play with two characters at once | Final | Final | N/A | Sai (80%) (Kishan 15%) Nikhil (5%)
-Beaver Skins | Have different skins for user to pick from | Final | Final | N/A | Nirav (75%) (25%)
-Assets | Music,  beaver images, and other essential graphics for games | Beta | Beta | N/A | Nirav (40%) Sai (40%) Kishan (20%)
-Game Settings | App settings toggles for the user | Beta | Alpha | N/A | Kishan (85%) Sai (15%)
-
-
 
 
 ### Contributions
-#### Kishan Solanki - KS46487 (35%):
+#### Kishan Solanki - KS46487 (30%):
   Alpha - (25%)
   * Core Data for Level Storage 
   * Building out Application UIViews w/ Delegates
@@ -78,7 +77,7 @@ Game Settings | App settings toggles for the user | Beta | Alpha | N/A | Kishan 
   * Add Co-op level data to Firebase
   * Add settings data integration to firebase
   
-#### Saigaurav Purushothaman - SP43976 (35%):
+#### Saigaurav Purushothaman - SP43976 (30%):
   Alpha - 50%
   * Coded fully functional Console Application of the Game (Block, Player, and Level Classes)
   * Sourced or Created necessary Assets such as Images, Logos, and Sounds for SpriteKit
@@ -104,7 +103,7 @@ Game Settings | App settings toggles for the user | Beta | Alpha | N/A | Kishan 
   * Background Music Implementation
   * Bug fixes
   
-  #### Nikhil Bodicharla - NB24499 (25%):
+  #### Nikhil Bodicharla - NB24499 (23%):
    Alpha - 20%
   *  Built out Splash Screen with animations
   *  Designed multiple levels
@@ -120,7 +119,7 @@ Game Settings | App settings toggles for the user | Beta | Alpha | N/A | Kishan 
   *  Fixed bug with unlocking next level when next level button is not clicked 
   *  Added password checking for user creation
   
-  #### Nirav Lalsinghani - NVL225 (15%)
+  #### Nirav Lalsinghani - NVL225 (17%)
   Alpha - 5%
   * Designed and Created App Icon Image
   * Added levels 7 and 8 Level Pack 1
@@ -128,10 +127,15 @@ Game Settings | App settings toggles for the user | Beta | Alpha | N/A | Kishan 
   * Added how to play information for users
   
   Beta - 20%
-  * Created tutorial feature that instruct players how to play the game
+  * Created Tutorial Mode that instructs players how to play the game
   * Designed beaver skins for the user to choose from
   
+  Final - 25%
+  * Level Pack 2 Level Design and Creation
+  * Logout for Users
+  * Bug fixes
+  
 ### Differences 
-  * Ranking was initially going to be implemented through GameCenter, since dropping GameCenter it became much harder to implement some of that functionality. (Moving this implementation to final)
-  * Undo Functionality - after discussing we have decided that having undo's makes the game to easy. For now we have a complete level reset option to the user if they get stuck on a level.
+  * Ranking/Scoring System - Ranking was initially going to be implemented through GameCenter, since dropping GameCenter it became much harder to implement. It was impractical to implement with Firebase, so we scrapped it.
+  * Undo Functionality - After discussing, we have decided that having undo functionality makes the game too easy. Instead we implemented a level reset option, fully resetting the dam/level.
   
