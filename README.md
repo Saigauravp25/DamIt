@@ -26,11 +26,11 @@
 |Feature | Description | Release Planned | Release Actual | Deviations | Contributions|
 |---------|---------------|---------------------|-------------------|--------------|-|
 Splash Screen | animated splash screen while app loads | Alpha | Alpha | N/A | Nikhil (100%)
-Sound fx | sounds when preforming actions | alpha | alpha |  N/A | Saigaurav (100%)
+Sound Effects and Background Music | sounds when preforming actions | alpha | alpha |  N/A | Saigaurav (100%)
 Game Logic | have beaver move around | alpha | alpha |  N/A | Saigaurav (100%)
-UI | Have basic UI Built | Alpha | Alpha | Kishan (30%) Nikhil(20%) Nirav (10%) Saigaurav (40%)
-10 levels built out | have atleast one level pack to play | Alpha | Alpha | N/A | Sai (25%) Nikhil (25%) Kishan (25%) Nirav (25%)
-Flooding Dam Animation | Reset level with cool animation | Beta | Beta | N/A | Sai(100%)
+UI | Have basic UI Built | Alpha | Alpha | N/A | Kishan (30%) Nikhil(20%) Nirav (10%) Saigaurav (40%)
+10 levels built out | have atleast one level pack to play | Alpha | Alpha | N/A | Saigaurav (25%) Nikhil (25%) Kishan (25%) Nirav (25%)
+Flooding Dam Animation | Reset level with cool animation | Beta | Beta | N/A | Saigaurav (100%)
 FireBase Integration | Have all user data saved via firebase | Beta | Beta | N/A | Kishan (70%) Nikhil (30%)
 Ranking System | allow each level to be ranked based on users moves| Beta | N/A | Ranking was closely tied to Game Center and was scrapped when Game center integration would not be possible | N/A
 Undo Functionality | allow user to undo a step | Beta | N/A | was decided it would make game too easy and later scrapped | N/A
@@ -113,9 +113,11 @@ Assets | Music,  beaver images, and other essential graphics for games | Beta | 
   * Added levels 7 and 8 Level Pack 1
   * Created TutorialViewController
   * Added how to play information for users
-Beta - 20%
+  
+  Beta - 20%
   * Created tutorial feature that instruct players how to play the game
   * Designed beaver skins for the user to choose from
+  
 ### Differences 
   * Ranking was initially going to be implemented through GameCenter, since dropping GameCenter it became much harder to implement some of that functionality. (Moving this implementation to final)
   * Undo Functionality - after discussing we have decided that having undo's makes the game to easy. For now we have a complete level reset option to the user if they get stuck on a level.
