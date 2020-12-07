@@ -95,6 +95,9 @@ class Level {
         if (direction == .right && self.players[n].y + 1 >= self.width) || (direction == .left && self.players[n].y - 1 < 0) {
             return false
         }
+        if(directionChanged){
+            return false
+        }
         let blockInFront = self.grid[self.players[n].x][self.players[n].y + dy]
         //Check if player if blocked, might be possible to jump over
         if blockInFront.type != .air {
@@ -152,7 +155,7 @@ class Level {
     
     //Tries to pick up a log if possible
     private func playerPickUpLog(number n: Int) -> Bool {
-        if self.players[n].x - 1 < 0 || self.players[n].y + 1 >= self.width || self.players[n].y - 1 < 0 {
+        if self.players[n].x - 1 < 0 || (self.players[n].y + 1 >= self.width && self.players[n].direction == .right) || (self.players[n].y - 1 < 0 && self.players[n].direction == .left) {
             return false
         }
         //Change in horizontal direction
@@ -174,7 +177,7 @@ class Level {
     
     //Tries to throw down a log if possible
     private func playerThrowDownLog(number n: Int) -> Bool {
-        if self.players[n].x - 1 < 0 || self.players[n].y + 1 >= self.width || self.players[n].y - 1 < 0 {
+        if self.players[n].x - 1 < 0 || (self.players[n].y + 1 >= self.width && self.players[n].direction == .right) || (self.players[n].y - 1 < 0 && self.players[n].direction == .left){
             return false
         }
         //Change in horizontal direction
