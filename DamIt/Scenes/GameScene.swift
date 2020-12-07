@@ -127,12 +127,13 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                     self.nextLevelButton.isHidden = false
                 }
                 ref = Database.database().reference()
-                if(currentLevel == 9){
-                    currentPack += 1
-                }
-                currentLevel = (currentLevel + 1) % 10 //loop in this level pack until future level packs are made
                 let otherVC = gameDelegate as! GameViewController
                 let NextVC = otherVC.delegate as! LevelSelectViewController
+                if(currentLevel == 9){
+                    currentPack += 1
+                    NextVC.updateLevelPack(levelpack: currentPack)
+                }
+                currentLevel = (currentLevel + 1) % 10 //loop in this level pack until future level packs are made
                 NextVC.updateLevel(levelpack: currentPack, levelNumber: currentLevel)
                 if (isCoopMode == false ){
                                 let levelPackNum = Int(levelEncoding.substring(to: 2))
@@ -141,6 +142,15 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                                 // reformatting the email again to query the database
                                 userID = userID!.replacingOccurrences(of: "@", with: ",")
                                 userID = userID!.replacingOccurrences(of: ".", with: ",")
+                                var count = 0
+                                ref.child("Levels").observeSingleEvent(of: .value, with: { (snapshot) in
+                                    let levelDataBase = snapshot.value as! NSMutableDictionary
+                                    //network connection completed
+                                    count = levelDataBase.count
+                                }) { (error) in
+                                    //firebase request unsuccessful
+                                    print(error)
+                                }
                                 ref.child("users").child(userID!).child("level").observeSingleEvent(of: .value, with: { (snapshot) in
                                   // Get user value
                                   let value = snapshot.value as? NSDictionary
@@ -151,20 +161,26 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                                         var levelPack = Int(userLevelData.substring(with: 1 ..< distance))!
                                         let level = Int(userLevelData.substring(with: distance+1..<userLevelData.count - 1))!
                                         if(levelPack == levelPackNum && level == levelNum){
+                                            //check if level to be updated
                                             if(level + 1 > 10){
                                                 levelPack += 1
                                             }
                                             var updatedLevel = ""
+                                            var newLevel = level
                                             if(level + 1 == 10){
                                                 updatedLevel = String((level + 1))
+                                                newLevel = level + 1
                                             } else {
                                                 updatedLevel = String((level + 1)%10)
+                                                newLevel = (level + 1) % 10
                                             }
-                                            
-                                            let updatedUserLevelInfo = "[" + String(levelPack) + ":" + updatedLevel + "]"
-                                            // Writing in database
-                                            //if level && level pack value match
-                                            self.ref.child("users").child(userID!).child("level").setValue(["levelPack": updatedUserLevelInfo])
+                                            let index = (levelPack - 1) * 10 + newLevel
+                                            if(index <= count){
+                                                let updatedUserLevelInfo = "[" + String(levelPack) + ":" + updatedLevel + "]"
+                                                // Writing in database
+                                                //if level && level pack value match
+                                                self.ref.child("users").child(userID!).child("level").setValue(["levelPack": updatedUserLevelInfo])
+                                            }
                                         }
                                     }
 
@@ -173,12 +189,22 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                                     print(error.localizedDescription)
                                 }
                             } else {
+                                //coop levels
                                 let levelPackNum = Int(levelEncoding.substring(to: 2))
                                 let levelNum = Int(levelEncoding.substring(with: 2..<4))
                                 var userID = Auth.auth().currentUser?.email
                                 // reformatting the email again to query the database
                                 userID = userID!.replacingOccurrences(of: "@", with: ",")
                                 userID = userID!.replacingOccurrences(of: ".", with: ",")
+                                var count = 0
+                                ref.child("cooplevels").observeSingleEvent(of: .value, with: { (snapshot) in
+                                    let levelDataBase = snapshot.value as! NSMutableDictionary
+                                    //network connection completed
+                                    count = levelDataBase.count
+                                }) { (error) in
+                                    //firebase request unsuccessful
+                                    print(error)
+                                }
                                 ref.child("users").child(userID!).child("cooplevel").observeSingleEvent(of: .value, with: { (snapshot) in
                                   // Get user value
                                   let value = snapshot.value as? NSDictionary
@@ -192,11 +218,22 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                                             if(level + 1 > 10){
                                                 levelPack += 1
                                             }
-                                            let updatedLevel = String((level + 1)%10)
-                                            let updatedUserLevelInfo = "[" + String(levelPack) + ":" + updatedLevel + "]"
-                                            // Writing in database
-                                            //if level && level pack value match
-                                            self.ref.child("users").child(userID!).child("cooplevel").setValue(["levelPack": updatedUserLevelInfo])
+                                            var newLevel = level
+                                            var updatedLevel = ""
+                                            if(level + 1 == 10){
+                                                updatedLevel = String((level + 1))
+                                                newLevel = level + 1
+                                            } else {
+                                                updatedLevel = String((level + 1)%10)
+                                                newLevel = (level + 1) % 10
+                                            }
+                                            let index = (levelPack - 1) * 10 + newLevel
+                                            if(index <= count){
+                                                let updatedUserLevelInfo = "[" + String(levelPack) + ":" + updatedLevel + "]"
+                                                // Writing in database
+                                                //if level && level pack value match
+                                                self.ref.child("users").child(userID!).child("cooplevel").setValue(["levelPack": updatedUserLevelInfo])
+                                            }
                                         }
                                     }
 

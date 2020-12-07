@@ -8,13 +8,14 @@
 import UIKit
 import CoreData
 
+
 protocol LevelUpdate{
     func updateLevel(levelpack: Int, levelNumber: Int)
 }
 
 class LevelSelectViewController: UIViewController, LevelUpdate {
-   
-
+    
+    var delegate : UIViewController!
     
     var levelsCompleted : [Bool]!
     var levelData: [String]!
@@ -66,10 +67,12 @@ class LevelSelectViewController: UIViewController, LevelUpdate {
         }
     }
     
+    //broken for multiple levels
     func updateLevel(levelpack:Int, levelNumber: Int) {
         var index = (levelpack - 1) * 10
         index += levelNumber
-        if(index < buttons.count){
+        if(levelpack == self.levelPack && index < levelData.count){
+            index = levelNumber
             for button in buttons{
                 let buttonNumber = Int((button.titleLabel?.text)!)!
                 //button numbers start at 1 and go to 10
@@ -79,6 +82,10 @@ class LevelSelectViewController: UIViewController, LevelUpdate {
                 }
             }
         }
-           
+    }
+    
+    func updateLevelPack(levelpack:Int){
+        let othervc = delegate as! LevelPackViewController
+        othervc.updatePack(levelPack: levelpack)
     }
 }
