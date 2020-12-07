@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4A1DAABA257EF27F00651D61 /* DamIt Presentation.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 4A1DAAB9257EF27F00651D61 /* DamIt Presentation.pdf */; };
 		4A2C40B825550198009391ED /* noSound.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 4A2C40B725550198009391ED /* noSound.mp3 */; };
 		4ADAA8682540378900A1472D /* String+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ADAA8672540378900A1472D /* String+Ext.swift */; };
 		4ADAA870254052C800A1472D /* LevelDataDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ADAA86F254052C800A1472D /* LevelDataDecoder.swift */; };
@@ -75,6 +76,7 @@
 
 /* Begin PBXFileReference section */
 		2728146C9D98E63461083CED /* Pods_DamIt.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DamIt.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		4A1DAAB9257EF27F00651D61 /* DamIt Presentation.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "DamIt Presentation.pdf"; sourceTree = "<group>"; };
 		4A2C40B725550198009391ED /* noSound.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = noSound.mp3; sourceTree = "<group>"; };
 		4ADAA8672540378900A1472D /* String+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Ext.swift"; sourceTree = "<group>"; };
 		4ADAA86F254052C800A1472D /* LevelDataDecoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelDataDecoder.swift; sourceTree = "<group>"; };
@@ -259,6 +261,7 @@
 			isa = PBXGroup;
 			children = (
 				5E50127C25412902008496DA /* README.md */,
+				4A1DAAB9257EF27F00651D61 /* DamIt Presentation.pdf */,
 				5E3EA61C253A2396005282F8 /* LevelModel.xcdatamodeld */,
 				5E2451B62525466500EE2601 /* DamIt */,
 				5E2451CD2525466600EE2601 /* DamItTests */,
@@ -440,6 +443,7 @@
 				5E2451BF2525466500EE2601 /* Main.storyboard in Resources */,
 				5E50127D25412902008496DA /* README.md in Resources */,
 				6807AA0D254A49F600325B8C /* GoogleService-Info.plist in Resources */,
+				4A1DAABA257EF27F00651D61 /* DamIt Presentation.pdf in Resources */,
 				5EE93DE72536B1DF00843A43 /* pickUp.wav in Resources */,
 				5EE93DE52536B1DF00843A43 /* flood.wav in Resources */,
 			);
