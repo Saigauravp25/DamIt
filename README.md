@@ -21,6 +21,13 @@
  * Firebase DataBase
  * Firebase Analytics
  * Firebase Auth
+ 
+ ### Frameworks
+  * UIKit
+  * SpriteKit
+  * Firebase 
+  * CoreData
+  * AVKit
 
 ### Features 
 |Feature | Description | Release Planned | Release Actual | Deviations | Contributions|
@@ -31,12 +38,12 @@ Background Music | optional music playing in the background | Beta | Final | N/A
 Game Logic | have beaver move around | alpha | alpha |  N/A | Saigaurav (100%)
 UI | Have basic UI Built | Alpha | Alpha | N/A | Kishan (30%) Nikhil(20%) Nirav (10%) Saigaurav (40%)
 10 levels built out | have atleast one level pack to play | Alpha | Alpha | N/A | Saigaurav (25%) Nikhil (25%) Kishan (25%) Nirav (25%)
-Flooding Dam Animation | Reset level with cool animation | Beta | Beta | N/A | Saigaurav (100%)
+SpriteKit Physics and Animation | Reset level with cool animation | Beta | Beta | N/A | Saigaurav (100%)
 FireBase Integration | Have all user data saved via firebase | Beta | Beta | N/A | Kishan (70%) Nikhil (30%)
 Ranking System | allow each level to be ranked based on users moves| Beta | N/A | Ranking was closely tied to Game Center and was scrapped when Game center integration would not be possible | N/A
 Undo Functionality | allow user to undo a step | Beta | N/A | was decided it would make game too easy and later scrapped | N/A
 Have 2 full level packs | Have multiple level packs for singleplayer | Final | Final | N/A | Nirav ( 70%) Saigaurav (10%) Kishan (10%) Nikhil (10%)
-Coop Mode | Allow user to play with two characters at once | Final | Final | N/A | Saigaurav (80%) (Kishan 15%) Nikhil (5%)
+Co-Op Mode | Allow user to play with two characters at once | Final | Final | N/A | Saigaurav (80%) (Kishan 15%) Nikhil (5%)
 Beaver Skins | Have different skins for user to pick from | Final | Final | N/A | Nirav (75%) (25%)
 Assets | Music,  beaver images, and other essential graphics for games | Beta | Beta | N/A | Nirav (40%) Saigaurav (40%) Kishan (20%)
 
