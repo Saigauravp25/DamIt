@@ -5,7 +5,6 @@
   * Test account set up with progress of levels - username: test@gmail.com, password: test123
   * Test account with all levels(so far) unlocked - username: he@gmail.com, password: test123
   * Try out the different Beaver Skins in the Character Customization within the Settings
-  * Known Bugs: When choosing a level pack, scrolling all the way to the right and then back to the left will cause levelpack buttons to become disabled
   * No levels past level pack 2, level 1 currently 
 
 
