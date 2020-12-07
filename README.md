@@ -32,6 +32,7 @@ Undo Functionality | allow user to undo a step | Beta | N/A | was decided it wou
 Have 2 full level packs | Have multiple level packs for singleplayer | Final | Final | N/A | Nirav ( 70%) Saigaurav (10%) Kishan (10%) Nikhil (10%)
 Coop Mode | Allow user to play with two characters at once | Final | Final | N/A | Saigaurav (80%) (Kishan 15%) Nikhil (5%)
 Beaver Skins | Have different skins for user to pick from | Final | Final | N/A | Nirav (75%) (25%)
+Assets | Music,  beaver images, and other essential graphics for games | Beta | Beta | N/A | Nirav (40%) Saigaurav (40%) Kishan (20%)
 
 
 
@@ -91,6 +92,10 @@ Beaver Skins | Have different skins for user to pick from | Final | Final | N/A 
   *  Integrated Firebase functionality with application
   *  Created login page for application
   *  Created Firebase database to store user level progress and load it when the game starts
+  
+  Final - 10%
+  *  Fixed bug with unlocking next level when next level button is not clicked 
+  *  Added password checking for user creation
   
   #### Nirav Lalsinghani - NVL225 (15%)
   Alpha - 5%

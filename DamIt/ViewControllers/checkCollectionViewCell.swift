@@ -13,4 +13,8 @@ class checkCollectionViewCell: UICollectionViewCell {
     @IBAction func levelButton(_ sender: Any) {
         
     }
+//    override func prepareForReuse() {
+//           super.prepareForReuse()
+//           self.buttontitle.isUserInteractionEnabled = false
+//       }
 }
